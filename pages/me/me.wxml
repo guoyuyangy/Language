@@ -1,0 +1,36 @@
+<view class="jd_card_me_top">
+    <image class="jd_card_me_avatar" src="{{ avatar }}"></image>
+    <view class="jd_card_me_name">{{ name }}</view>
+    <!-- <view class="jd_card_me_updata"><image src="/images/updata.png"></image>更新资料</view> -->
+</view>
+<view class="jd_card_me_list">
+    <view class="zan-panel">
+<!--         <view bindtap="toCardList" class="zan-cell zan-cell--access">
+            <view class="zan-cell__bd">名片夹</view>
+            <view class="zan-cell__ft"></view>
+        </view> -->
+<!--         <view bindtap="toFriend" class="zan-cell zan-cell--access">
+            <view class="zan-cell__bd">为好友制作名片</view>
+            <view class="zan-cell__ft"></view>
+        </view> -->
+        <view bindtap="setting" class="zan-cell zan-cell--access">
+            <view class="zan-cell__bd">授权设置</view>
+            <view class="zan-cell__ft"></view>
+        </view>
+<!--         <view bindtap="statis" class="zan-cell zan-cell--access">
+            <view class="zan-cell__bd">数据统计</view>
+            <view class="zan-cell__ft"></view>
+        </view> -->
+        <view class="zan-cell">
+            <view class="zan-cell__bd">版本</view>
+            <view class="zan-cell__ft">V1.0.0</view>
+        </view>
+    </view>
+</view>
+<view class="company_pad" bindtap="call_company">
+    <view class="ba">
+        <image class="ba_image" src="http://ovw2uynf4.bkt.clouddn.com/greylogo2.png"></image>
+        <view  hover-class="ba_text" class="company-name">烟台金东信息科技提供技术支持</view>
+    </view>
+    <view class="ba_font">0535-6389615</view>
+</view>

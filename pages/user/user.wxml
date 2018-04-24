@@ -1,0 +1,40 @@
+<navigator url="/pages/index/index?id={{ item.id }}" class="jd_card_box_two" wx:if="{{ userData != null }}" wx:for="{{ userData }}">
+    <view class="jd_card__edit_icon" bindtap="edit">
+        <image src="/images/edit.png" class="jd_card__edit_icon_image"></image>
+    </view>
+    <view class="jd_card_box_two_box">
+        <view class="jd_card_box_two_left">
+            <view class="jd_card_fix_name">{{ item.name }} <span>{{ item.title }}</span></view>
+            <view class="jd_card_fix_title"><span>{{ item.company }}</span></view>
+            <view class="jd_card_fix_tel" bindtap="call">
+                <image class="jd_two_icon" src="/images/2.jpg"></image> {{ item.mobile }}</view>
+            <view class="jd_card_fix_email" wx:if="{{ item.email != '' }}">
+                <image class="jd_two_icon" src="/images/4.jpg"></image>
+                <view class="jd_card_fix_email_info">{{ item.email }}</view>
+            </view>
+        </view>
+        <view class="jd_card_box_two_right">
+            <image src="{{ avatar }}"></image>
+        </view>
+    </view>
+    <view class="jd_tab_list">
+        <view class="jd_tab_list_item jd_tab_list_item_no">
+            <image src="/images/5.jpg" class="jd_tab_list_icon"></image>
+            <view class="jd_tab_list_text">人气：{{ item.hot }}</view>
+        </view>
+        <view class="jd_tab_list_item jd_tab_list_item_no" bindtap="animation">
+            <image src="/images/6.jpg" class="jd_tab_list_icon"></image>
+            <view class="jd_tab_list_text">收藏：{{ item.save }}</view>
+        </view>
+        <button open-type="share" class="jd_tab_list_item">
+            <image src="/images/7.jpg" class="jd_tab_list_icon"></image>
+            <view class="jd_tab_list_text">转发：{{ item.forward }}</view>
+        </button>
+    </view>
+</navigator>
+<view class="jd_card_nodata"></view>
+<view class="jd_card_info">
+    <view class="zan-btns" bindtap="add">
+        <button class="zan-btn zan-btn--primary">新增名片</button>
+    </view>
+</view>

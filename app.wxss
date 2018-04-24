@@ -1,0 +1,7 @@
+@import "/dist/index.wxss";
+page{
+	background: #efeef4;
+}
+.no-border{
+	border-bottom: 0px;
+}

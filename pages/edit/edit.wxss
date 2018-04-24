@@ -1,0 +1,65 @@
+.jd_edit_box{
+	width: 92%;
+	margin: 0 auto;
+	background: #fff;
+	margin-top: 30rpx;
+	border-radius: 5px;
+}
+.jd_edit_box .jd_edit_avatar{
+	width: 100%;
+	height: 220rpx;
+	border-bottom: 1px solid #efeef4;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding-bottom: 5px;
+}
+.jd_edit_box .jd_edit_avatar image{
+	width: 70px;
+	height: 70px;
+	border-radius: 50%;
+}
+.jd_layout{
+	width: 100%;
+	border-bottom: 1px solid #efeef4;
+	display: flex;
+	justify-content: center;
+}
+.jd_layout input{
+	width: 90%;
+	height: 45px;
+}
+.jd_layout_area{
+	width: 93%;
+	min-height: 45px;
+	line-height:1.6;
+	padding: 10px 0;
+}
+.jd_layout_area_empty{
+	color: #818181;
+	text-indent: 5px;
+}
+.jd_layout_noempty{
+	margin-left: 14px;
+}
+.jd_express{
+	color: #818181;
+}
+.jd_picker{
+	width: 90%;
+}
+.jd_section_block{
+	width: 93%;
+	height: 45px;
+	display: flex;
+	align-items: center;
+}
+.jd_content{
+	margin-left: 15px;
+}
+.zan-btns{
+	padding-bottom: 20px;
+}
+.jd_hand_edit{
+	margin-left: 4px;
+}

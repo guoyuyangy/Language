@@ -1,0 +1,49 @@
+<form bindsubmit="formSubmit">
+    <view class="jd_edit_box">
+        <view class="jd_edit_avatar">
+            <image src="{{ avatar }}"></image>
+        </view>
+        <view class="jd_layout">
+            <input type="text" name="username" bindinput="nameChange" value="{{ name }}" placeholder="姓名(必填)" />
+        </view>
+        <view class="jd_layout">
+            <input type="number" name="tel" bindinput="telChange" value="{{ tel }}" placeholder="联系电话(必填)" />
+        </view>
+        <view class="jd_layout no-border">
+            <input type="text" name="email" bindinput="emailChange" value="{{ email }}" placeholder="邮箱" />
+        </view>
+    </view>
+    <view class="jd_edit_box">
+        <view class="jd_layout">
+            <input type="text" name="company" bindinput="companyChange" value="{{ company }}" placeholder="公司名称" />
+        </view>
+        <view class="jd_layout">
+            <input type="text" name="title" bindinput="titleChange" value="{{ title }}" placeholder="职务" />
+        </view>
+        <view class="jd_layout ">
+            <input type="text" name="bigtel" bindinput="bigtelChange" value="{{ bigtel }}" placeholder="座机" />
+        </view>
+        <view class="jd_layout no-border">
+            <textarea class="jd_layout_area jd_hand_edit" bindinput="addressChange" wx:if="{{ !isLocation }}" value="{{ address }}" auto-height placeholder="公司地址" />
+            <textarea class="jd_layout_area jd_hand_edit" bindinput="addressChange" wx:if="{{ isLocation && address != null && address != '' }}" value="{{ address }}" auto-height placeholder="公司地址" />
+            <!-- <view class="jd_layout_area jd_layout_noempty" bindtap="getAddress" wx:if="{{ isLocation && address != null && address != '' }}">{{ address }}</view> -->
+            <view class="jd_layout_area jd_layout_area_empty" bindtap="getAddress" wx:if="{{ isLocation && (address == null || address == '' ) }}">公司地址</view>
+        </view>
+        <view class="jd_layout">
+            <picker bindchange="bindPickerChange" class="jd_picker" value="{{index}}" range="{{array}}">
+                <view class="jd_section_block">
+                    <view class="jd_express">行业</view>
+                    <view class="jd_content">{{array[index]}}</view>
+                </view>
+            </picker>
+        </view>
+    </view>
+    <view class="jd_edit_box">
+        <view class="jd_layout no-border">
+            <textarea class="jd_layout_area" bindinput="sloganChange" value="{{ slogan }}" auto-height placeholder="来一段简单介绍，让他人更多的了解你" />
+        </view>
+    </view>
+    <view class="zan-btns">
+        <button class="zan-btn zan-btn--primary" formType="submit">提交保存</button>
+    </view>
+</form>

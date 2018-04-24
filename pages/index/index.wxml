@@ -1,0 +1,70 @@
+<view class="jd_card_box_two">
+    <view class="jd_card_box_two_box">
+        <view class="jd_card_box_two_left">
+            <view class="jd_card_fix_name">{{ name }} <span>{{ position }}</span></view>
+            <view class="jd_card_fix_title"><span>{{ company }}</span></view>
+            <view class="jd_card_fix_tel" bindtap="call">
+                <image class="jd_two_icon" src="/images/2.jpg"></image> {{ tel }}</view>
+            <view class="jd_card_fix_email" wx:if="{{ email != '' }}">
+                <image class="jd_two_icon" src="/images/4.jpg"></image> <view class="jd_card_fix_email_info">{{ email }}</view>
+            </view>
+        </view>
+        <view class="jd_card_box_two_right">
+            <image src="{{ avatar }}"></image>
+        </view>
+    </view>
+    <view class="jd_tab_list">
+        <view class="jd_tab_list_item jd_tab_list_item_no">
+            <image src="/images/5.jpg" class="jd_tab_list_icon"></image>
+            <view class="jd_tab_list_text">人气 {{ hot }}</view>
+        </view>
+        <view class="jd_tab_list_item jd_tab_list_item_no" bindtap="animation">
+            <image src="/images/6.jpg" wx:if="{{ !in_wallet }}" class="jd_tab_list_icon"></image>
+            <image src="/images/61.jpg" wx:if="{{ in_wallet }}" class="jd_tab_list_icon"></image>
+            <view class="jd_tab_list_text">收藏 {{ save }}</view>
+        </view>
+        <button open-type="share" class="jd_tab_list_item">
+            <image src="/images/7.jpg" class="jd_tab_list_icon"></image>
+            <view class="jd_tab_list_text">转发 {{ forward }}</view>
+        </button>
+    </view>
+</view>
+<view class="jd_card_info">
+    <view class="doc-title" wx:if="{{ bigtel != '' || industry != '' || address.name != null || slogan != '' }}">个人信息</view>
+    <view class="zan-panel">
+        <!--         <view class="zan-cell" bindtap="call">
+            <view class="zan-cell__bd">手机</view>
+            <text class="jd_card_info_text">{{ tel }}</text>
+            <view class="zan-cell__ft">
+                <image class="jd_card_icon" src="/images/1.jpg"></image>
+            </view>
+        </view> -->
+        <view wx:if="{{ bigtel != '' }}" class="zan-cell" bindtap="tel">
+            <view class="zan-cell__bd">座机</view>
+            <text class="jd_card_info_text">{{ bigtel }}</text>
+            <view class="zan-cell__ft">
+                <image class="jd_card_icon" src="/images/tel.png"></image>
+            </view>
+        </view>
+        <view wx:if="{{ industry != '' }}" class="zan-cell">
+            <view class="zan-cell__bd">行业</view>
+            <text class="jd_card_info_text">{{ industry }}</text>
+            <view class="zan-cell__ft"></view>
+        </view>
+        <view wx:if="{{ address != '' && address != null }}" class="zan-cell">
+            <view class="zan-cell__bd">地址</view>
+            <text class="jd_card_info_text">{{ address }}</text>
+        </view>
+        <view wx:if="{{ slogan != '' }}" class="zan-cell">
+            <view class="zan-cell__bd">签名</view>
+            <text class="jd_card_info_text">{{ slogan }}</text>
+            <view class="zan-cell__ft"></view>
+        </view>
+    </view>
+    <view class="jd_card_footer">
+        <view class="jd_card_layout">
+            <view bindtap="open" class="jd_card_footer_open">打开我的名片</view>
+            <view bindtap="contact" class="jd_card_footer_create">同步到通讯录</view>
+        </view>
+    </view>
+</view>
