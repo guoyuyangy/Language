@@ -1,14 +1,11 @@
 <view class="jd_card_me_top">
-    <image class="jd_card_me_avatar" src="{{ avatar }}"></image>
-    <view class="jd_card_me_name">{{ name }}</view>
-    <!-- <view class="jd_card_me_updata"><image src="/images/updata.png"></image>更新资料</view> -->
+    <view class="jd_card_me_avatar"><open-data class="jd_card_me_avatar" type="userAvatarUrl"></open-data></view>
+    <view class="jd_card_me_name">
+        <open-data type="userNickName"></open-data>
+    </view>
 </view>
 <view class="jd_card_me_list">
     <view class="zan-panel">
-<!--         <view bindtap="toCardList" class="zan-cell zan-cell--access">
-            <view class="zan-cell__bd">名片夹</view>
-            <view class="zan-cell__ft"></view>
-        </view> -->
 <!--         <view bindtap="toFriend" class="zan-cell zan-cell--access">
             <view class="zan-cell__bd">为好友制作名片</view>
             <view class="zan-cell__ft"></view>
@@ -23,7 +20,7 @@
         </view> -->
         <view class="zan-cell">
             <view class="zan-cell__bd">版本</view>
-            <view class="zan-cell__ft">V1.0.0</view>
+            <view class="zan-cell__ft">V1.0.2</view>
         </view>
     </view>
 </view>

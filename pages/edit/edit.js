@@ -3,7 +3,7 @@ var util = require('../../utils/util.js');
 Page({
     data: {
         itemId: null,
-        avatar: '/images/default.png',
+        avatar: null,
         index: 0,
         tel: null,
         name: null,
@@ -29,6 +29,7 @@ Page({
         }
     },
     onShow: function() {
+        let that = this
         if (app.globalData.access_token) {
             util.getData('industries', {}, res => {
                 let industry = []
@@ -40,20 +41,7 @@ Page({
                 })
             })
         }
-        wx.getUserInfo({
-            success: (res) => {
-                var userInfo = res.userInfo
-                var avatarUrl = userInfo.avatarUrl
-                this.setData({
-                    avatar: avatarUrl
-                })
-                if (this.data.name == null) {
-                    this.setData({
-                        name: userInfo.nickName
-                    })
-                }
-            }
-        })
+        this.getSet()
     },
     formSubmit: function(e) {
         let that = this
@@ -106,6 +94,12 @@ Page({
             }
         })
     },
+    getUser: function(e) {
+        console.log(e.detail.userInfo)
+        this.setData({
+            avatar: e.detail.userInfo.avatarUrl
+        })
+    },
     detele: function() {
         wx.showModal({
             title: '提示',
@@ -114,10 +108,11 @@ Page({
                 if (res.confirm) {
                     wx.request({
                         url: `${app.globalData.host}/api/cards/` + this.data.itemId,
-                        method: 'DETELE',
+                        method: 'DELETE',
                         data: {},
                         header: {
-                            'content-type': 'application/json'
+                            'content-type': 'application/json',
+                            'Authorization': `Bearer ${app.globalData.access_token}`
                         },
                         success: function(res) {
                             wx.showModal({
@@ -126,7 +121,7 @@ Page({
                                 showCancel: false,
                                 success: function(res) {
                                     wx.navigateBack({
-                                        delta: 2
+                                        delta: 1
                                     })
                                 }
                             })
@@ -165,7 +160,8 @@ Page({
                         email: res.data.data.email,
                         address: address,
                         slogan: res.data.data.slogan,
-                        index: parseInt(res.data.data.industry_id) - 1
+                        index: parseInt(res.data.data.industry_id) - 1,
+                        avatar: res.data.data.avatar
                     })
                     wx.hideLoading()
                 }

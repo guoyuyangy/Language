@@ -21,20 +21,6 @@ Page(Object.assign({}, Zan.Switch, {
         let that = this
         if (app.globalData.access_token) {
             util.getData('users/' + app.globalData.userid, {}, res => {
-                wx.getUserInfo({
-                    success: (res) => {
-                        var userInfo = res.userInfo
-                        var avatarUrl = userInfo.avatarUrl
-                        this.setData({
-                            avatar: avatarUrl
-                        })
-                        if (this.data.name == null) {
-                            this.setData({
-                                name: userInfo.nickName
-                            })
-                        }
-                    }
-                })
                 wx.hideLoading()
                 if (res.data.data.cards.length == 0) {
                     wx.showModal({
@@ -67,19 +53,5 @@ Page(Object.assign({}, Zan.Switch, {
         wx.navigateTo({
             url: '/pages/edit/edit?type=edit&id='+e.currentTarget.dataset.itemId
         })
-    },
-    onShareAppMessage: function() {
-        return {
-            title: this.data.name + '的名片',
-            path: '/pages/index/index?id=' + this.data.id,
-            success: (res) => {
-                util.postData('users/' + this.data.id + '/forward', {}, res => {})
-                wx.showToast({
-                    title: '转发成功',
-                    icon: 'success',
-                    duration: 800
-                })
-            }
-        }
     }
 }));

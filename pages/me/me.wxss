@@ -11,6 +11,7 @@
 	width: 65px;
 	height: 65px;
 	border-radius: 50%;
+	overflow: hidden;
 }
 .jd_card_me_top .jd_card_me_name{
 	font-size: 15px;

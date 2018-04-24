@@ -14,10 +14,22 @@
 	justify-content: center;
 	padding-bottom: 5px;
 }
+.jd_edit_box .jd_edit_avatar .jd_edit_avatar_lay{
+	width: 70px;
+	height: 70px;
+	border-radius: 50%;
+	overflow: hidden;
+}
 .jd_edit_box .jd_edit_avatar image{
 	width: 70px;
 	height: 70px;
 	border-radius: 50%;
+}
+.jd_edit_box .jd_edit_avatar button{
+	background: none;
+}
+.jd_edit_box .jd_edit_avatar button::after{
+	border: none;
 }
 .jd_layout{
 	width: 100%;

@@ -4,26 +4,17 @@ var Zan = require('../../dist/index');
 
 Page(Object.assign({}, Zan.Switch, {
     data: {
-        star: true,
-        name: '',
-        position: '',
-        company: '',
-        tel: '',
-        bigtel: '',
-        address: '',
         avatar: '/images/default.png',
+        userData: null,
+        type: null,
         id: null,
-        in_wallet: false,
-        email: '',
-        slogan: '',
-        industry: '',
-        forward: 0,
-        hot: 0,
-        save: 0
+        save: 0,
+        in_wallet: false
     },
     onLoad(options) {
         this.setData({
-            id: options.id
+            id: options.id,
+            type: options.type
         })
         wx.showLoading({
             title: '加载中',
@@ -36,9 +27,13 @@ Page(Object.assign({}, Zan.Switch, {
     },
     getData() {
         let that = this
-        util.postData('cards/' + that.data.id + '/forward', {}, res => {
-            if (res.data) {
-
+        util.getData('cards/' + that.data.id, {}, res => {
+            if (res.data.data.name) {
+                this.setData({
+                    userData: res.data.data,
+                    save: res.data.data.save,
+                    in_wallet: res.data.data.in_wallet
+                })
                 wx.hideLoading()
             }
         })
@@ -46,6 +41,11 @@ Page(Object.assign({}, Zan.Switch, {
     open() {
         wx.switchTab({
             url: '/pages/user/user'
+        })
+    },
+    edit() {
+        wx.navigateTo({
+            url: '/pages/edit/edit?type=edit&id='+ this.data.id
         })
     },
     animation() {
@@ -81,19 +81,14 @@ Page(Object.assign({}, Zan.Switch, {
             })
         }
     },
-    preview() {
-        wx.previewImage({
-            urls: this.data.avatar
-        })
-    },
     call() {
         wx.makePhoneCall({
-            phoneNumber: this.data.tel
+            phoneNumber: this.data.userData.mobile
         })
     },
     tel() {
         wx.makePhoneCall({
-            phoneNumber: this.data.bigtel
+            phoneNumber: this.data.userData.tel
         })
     },
     contact() {
@@ -115,7 +110,7 @@ Page(Object.assign({}, Zan.Switch, {
     },
     onShareAppMessage: function() {
         return {
-            title: this.data.name + '的名片',
+            title: this.data.userData.name + '的名片',
             path: '/pages/index/index?id=' + this.data.id,
             success: (res) => {
                 util.postData('users/' + this.data.id + '/forward', {}, res => {})

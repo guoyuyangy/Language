@@ -239,5 +239,10 @@ button.jd_card_footer_create{
 	margin-right: 0px;
 }
 .jd_card_nodata{
-	
+	width: 100%;
+	height: 450px;
+	color: #999;
+	font-size: 15px;
+	text-align: center;
+	line-height: 450px;
 }

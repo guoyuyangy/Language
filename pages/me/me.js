@@ -11,16 +11,8 @@ Page({
         
     },
     onShow: function() {
-        wx.getUserInfo({
-            success: (res) =>{
-                var userInfo = res.userInfo
-                var avatarUrl = userInfo.avatarUrl
-                this.setData({
-                    avatar: avatarUrl,
-                    name: userInfo.nickName,
-                    id: app.globalData.userid
-                })
-            }
+        this.setData({
+            id: app.globalData.userid
         })
     },
     toCardList: function() {

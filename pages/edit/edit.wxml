@@ -1,7 +1,10 @@
 <form bindsubmit="formSubmit">
     <view class="jd_edit_box">
         <view class="jd_edit_avatar">
-            <image src="{{ avatar }}"></image>
+            <button wx:if="{{ avatar == null  }}" open-type="getUserInfo" bindgetuserinfo="getUser">
+                <image src="/images/default.png"></image>
+            </button>
+            <image wx:if="{{ avatar != null }}" src="{{ avatar }}"></image>
         </view>
         <view class="jd_layout">
             <input type="text" name="username" bindinput="nameChange" value="{{ name }}" placeholder="姓名(必填)" />
