@@ -2,6 +2,7 @@ const app = getApp()
 var util = require('../../utils/util.js');
 Page({
     data: {
+        itemId: null,
         avatar: '/images/default.png',
         index: 0,
         tel: null,
@@ -14,13 +15,31 @@ Page({
         email: null,
         array: [],
         isLocation: false,
+        type: null
     },
     onLoad: function(options) {
-        if(options.type == 'edit'){
+        this.setData({
+            type: options.type,
+        })
+        if (options.type == 'edit') {
+            this.setData({
+                itemId: options.id,
+            })
             this.editData()
         }
     },
     onShow: function() {
+        if (app.globalData.access_token) {
+            util.getData('industries', {}, res => {
+                let industry = []
+                for (var i = 0; i < res.data.data.length; i++) {
+                    industry.push(res.data.data[i].name)
+                }
+                that.setData({
+                    array: industry
+                })
+            })
+        }
         wx.getUserInfo({
             success: (res) => {
                 var userInfo = res.userInfo
@@ -35,21 +54,89 @@ Page({
                 }
             }
         })
+    },
+    formSubmit: function(e) {
         let that = this
-        wx.getSetting({
+        let formData = {
+            name: that.data.name,
+            mobile: that.data.tel,
+            title: that.data.title,
+            address: {
+                name: that.data.address,
+                location: {
+                    lat: that.data.latitude,
+                    lng: that.data.longitude
+                }
+            },
+            company: that.data.company,
+            tel: that.data.bigtel,
+            avatar: that.data.avatar,
+            slogan: that.data.slogan,
+            industry_id: parseInt(that.data.index) + 1,
+            email: that.data.email
+        }
+        let url = ''
+        if (this.data.type == 'edit') {
+            url = 'cards/' + this.data.itemId
+        } else {
+            url = 'cards'
+        }
+        util.postData(url, formData, res => {
+            if (res.data.code == 0) {
+                wx.showModal({
+                    title: '提示',
+                    content: '保存成功',
+                    showCancel: false,
+                    success: function() {
+                        wx.navigateBack({
+                            delta: 1
+                        })
+                    }
+                })
+            } else if (res.statusCode == 422) {
+                var keys = Object.keys(res.data.errors);
+                wx.showModal({
+                    title: '提示',
+                    content: res.data.errors[keys[0]][0],
+                    showCancel: false,
+                    success: function() {
+
+                    }
+                })
+            }
+        })
+    },
+    detele: function() {
+        wx.showModal({
+            title: '提示',
+            content: '是否确定删除？',
             success: (res) => {
-                if (res.authSetting['scope.userLocation'] || res.authSetting['scope.userLocation'] == undefined) {
-                    that.setData({
-                        isLocation: true
+                if (res.confirm) {
+                    wx.request({
+                        url: `${app.globalData.host}/api/cards/` + this.data.itemId,
+                        method: 'DETELE',
+                        data: {},
+                        header: {
+                            'content-type': 'application/json'
+                        },
+                        success: function(res) {
+                            wx.showModal({
+                                title: '提示',
+                                content: '删除成功',
+                                showCancel: false,
+                                success: function(res) {
+                                    wx.navigateBack({
+                                        delta: 2
+                                    })
+                                }
+                            })
+                        }
                     })
-                } else {
-                    that.setData({
-                        isLocation: false
-                    })
+                } else if (res.cancel) {
+                    console.log('用户点击取消')
                 }
             }
         })
-
     },
     editData: function() {
         let that = this
@@ -63,7 +150,7 @@ Page({
                     array: industry
                 })
             })
-            util.postData('users/' + app.globalData.userid, {}, res => {
+            util.getData('cards/' + this.data.itemId, {}, res => {
                 if (res.data) {
                     let address = ''
                     if (res.data.data.address.name) {
@@ -102,6 +189,22 @@ Page({
                 that.setData({
                     isLocation: false
                 })
+            }
+        })
+    },
+    getSet: function() {
+        let that = this
+        wx.getSetting({
+            success: (res) => {
+                if (res.authSetting['scope.userLocation'] || res.authSetting['scope.userLocation'] == undefined) {
+                    that.setData({
+                        isLocation: true
+                    })
+                } else {
+                    that.setData({
+                        isLocation: false
+                    })
+                }
             }
         })
     },
@@ -148,51 +251,6 @@ Page({
     bindPickerChange: function(e) {
         this.setData({
             index: e.detail.value
-        })
-    },
-    formSubmit: function(e) {
-        let that = this
-        let formData = {
-            name: that.data.name,
-            mobile: that.data.tel,
-            title: that.data.title,
-            address: {
-                name: that.data.address,
-                location: {
-                    lat: that.data.latitude,
-                    lng: that.data.longitude
-                }
-            },
-            company: that.data.company,
-            tel: that.data.bigtel,
-            avatar: that.data.avatar,
-            slogan: that.data.slogan,
-            industry_id: parseInt(that.data.index) + 1,
-            email: that.data.email
-        }
-        util.postData('cards', formData, res => {
-            if (res.data.code == 0) {
-                wx.showModal({
-                    title: '提示',
-                    content: '保存成功',
-                    showCancel: false,
-                    success: function() {
-                        wx.navigateBack({
-                            delta: 1
-                        })
-                    }
-                })
-            } else if (res.statusCode == 422) {
-                var keys = Object.keys(res.data.errors);
-                wx.showModal({
-                    title: '提示',
-                    content: res.data.errors[keys[0]][0],
-                    showCancel: false,
-                    success: function() {
-
-                    }
-                })
-            }
         })
     }
 })
