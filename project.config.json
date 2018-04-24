@@ -40,6 +40,24 @@
 					"name": "edit",
 					"pathName": "pages/index/index",
 					"query": "id=39fab9b0-4775-11e8-b76a-fbe4304512a0"
+				},
+				{
+					"id": -1,
+					"name": "me",
+					"pathName": "pages/me/me",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "statis",
+					"pathName": "pages/statis/statis",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "user",
+					"pathName": "pages/user/user",
+					"query": ""
 				}
 			]
 		}

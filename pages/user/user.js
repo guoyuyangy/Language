@@ -54,6 +54,7 @@ Page(Object.assign({}, Zan.Switch, {
                     this.setData({
                         userData: res.data.data.cards
                     })
+                    app.globalData.internal = res.data.data.internal
                 }
             })
         }
