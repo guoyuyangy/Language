@@ -64,9 +64,9 @@ Page(Object.assign({}, Zan.Switch, {
             url: '/pages/edit/edit?type=add'
         })
     },
-    edit() {
+    edit(e) {
         wx.navigateTo({
-            url: '/pages/edit/edit'
+            url: '/pages/edit/edit?type=edit&id='+e.currentTarget.dataset.itemId
         })
     },
     onShareAppMessage: function() {

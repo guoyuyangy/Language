@@ -1,5 +1,5 @@
 <navigator url="/pages/index/index?id={{ item.id }}" class="jd_card_box_two" wx:if="{{ userData != null }}" wx:for="{{ userData }}">
-    <view class="jd_card__edit_icon" bindtap="edit">
+    <view class="jd_card__edit_icon" data-item-id="{{ item.id }}" bindtap="edit">
         <image src="/images/edit.png" class="jd_card__edit_icon_image"></image>
     </view>
     <view class="jd_card_box_two_box">

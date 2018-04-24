@@ -45,5 +45,6 @@
     </view>
     <view class="zan-btns">
         <button class="zan-btn zan-btn--primary" formType="submit">提交保存</button>
+        <button class="zan-btn zan-btn--danger" bindtap="detele" wx:if="{{ type == 'edit' }}">删除</button>
     </view>
 </form>
