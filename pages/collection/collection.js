@@ -8,7 +8,9 @@ Page({
         avatar: null
     },
     onLoad: function(options) {
-
+        wx.showLoading({
+            title: '加载中',
+        })
     },
     onShow: function() {
         if (app.globalData.access_token) {
@@ -17,20 +19,8 @@ Page({
                     wallet: res.data.data,
                     id: app.globalData.userid
                 })
+                wx.hideLoading()
             })
-        }
-    },
-    onShareAppMessage: function() {
-        return {
-            title: app.globalData.name + '的名片',
-            path: '/pages/index/index?id=' + this.data.id,
-            success: function(res) {
-                wx.showToast({
-                    title: '转发成功',
-                    icon: 'success',
-                    duration: 800
-                })
-            }
         }
     }
 })

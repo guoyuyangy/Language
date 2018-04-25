@@ -1,1 +1,343 @@
-/* pages/statis/statis.wxss */
+.jd_card_statis_content{
+	width: 100%;
+	height:80px;
+	display: flex;
+	flex-direction:row;
+	align-items:center;
+	justify-content:space-around;
+}
+.jd_card_statis_content_active{
+	width: 50%;
+	height: 60px;
+	background: #fff;
+	margin: 10px;
+	display: flex;
+	align-items:center;
+	justify-content:center;
+	border-radius: 5px;
+	box-shadow: 0rpx 10rpx 30rpx #d5d5d5;
+}
+.jd_card_statis_content_total{
+	width: 50%;
+	height: 60px;
+	background: #fff;
+	margin: 10px;
+	display: flex;
+	align-items:center;
+	justify-content:center;
+	border-radius: 5px;
+	box-shadow: 0rpx 10rpx 30rpx #d5d5d5;
+}
+.jd_card_statis_content_list{
+	width: 100%;
+	margin-top: 20px;
+	background: #fff;
+}
+.jd_collection{
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding-bottom: 10px;
+}
+.jd_collection .jd_collection_list{
+	width: 90%;
+	height: 160px;
+	border-radius: 5px;
+	display: flex;
+	background: #f8f8f8;
+	margin-top: 15px;
+	box-shadow: 0rpx 10rpx 30rpx #d5d5d5;
+}
+.jd_collection .jd_collection_list image{
+	width: 55px;
+	height: 55px;
+	margin-right: 20px;
+	margin-top: 20px;
+}
+.jd_collection .jd_collection_list .jd_collection_info{
+	flex: 1;
+	margin-top: 20px;
+	margin-left: 20px;
+}
+.jd_collection .jd_collection_list .jd_collection_info .jd_collection_company{
+	font-size: 13px;
+	color: #9f9fa7;
+}
+.jd_collection .jd_collection_list .jd_collection_info .jd_collection_name{
+	font-size: 22px;
+	margin-top: 15px;
+}
+.jd_collection .jd_collection_list .jd_collection_info .jd_collection_title{
+	font-size: 13px;
+	color: #585858;
+	margin-top: 10px;
+}
+.jd_collection .jd_collection_list .jd_collection_info .jd_collection_tel{
+	font-size: 13px;
+	color: #9f9fa7;
+	margin-top: 16px;
+}
+.jd_nodata{
+	font-size: 14px;
+	color: #999;
+	width: 100%;
+	height: 50px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.jd_card_box{
+	background: #fff;
+	width: 92%;
+	border-radius: 15rpx;
+	margin: 0 auto;
+	margin-top: 140rpx;
+	box-shadow: 0rpx 10rpx 30rpx #d5d5d5;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding-bottom: 40rpx;
+}
+.jd_card_box .jd_card_avatar_box{
+	width: 100%;
+	display: flex;
+	justify-content: center;
+}
+.jd_card_box .jd_card_avatar_box .jd_card_avatar{
+	width: 150rpx;
+	height: 150rpx;
+	border-radius: 50%;
+	margin-top: -80rpx;
+	border: 10rpx solid #fff;
+}
+.jd_card_box view{
+	margin-bottom: 15rpx;
+}
+.jd_card_box .jd_card_title{
+	font-size: 42rpx;
+	margin-top: -10rpx;
+}
+.jd_card_box .jd_card_position{
+	color: #868686;
+	font-size: 30rpx;
+}
+.jd_card_box .jd_card_company{
+	font-size: 28rpx;
+	color: #202020;
+}
+.jd_card_info{
+	padding-bottom: 50rpx;
+}
+.jd_card_info .jd_card_icon{
+	width: 60rpx;
+	height: 60rpx;
+}
+.jd_card_info .zan-cell__ft{
+	display: flex;
+	align-items: center;
+}
+.jd_card_info .jd_card_info_text{
+	color: #898989;
+	margin-left: 80rpx;
+	padding-right: 40rpx;
+}
+.doc-title {
+  position: relative;
+  margin: 30rpx 0rpx 0rpx 30rpx;
+  font-size: 30rpx;
+  color: #666;
+}
+.jd_card_info .zan-cell__bd{
+	flex: none;
+}
+.jd_card_info .zan-cell__ft{
+	position: absolute;
+	right: 15rpx;
+}
+.jd_card_footer{
+	width: 100%;
+	margin-top: 20px;
+}
+.jd_card_layout{
+	width: 92%;
+	margin: 0 auto;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+.jd_card_footer .jd_card_footer_open,.jd_card_footer .jd_card_footer_create{
+	width: 46%;
+	height: 80rpx;
+	text-align: center;
+	line-height: 80rpx;
+	border: 1px solid #ddd;
+	border-radius: 4px;
+	font-size: 16px;
+}
+.jd_card_footer .jd_card_footer_open{
+	background: #fff;
+}
+.jd_card_footer .jd_card_footer_create{
+	background: #44bb00;
+	color: #fff;
+}
+.jd_card__edit_icon{
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+.jd_card__edit_icon image{
+	width: 40px;
+	height: 40px;
+}
+.jd_card_box_two{
+	background: #fff;
+	width: 92%;
+	border-radius: 15rpx;
+	margin: 0 auto;
+	margin-top: 40rpx;
+	box-shadow: 0rpx 10rpx 30rpx #d5d5d5;
+	display: flex;
+	position: relative;
+	overflow: hidden;
+}
+.jd_card_box_two .jd_card_box_two_left{
+	margin-top: 25px;
+	margin-left: 25px;
+	width: 60%;
+}
+.jd_card_box_two .jd_card_box_two_left .jd_card_fix_name{
+	margin-left: 4px;
+	height: 25px;
+	overflow: hidden;
+}
+.jd_card_box_two .jd_card_box_two_left .jd_card_fix_title{
+	color: #999;
+	font-size: 14px;
+	margin-top: 10px;
+	margin-left: 4px;
+	max-height: 38px;
+	overflow: hidden;
+}
+.jd_card_box_two .jd_card_box_two_left .jd_card_fix_tel{
+	color: #555;
+	font-size: 14px;
+	margin-top: 15px;
+	display: flex;
+	align-items: center;
+}
+.jd_two_icon{
+	width: 25px;
+	height: 25px;
+	margin-right: 2px;
+}
+.jd_card_box_two .jd_card_box_two_left .jd_card_fix_email{
+	color: #555;
+	font-size: 14px;
+	margin-top: 5px;
+	display: flex;
+	align-items: center;
+}
+.jd_card_box_two .jd_card_box_two_right{
+	position: absolute;
+	right: 30px;
+	top: 30px;
+}
+.jd_card_box_two .jd_card_box_two_right image{
+	width: 150rpx;
+	height: 150rpx;
+	border-radius: 50%;
+}
+.jd_card_box_two{
+	flex-direction: column;
+}
+.jd_card_box_two .jd_card_box_two_box{
+	display: flex;
+}
+.jd_tab_list {
+    background: #fff;
+    width: 100%;
+    height: 60px;
+    border-radius: 15rpx;
+    margin: 0 auto;
+    margin-top: 10px;
+    position: relative;
+    z-index: 10;
+    display: flex;
+}
+
+.jd_tab_list .jd_tab_list_item {
+    width: 33.333%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+}
+
+.jd_tab_list button.jd_tab_list_item {
+    padding-left: 0;
+    padding-right: 0;
+    background-color: #fff;
+    line-height: normal;
+    position: static;
+}
+button::after{ border: none; }
+
+.jd_tab_list .jd_tab_list_item image {
+    width: 20px;
+    height: 20px;
+}
+
+.jd_tab_list .jd_tab_list_item .jd_tab_list_text {
+    margin-left: 3px;
+    font-size: 12px;
+    color: #999;
+}
+.jd_card_fix_name span{
+	font-size: 14px;
+	color: #555;
+	margin-left: 5px;
+}
+.jd_card_box_two .jd_card_box_two_left .jd_card_fix_title{
+	color: #555;
+}
+.jd_card_fix_name{
+	font-size: 20px;
+}
+.jd_tab_list_item_share{
+	display: block;
+	width: 33.33%;
+}
+.jd_tab_list_item_no{
+	position: relative;
+	z-index: 99;
+}
+/*fix*/
+.jd_card_fix_email{
+	width: 150%;
+}
+.jd_card_fix_email_info{
+	width: 90%;
+	overflow: hidden;
+}
+button.jd_card_footer_create{
+	padding-left: 0px;
+	padding-right: 0px;
+	margin-left: 0px;
+	margin-right: 0px;
+}

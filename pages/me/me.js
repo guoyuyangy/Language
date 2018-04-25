@@ -5,14 +5,16 @@ Page({
         avatar: '/images/default.png',
         name: '人脉名片王',
         id: null,
-        company_number: '0535-6389615'
+        company_number: '0535-6389615',
+        internal: false
     },
     onLoad: function(options) {
         
     },
     onShow: function() {
         this.setData({
-            id: app.globalData.userid
+            id: app.globalData.userid,
+            internal: app.globalData.internal
         })
     },
     toCardList: function() {

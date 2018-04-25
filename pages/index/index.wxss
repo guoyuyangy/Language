@@ -176,7 +176,7 @@
     height: 150rpx;
     border-radius: 50%;
     margin-right: 30px;
-    margin-top: 30px;
+    margin-top: 20px;
 }
 .jd_card_box_two{
 	flex-direction: column;

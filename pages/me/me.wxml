@@ -14,10 +14,10 @@
             <view class="zan-cell__bd">授权设置</view>
             <view class="zan-cell__ft"></view>
         </view>
-<!--         <view bindtap="statis" class="zan-cell zan-cell--access">
+        <view bindtap="statis" wx:if="{{internal}}" class="zan-cell zan-cell--access">
             <view class="zan-cell__bd">数据统计</view>
             <view class="zan-cell__ft"></view>
-        </view> -->
+        </view>
         <view class="zan-cell">
             <view class="zan-cell__bd">版本</view>
             <view class="zan-cell__ft">V1.0.2</view>

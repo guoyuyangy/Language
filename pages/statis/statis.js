@@ -1,18 +1,34 @@
-// pages/statis/statis.js
+const app = getApp()
+var util = require('../../utils/util.js');
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-  
+      winHeight: "", //窗口高度
+      currentTab: 0, //预设当前项的值
+      top50: [],
+      active:'',
+      all:'',
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+      wx.getSystemInfo({
+            success: res => {
+                var clientHeight = res.windowHeight,
+                    clientWidth = res.windowWidth,
+                    rpxR = 750 / clientWidth;
+                var calc = clientHeight * rpxR - 180;
+                console.log(calc)
+                this.setData({
+                    winHeight: calc
+                });
+            }
+        });
   },
 
   /**
@@ -26,7 +42,15 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-  
+     if (app.globalData.access_token) {
+            util.getData('statistics', {}, res => {
+                this.setData({
+                    top50: res.data.data.top50,
+                    active: res.data.data.active,
+                    all: res.data.data.all,
+                })
+            })
+        }
   },
 
   /**
@@ -47,7 +71,7 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-  
+      console.log(1) 
   },
 
   /**
@@ -55,6 +79,12 @@ Page({
    */
   onReachBottom: function () {
   
+  },
+  upper: function(e) {
+    console.log(e)
+  },
+  lower: function(e) {
+    console.log(e)
   },
 
   /**

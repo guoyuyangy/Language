@@ -95,7 +95,6 @@ Page({
         })
     },
     getUser: function(e) {
-        console.log(e.detail.userInfo)
         this.setData({
             avatar: e.detail.userInfo.avatarUrl
         })
@@ -120,8 +119,8 @@ Page({
                                 content: '删除成功',
                                 showCancel: false,
                                 success: function(res) {
-                                    wx.navigateBack({
-                                        delta: 1
+                                    wx.switchTab({
+                                        url: '/pages/user/user'
                                     })
                                 }
                             })

@@ -93,12 +93,12 @@ Page(Object.assign({}, Zan.Switch, {
     },
     contact() {
         wx.addPhoneContact({
-            firstName: this.data.name,
-            title: this.data.position,
-            organization: this.data.company,
-            mobilePhoneNumber: this.data.tel,
-            workPhoneNumber: this.data.bigtel,
-            workAddressStreet: this.data.address,
+            firstName: this.data.userData.name,
+            title: this.data.userData.title,
+            organization: this.data.userData.company,
+            mobilePhoneNumber: this.data.userData.mobile,
+            workPhoneNumber: this.data.userData.tel,
+            workAddressStreet: this.data.userData.address.name,
             success: function(res) {
                 wx.showToast({
                     title: '添加成功',
@@ -113,7 +113,7 @@ Page(Object.assign({}, Zan.Switch, {
             title: this.data.userData.name + '的名片',
             path: '/pages/index/index?id=' + this.data.id,
             success: (res) => {
-                util.postData('users/' + this.data.id + '/forward', {}, res => {})
+                util.postData('cards/' + this.data.id + '/forward', {}, res => {})
                 wx.showToast({
                     title: '转发成功',
                     icon: 'success',

@@ -8,5 +8,5 @@ export function production_host(){
 
 //上线时需要改为false
 export function is_dev(){
-	return true
+	return false
 }
