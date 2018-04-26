@@ -7,7 +7,6 @@
     "pages/collection/collection",
     "pages/me/me",
     "pages/statis/statis",
-    "pages/list/list"
   ],
   "window": {
     "backgroundTextStyle": "light",
