@@ -6,7 +6,7 @@
     "pages/edit/edit",
     "pages/collection/collection",
     "pages/me/me",
-    "pages/statis/statis",
+    "pages/statis/statis"
   ],
   "window": {
     "backgroundTextStyle": "light",
