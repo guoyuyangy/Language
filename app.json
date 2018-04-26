@@ -2,7 +2,6 @@
   "pages": [
     "pages/user/user",
     "pages/index/index",
-    "pages/logs/logs",
     "pages/edit/edit",
     "pages/collection/collection",
     "pages/me/me",
