@@ -2,95 +2,73 @@ const app = getApp()
 var util = require('../../utils/util.js');
 Page({
 
-  /**
-   * 页面的初始数据
-   */
   data: {
-      winHeight: "", //窗口高度
-      currentTab: 0, //预设当前项的值
-      top50: [],
-      active:'',
-      all:'',
+    winHeight: "",
+    currentTab: 0,
+    listData: [],
+    active: '',
+    all: '', 
+    loading: true,
+    nodata: false,
+    nomore: false,
+    searchData: {
+      offset: 0,
+      limit: 10
+    },
+    flag: true,
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
   onLoad: function (options) {
-      wx.getSystemInfo({
-            success: res => {
-                var clientHeight = res.windowHeight,
-                    clientWidth = res.windowWidth,
-                    rpxR = 750 / clientWidth;
-                var calc = clientHeight * rpxR - 180;
-                console.log(calc)
-                this.setData({
-                    winHeight: calc
-                });
-            }
-        });
+    this.setData({
+      winHeight: wx.getSystemInfoSync().windowHeight - 40
+    });
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-  
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
   onShow: function () {
-     if (app.globalData.access_token) {
-            util.getData('statistics', {}, res => {
-                this.setData({
-                    top50: res.data.data.top50,
-                    active: res.data.data.active,
-                    all: res.data.data.all,
-                })
-            })
-        }
+    if (app.globalData.access_token) {
+      this.search()
+    }
   },
 
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-  
+  search: function () {
+    util.cardpaginationSearch(this.data.listData, 'statistics', this.data.searchData, 'loginState', res => {
+      this.data.searchData.offset = res.data.length
+      this.setData({
+        listData: res.data,
+        searchData: this.data.searchData,
+        loading: res.loading,
+        nomore: res.nomore,
+        nodata: res.nodata,
+        active: res.active,
+        all: res.all,
+        flag: true
+      })
+    })
   },
 
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-  
+  //下拉分页显示
+  bindDownLoad: function (e) {
+    if (!this.data.flag || this.data.nomore) return
+    this.setData({
+      loading: true,
+      flag: false
+    })
+    util.cardpaginationSearch(this.data.listData, 'statistics', this.data.searchData, 'loginState', res => {
+      this.data.searchData.offset = res.data.length
+      this.setData({
+        listData: res.data,
+        searchData: this.data.searchData,
+        loading: res.loading,
+        nomore: res.nomore,
+        nodata: res.nodata,
+        active: res.active,
+        all: res.all,
+        flag: true
+      })
+    })
   },
 
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-      console.log(1) 
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-  
-  },
-  upper: function(e) {
-    console.log(e)
-  },
-  lower: function(e) {
-    console.log(e)
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
   onShareAppMessage: function () {
-  
+
   }
 })

@@ -40,6 +40,12 @@
 					"name": "edit",
 					"pathName": "pages/edit/edit",
 					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "1",
+					"pathName": "pages/statis/statis",
+					"query": ""
 				}
 			]
 		}

@@ -74,6 +74,49 @@ const paginationSearch = (listData, api, data, header, callback) => {
     })
 }
 
+const cardpaginationSearch = (listData, api, data, header, callback) => {
+  if (header == null) {
+    header = { 'content-type': 'application/json' }
+  } else {
+    header = {
+      'Accept': 'application/json',
+      'Authorization': `Bearer ${app.globalData.access_token}`
+    }
+  }
+  wx.request({
+    url: `${app.globalData.host}/api/` + api,
+    method: 'GET',
+    data: data,
+    header: header,
+    success: (res) => {
+      var result = res.data.data.name != undefined ? res.data.data.items : res.data.data.cards
+      let datalist = listData
+      for (var i = 0; i < result.length; i++) {
+        datalist.push(result[i])
+      }
+      var temp = {}
+      if (data.offset == 0 && result.length == 0) {
+        temp.nodata = true
+        temp.nomore = false
+      } else if (result.length < data.limit) {
+        temp.nodata = false
+        temp.nomore = true
+      } else {
+        temp.nodata = false
+        temp.nomore = false
+      }
+
+      temp.data = datalist
+      temp.loading = false
+
+      temp.active = res.data.data.active
+      temp.all = res.data.data.all
+
+      callback(temp)
+    }
+  })
+}
+
 const getData = (api, data, callback) => {
     let header = {
         'Accept': 'application/json',
@@ -196,6 +239,7 @@ module.exports = {
     formatTime: formatTime,
     formatDate: formatDate,
     paginationSearch: paginationSearch,
+    cardpaginationSearch: cardpaginationSearch,
     postData: postData,
     getData: getData,
     mathRand: mathRand,

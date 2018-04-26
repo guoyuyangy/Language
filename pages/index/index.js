@@ -110,7 +110,7 @@ Page(Object.assign({}, Zan.Switch, {
     },
     onShareAppMessage: function() {
         return {
-            title: this.data.userData.name + '的名片',
+          title: this.data.userData.name + '的名片',
             path: '/pages/index/index?id=' + this.data.id,
             success: (res) => {
                 util.postData('cards/' + this.data.id + '/forward', {}, res => {})

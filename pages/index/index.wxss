@@ -121,6 +121,8 @@
     margin-top: 40rpx;
     box-shadow: 0rpx 10rpx 30rpx #d5d5d5;
     display: flex;
+  background: url('http://card-cdn.jindongsoft.com/card-bg.png');
+  background-size: 100% 100%;
 }
 
 .jd_card_box_two .jd_card_box_two_left {
@@ -185,7 +187,6 @@
 	display: flex;
 }
 .jd_tab_list {
-    background: #fff;
     width: 100%;
     height: 60px;
     border-radius: 15rpx;
@@ -207,9 +208,9 @@
 .jd_tab_list button.jd_tab_list_item {
     padding-left: 0;
     padding-right: 0;
-    background-color: #fff;
     line-height: normal;
     position: static;
+    background: rgba(0, 0, 0, 0)
 }
 button::after{ border: none; }
 

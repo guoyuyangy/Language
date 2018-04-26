@@ -10,7 +10,7 @@
             <input type="text" name="username" bindinput="nameChange" value="{{ name }}" placeholder="姓名(必填)" />
         </view>
         <view class="jd_layout">
-            <input type="number" name="tel" bindinput="telChange" value="{{ tel }}" placeholder="联系电话(必填)" />
+            <input type="digit" name="tel" bindinput="telChange" value="{{ tel }}" placeholder="联系电话(必填)" />
         </view>
         <view class="jd_layout no-border">
             <input type="text" name="email" bindinput="emailChange" value="{{ email }}" placeholder="邮箱" />

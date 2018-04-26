@@ -1,45 +1,52 @@
+<import src="../../dist/loadmore/index.wxml" />
 <view class="jd_card_statis_content">
-	<view class="jd_card_statis_content_active">
-		<text>活跃人数:</text>
-		<text>{{active}}</text>
-	</view>
-	<view class="jd_card_statis_content_total">
-		<text>总人数:</text>
-		<text>{{all}}</text>
-	</view>
+  <view class="jd_card_statis_content_active">
+    <text>活跃人数：</text>
+    <text>{{active}}</text>
+  </view>
+  <view class="jd_card_statis_content_total">
+    <text>总人数：</text>
+    <text>{{all}}</text>
+  </view>
 </view>
-<scroll-view scroll-y style="height:{{winHeight}}rpx" bindscrolltoupper="upper" bindscrolltolower="lower" scroll-top="{{scrollTop}}">
-	<!-- <navigator url="/pages/index/index?id={{ item.id }}" class="jd_card_box_two" wx:for="{{ top50 }}" wx:key="{{item.id}}"> -->
-	<view class="jd_card_box_two" wx:for="{{ top50 }}" wx:key="{{item.id}}">
+<scroll-view scroll-y style="height:{{winHeight}}px" bindscrolltolower="bindDownLoad" lower-threshold="1"  enable-back-to-top="true">
+  <view class="jd_card_box_two" wx:for="{{ listData }}" wx:key="{{item.id}}">
     <view class="jd_card_box_two_box">
-        <view class="jd_card_box_two_left">
-            <view class="jd_card_fix_name">{{ item.name }} <span>{{ item.title }}</span></view>
-            <view class="jd_card_fix_title"><span>{{ item.company }}</span></view>
-            <view class="jd_card_fix_tel" bindtap="call">
-                <image class="jd_two_icon" src="/images/2.jpg"></image> {{ item.mobile }}</view>
-            <view class="jd_card_fix_email" wx:if="{{ item.email != '' }}">
-                <image class="jd_two_icon" src="/images/4.jpg"></image>
-                <view class="jd_card_fix_email_info">{{ item.email }}</view>
-            </view>
+      <view class="jd_card_box_two_left">
+        <view class="jd_card_fix_name">{{ item.name }}
+          <span>{{ item.title }}</span>
         </view>
-        <view class="jd_card_box_two_right">
-            <image src="{{ item.avatar }}"></image>
+        <view class="jd_card_fix_title">
+          <span>{{ item.company }}</span>
         </view>
+        <view class="jd_card_fix_tel" bindtap="call">
+          <image class="jd_two_icon" src="/images/2.jpg"></image> {{ item.mobile }}</view>
+        <view class="jd_card_fix_email" wx:if="{{ item.email != '' }}">
+          <image class="jd_two_icon" src="/images/4.jpg"></image>
+          <view class="jd_card_fix_email_info">{{ item.email }}</view>
+        </view>
+      </view>
+      <view class="jd_card_box_two_right">
+        <image src="{{ item.avatar }}"></image>
+      </view>
     </view>
     <view class="jd_tab_list">
-        <view class="jd_tab_list_item jd_tab_list_item_no">
-            <image src="/images/5.jpg" class="jd_tab_list_icon"></image>
-            <view class="jd_tab_list_text">人气：{{ item.hot }}</view>
-        </view>
-        <view class="jd_tab_list_item jd_tab_list_item_no">
-            <image src="/images/6.jpg" class="jd_tab_list_icon"></image>
-            <view class="jd_tab_list_text">收藏：{{ item.save }}</view>
-        </view>
-        <view class="jd_tab_list_item">
-            <image src="/images/7.jpg" class="jd_tab_list_icon"></image>
-            <view class="jd_tab_list_text">转发：{{ item.forward }}</view>
-        </view>
+      <view class="jd_tab_list_item jd_tab_list_item_no">
+        <image src="/images/5.jpg" class="jd_tab_list_icon"></image>
+        <view class="jd_tab_list_text">人气：{{ item.hot }}</view>
+      </view>
+      <view class="jd_tab_list_item jd_tab_list_item_no">
+        <image src="/images/6.jpg" class="jd_tab_list_icon"></image>
+        <view class="jd_tab_list_text">收藏：{{ item.save }}</view>
+      </view>
+      <view class="jd_tab_list_item">
+        <image src="/images/7.jpg" class="jd_tab_list_icon"></image>
+        <view class="jd_tab_list_text">转发：{{ item.forward }}</view>
+      </view>
     </view>
-    </view>
-<!-- </navigator> -->
-  </scroll-view>
+  </view>
+  <!-- </navigator> -->
+  <template is="zan-loadmore" data="{{ loading: loading }}" />
+  <template is="zan-loadmore" data="{{ nodata: nodata }}" />
+  <template is="zan-loadmore" data="{{ nomore: nomore }}" />
+</scroll-view>

@@ -1,4 +1,4 @@
-<view class="jd_card_box_two" wx:if="{{ userData != null }}" wx:for="{{ userData }}">
+<view class="jd_card_box_two" wx:if="{{ userData != null }}" wx:for="{{ userData }}" wx:key="">
     <view class="jd_card__edit_icon" data-item-id="{{ item.id }}" bindtap="edit">
         <image src="/images/edit.png" class="jd_card__edit_icon_image"></image>
     </view>

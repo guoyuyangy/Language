@@ -20,7 +20,7 @@
         </view>
         <view class="zan-cell">
             <view class="zan-cell__bd">版本</view>
-            <view class="zan-cell__ft">V1.0.2</view>
+            <view class="zan-cell__ft">V1.0.4</view>
         </view>
     </view>
 </view>

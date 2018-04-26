@@ -26,7 +26,7 @@
         </view>
         <button open-type="share" class="jd_tab_list_item">
             <image src="/images/7.jpg" class="jd_tab_list_icon"></image>
-            <view class="jd_tab_list_text">转发 {{ userData.forward }}</view>
+            <view class="jd_tab_list_text" style='color: #fff;'>转发 {{ userData.forward }}</view>
         </button>
     </view>
 </view>
