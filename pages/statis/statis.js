@@ -8,7 +8,7 @@ Page({
   data: {
       winHeight: "", //窗口高度
       currentTab: 0, //预设当前项的值
-      top50: [],
+      cards: [],
       active:'',
       all:'',
   },
@@ -45,7 +45,7 @@ Page({
      if (app.globalData.access_token) {
             util.getData('statistics', {}, res => {
                 this.setData({
-                    top50: res.data.data.top50,
+                    cards: res.data.data.cards,
                     active: res.data.data.active,
                     all: res.data.data.all,
                 })
