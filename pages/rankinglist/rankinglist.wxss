@@ -1,0 +1,75 @@
+page {
+  background: #f9f9f9;
+}
+
+.list_head {
+  background: #fff;
+  width: 100%;
+  overflow: scroll;
+  display: flex;
+  margin-top: -10px;
+}
+
+.list_head .active {
+  color: #f44;
+  border-bottom: 2px solid #f44;
+}
+
+.menu {
+  text-align: center;
+  padding: 10px;
+  width: 33.333%;
+  font-size: 14px;
+}
+
+.menu image {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+}
+
+.menu view {
+  font-size: 12px;
+  text-align: center;
+  width: 62px;
+}
+
+.rank_index {
+  width: 26px;
+  text-align: center;
+  line-height: 30px;
+}
+
+.total_num {
+  position: absolute;
+  right: 20px;
+  line-height: 30px;
+  color: #D23630;
+}
+
+.total_num image {
+  position: relative;
+  width: 18px;
+  height: 18px;
+  top: 4px;
+  margin-left: 6px;
+}
+
+.avatar_url {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  margin-left: 10px;
+}
+
+.rank_image {
+  width: 24px;
+  height: 24px;
+  position: relative;
+  top: 4px;
+}
+
+.name {
+  line-height: 30px;
+  margin-left: 10px;
+}

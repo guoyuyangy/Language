@@ -1,0 +1,27 @@
+<import src="../../bower_components/zanui-weapp/dist/loadmore/index.wxml" />
+<scroll-view scroll-y="true" enable-back-to-top="true" scroll-top="{{scrollTop}}" class="layout" style="height:{{scrollHeight}}px;">
+  <image src='../../images/rankback.png' style='width: 100%; height: 180px;'></image>
+  <view class="list_head">
+    <view wx:for="{{ menu }}" wx:key="key" data-item-index="{{ index }}" data-api="{{item.api}}" data-name="{{item.name}}" catchtap="selectMenu" class="menu {{ current_active_category == index ? 'active' : '' }}">
+      {{ item.name }}
+    </view>
+  </view>
+
+  <view class="zan-panel">
+    <view class="zan-cell" wx:for="{{ listData }}" wx:key="" >
+      <view class="zan-cell__bd" bindtap='select_bless' data-content='{{ item.name }}' style='display: flex;'>
+        <view class='rank_index' wx:if  ="{{ index < 3 }}"><image class='rank_image' src='../../images/top{{index+1}}.png'></image></view>
+        <view class='rank_index' wx:else>{{ index + 1 }}</view>
+        <image class='avatar_url' src='{{ item.avatar_url == null ? "../../images/default_avatar.jpg" : item.avatar_url }}'></image>
+        <view class='name'>{{ item.name == null ? '匿名' : item.name }}</view>
+        <view class='total_num'>{{ item.total_num }}
+          <image wx:if="{{ current_active_category != 1 }}" src='../../images/rank_like.png'></image>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <template is="zan-loadmore" data="{{ loading: loading }}" />
+  <template is="zan-loadmore" data="{{ nodata: nodata }}" />
+  <!-- <template is="zan-loadmore" data="{{ nomore: nomore }}" /> -->
+</scroll-view>

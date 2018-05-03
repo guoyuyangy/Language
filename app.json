@@ -1,41 +1,43 @@
 {
   "pages": [
-    "pages/user/user",
     "pages/index/index",
+    "pages/user/user",
     "pages/edit/edit",
     "pages/collection/collection",
     "pages/me/me",
-    "pages/statis/statis"
+    "pages/statis/statis",
+    "pages/share/share",
+    "pages/rankinglist/rankinglist"
   ],
   "window": {
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#23282c",
+    "navigationBarBackgroundColor": "#1f8ae8",
     "navigationBarTitleText": "人脉名片王",
     "navigationBarTextStyle": "white"
   },
   "tabBar": {
     "color": "#8a8a8a",
-    "selectedColor": "#424242",
+    "selectedColor": "#1f8ae8",
     "backgroundColor": "#ffffff",
     "borderStyle": "#ebebeb",
     "list": [
       {
-        "pagePath": "pages/user/user",
+        "pagePath": "pages/index/index",
         "text": "名片",
-        "iconPath": "/images/homeDefault.png",
-        "selectedIconPath": "/images/homeSelected.png"
+        "iconPath": "/images/3.png",
+        "selectedIconPath": "/images/31.png"
       },
       {
         "pagePath": "pages/collection/collection",
         "text": "名片夹",
-        "iconPath": "/images/bao.png",
-        "selectedIconPath": "/images/bao1.png"
+        "iconPath": "/images/2.png",
+        "selectedIconPath": "/images/21.png"
       },
       {
         "pagePath": "pages/me/me",
         "text": "我的",
-        "iconPath": "/images/userDefault.png",
-        "selectedIconPath": "/images/userSelected.png"
+        "iconPath": "/images/1.png",
+        "selectedIconPath": "/images/11.png"
       }
     ]
   }

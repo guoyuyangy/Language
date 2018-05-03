@@ -120,7 +120,7 @@ Page({
                                 showCancel: false,
                                 success: function(res) {
                                     wx.switchTab({
-                                        url: '/pages/user/user'
+                                        url: '/pages/index/index'
                                     })
                                 }
                             })

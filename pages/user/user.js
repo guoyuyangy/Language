@@ -21,7 +21,6 @@ Page(Object.assign({}, Zan.Switch, {
         let that = this
         if (app.globalData.access_token) {
             util.getData('users/' + app.globalData.userid, {}, res => {
-                app.globalData.internal = res.data.internal
                 wx.hideLoading()
                 if (res.data.data.cards.length == 0) {
                     wx.showModal({

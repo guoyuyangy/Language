@@ -2,7 +2,7 @@
     <view class="jd_card__edit_icon" data-item-id="{{ item.id }}" bindtap="edit">
         <image src="/images/edit.png" class="jd_card__edit_icon_image"></image>
     </view>
-    <navigator url="/pages/index/index?id={{ item.id }}&type=watch" hover-class="none" class="jd_card_box_two_box">
+    <navigator url="/pages/share/share?id={{ item.id }}&type=watch" hover-class="none" class="jd_card_box_two_box">
         <view class="jd_card_box_two_left">
             <view class="jd_card_fix_name">{{ item.name }} <span>{{ item.title }}</span></view>
             <view class="jd_card_fix_title"><span>{{ item.company }}</span></view>

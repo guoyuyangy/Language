@@ -1,5 +1,5 @@
 <view class="jd_collection">
-    <navigator url="/pages/index/index?id={{ item.user.id }}&type=collection" class="jd_collection_list" wx:for="{{ wallet }}" wx:key="">
+    <navigator url="/pages/share/share?id={{ item.user.id }}&type=collection" class="jd_collection_list" wx:for="{{ wallet }}" wx:key="">
         <view class="jd_collection_info">
         	<view class="jd_collection_company" wx:if="{{ item.user.company }}">{{ item.user.company }}</view>
             <view class="jd_collection_name" wx:if="{{ item.user.name }}">{{ item.user.name }}</view>

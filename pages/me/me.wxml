@@ -6,10 +6,10 @@
 </view>
 <view class="jd_card_me_list">
     <view class="zan-panel">
-<!--         <view bindtap="toFriend" class="zan-cell zan-cell--access">
-            <view class="zan-cell__bd">为好友制作名片</view>
+        <view bindtap="toFriend" class="zan-cell zan-cell--access">
+            <view class="zan-cell__bd">我的所有名片</view>
             <view class="zan-cell__ft"></view>
-        </view> -->
+        </view>
         <view bindtap="setting" class="zan-cell zan-cell--access">
             <view class="zan-cell__bd">授权设置</view>
             <view class="zan-cell__ft"></view>

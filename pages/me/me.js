@@ -9,22 +9,25 @@ Page({
         internal: false
     },
     onLoad: function(options) {
-        
+
     },
     onShow: function() {
-        this.setData({
-            id: app.globalData.userid,
-            internal: app.globalData.internal
+        util.getData('users/' + app.globalData.userid, {}, res => {
+            app.globalData.internal = res.data.data.internal
+            this.setData({
+                id: app.globalData.userid,
+                internal: res.data.data.internal
+            })
         })
     },
     toCardList: function() {
         wx.navigateTo({
-          url: '/pages/collection/collection'
+            url: '/pages/collection/collection'
         })
     },
     toFriend: function() {
         wx.navigateTo({
-          url: '/pages/edit/edit?type=other'
+            url: '/pages/user/user'
         })
     },
     setting: function() {
@@ -34,12 +37,12 @@ Page({
     },
     statis: function() {
         wx.navigateTo({
-          url: '/pages/statis/statis'
+            url: '/pages/statis/statis'
         })
     },
     call_company() {
         wx.makePhoneCall({
-            phoneNumber: this.data.company_number 
+            phoneNumber: this.data.company_number
         })
     },
 })

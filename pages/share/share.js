@@ -6,12 +6,18 @@ Page(Object.assign({}, Zan.Switch, {
     data: {
         avatar: '/images/default.png',
         userData: null,
-        save: 0,
-        in_wallet: false,
+        type: null,
         id: null,
-        isExist: false
+        save: 0,
+        in_wallet: false
     },
     onLoad(options) {
+        this.setData
+
+        ({
+            id: options.id,
+            type: options.type
+        })
         wx.showLoading({
             title: '加载中',
         })
@@ -23,37 +29,40 @@ Page(Object.assign({}, Zan.Switch, {
     },
     getData() {
         let that = this
-        util.getData('user', {}, res => {
-            if (res.data.data.card != null) {
+        util.getData('cards/' + that.data.id, {}, res => {
+            if (res.statusCode == 200){
                 this.setData({
-                    isExist: true,
-                    userData: res.data.data.card,
-                    save: res.data.data.card.save,
-                    in_wallet: res.data.data.card.in_wallet,
-                    id: res.data.data.card.id
+                    userData: res.data.data,
+                    save: res.data.data.save,
+                    in_wallet: res.data.data.in_wallet
                 })
                 wx.hideLoading()
-            }else{
-                this.setData({
-                    isExist: false
-                })
+            }
+            if (res.statusCode == 404) {
                 wx.hideLoading()
+                wx.showModal({
+                    title: '提示',
+                    content: '该名片已经被删除',
+                    showCancel: false,
+                    success: function(res) {
+                        if (res.confirm) {
+                            wx.switchTab({
+                                url: '/pages/index/index'
+                            })
+                        }
+                    }
+                })
             }
         })
     },
     open() {
         wx.switchTab({
-            url: '/pages/user/user'
+            url: '/pages/index/index'
         })
     },
     edit() {
         wx.navigateTo({
-            url: '/pages/edit/edit?type=edit&id='+ this.data.id
-        })
-    },
-    add() {
-        wx.navigateTo({
-            url: '/pages/edit/edit?type=add'
+            url: '/pages/edit/edit?type=edit&id=' + this.data.id
         })
     },
     animation() {
@@ -118,7 +127,7 @@ Page(Object.assign({}, Zan.Switch, {
     },
     onShareAppMessage: function() {
         return {
-          title: this.data.userData.name + '的名片',
+            title: this.data.userData.name + '的名片',
             path: '/pages/share/share?id=' + this.data.id,
             success: (res) => {
                 util.postData('cards/' + this.data.id + '/forward', {}, res => {})
