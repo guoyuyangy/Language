@@ -36,6 +36,9 @@ Page({
 	},
 
 	onShow: function() {
+		this.setData({
+			current_active_category: 0
+		})
 		this.search([], 'statistics/view')
 	},
 
@@ -51,6 +54,9 @@ Page({
 	search: function (listData, url) {
 		util.paginationSearch(listData, url, this.data.searchData, 'loginState', res => {
 			// this.data.searchData.offset = res.data.length
+			for (var i = 0; i < res.data.length; i++) {
+				res.data[i].name = res.data[i].name.substring(0,1)
+			}
 			this.setData({
 				listData: res.data,
 				searchData: this.data.searchData,
