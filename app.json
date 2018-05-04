@@ -34,6 +34,12 @@
         "selectedIconPath": "/images/21.png"
       },
       {
+        "pagePath": "pages/rankinglist/rankinglist",
+        "text": "排行",
+        "iconPath": "/images/4.png",
+        "selectedIconPath": "/images/41.png"
+      },
+      {
         "pagePath": "pages/me/me",
         "text": "我的",
         "iconPath": "/images/1.png",

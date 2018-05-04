@@ -8,9 +8,9 @@ Page({
 	data: {
 		current_active_category: 0, // 当前选中分类
 		menu: [
-			{ name: '人气排名', api: 'get_send_rank' },
-			{ name: '收藏排名', api: 'get_receive_like_rank' },
-			{ name: '转发排名', api: 'get_send_like_rank' }
+			{ name: '人气排名', api: 'statistics/view' },
+			{ name: '收藏排名', api: 'statistics/follow' },
+			{ name: '转发排名', api: 'statistics/forward' }
 		],
 		index: 0,
 		listData: [],
@@ -36,7 +36,7 @@ Page({
 	},
 
 	onShow: function() {
-		this.search([], 'get_send_rank')
+		this.search([], 'statistics/view')
 	},
 
 	selectMenu: function (e) {
@@ -50,7 +50,7 @@ Page({
 
 	search: function (listData, url) {
 		util.paginationSearch(listData, url, this.data.searchData, 'loginState', res => {
-			this.data.searchData.offset = res.data.length
+			// this.data.searchData.offset = res.data.length
 			this.setData({
 				listData: res.data,
 				searchData: this.data.searchData,
@@ -72,8 +72,8 @@ Page({
 					nodata: false,
 					nomore: false,
 					searchData: {
-						offset: 0,
-						limit: 5
+						offset: 1,
+						limit: 50
 					},
 					flag: true,
 				})
@@ -81,9 +81,3 @@ Page({
 		})
 	}
 })
-// {
-//   "pagePath": "pages/rankinglist/rankinglist",
-//   "text": "排行",
-//   "iconPath": "/images/4.png",
-//   "selectedIconPath": "/images/41.png"
-// },

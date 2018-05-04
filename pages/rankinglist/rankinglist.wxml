@@ -12,10 +12,17 @@
       <view class="zan-cell__bd" bindtap='select_bless' data-content='{{ item.name }}' style='display: flex;'>
         <view class='rank_index' wx:if  ="{{ index < 3 }}"><image class='rank_image' src='../../images/top{{index+1}}.png'></image></view>
         <view class='rank_index' wx:else>{{ index + 1 }}</view>
-        <image class='avatar_url' src='{{ item.avatar_url == null ? "../../images/default_avatar.jpg" : item.avatar_url }}'></image>
-        <view class='name'>{{ item.name == null ? '匿名' : item.name }}</view>
-        <view class='total_num'>{{ item.total_num }}
-          <image wx:if="{{ current_active_category != 1 }}" src='../../images/rank_like.png'></image>
+        <image class='avatar_url' src='{{ item.avatar == "" ? "../../images/default_avatar.jpg" : item.avatar }}'></image>
+        <view class='name'>
+            <view class="jd_rank_name_box">
+                <view class="jd_rank_name">{{ item.name == null ? '匿名' : item.name }}</view>
+                <view class="jd_rank_title">{{ item.title }}</view>
+            </view>
+            <view class="jd_rank_company">{{ item.company }}</view>
+        </view>
+        <view class='total_num'>{{ item.score }}
+          <!-- <image wx:if="{{ current_active_category != 1 }}" src='../../images/rank_like.png'></image> -->
+          <image src='../../images/rank_like.png'></image>
         </view>
       </view>
     </view>
