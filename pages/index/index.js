@@ -9,7 +9,8 @@ Page(Object.assign({}, Zan.Switch, {
         save: 0,
         in_wallet: false,
         id: null,
-        isExist: false
+        isExist: false,
+        products: []
     },
     onLoad(options) {
         wx.showLoading({
@@ -31,6 +32,11 @@ Page(Object.assign({}, Zan.Switch, {
                     save: res.data.data.card.save,
                     in_wallet: res.data.data.card.in_wallet,
                     id: res.data.data.card.id
+                })
+                util.getData('cards/products', {card_id: res.data.data.card.id}, res => {
+                    this.setData({
+                        products: res.data.data
+                    })
                 })
                 wx.hideLoading()
             }else{
@@ -114,6 +120,11 @@ Page(Object.assign({}, Zan.Switch, {
                     duration: 800
                 })
             }
+        })
+    },
+    show() {
+        wx.navigateTo({
+            url: '/pages/addProduct/addProduct?card_id='+ this.data.id
         })
     },
     onShareAppMessage: function() {

@@ -38,8 +38,8 @@
 				{
 					"id": 0,
 					"name": "edit",
-					"pathName": "pages/share/share",
-					"query": "id=f2ed22e0-47c8-11e8-bc60-4383e8aa1875"
+					"pathName": "pages/addProduct/addProduct",
+					"query": "type=edit&id=2"
 				},
 				{
 					"id": -1,

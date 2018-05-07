@@ -15,7 +15,7 @@ App({
         }
     },
     login: function() {
-        wx.login({
+        wx.login({ 
             success: res => {
                 if (res.code) {
                     //发起网络请求

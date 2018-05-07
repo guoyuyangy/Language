@@ -5,3 +5,9 @@ page{
 .no-border{
 	border-bottom: 0px;
 }
+.padding-bottom{
+	padding-bottom: 10px;
+}
+.color_red{
+	color: red;
+}

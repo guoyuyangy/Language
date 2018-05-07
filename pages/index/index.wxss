@@ -45,7 +45,17 @@
 }
 
 .jd_card_info {
-    padding-bottom: 50rpx;
+    
+}
+
+.jd_card__edit_icon{
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+.jd_card__edit_icon image{
+    width: 40px;
+    height: 40px;
 }
 
 .jd_card_info .jd_card_icon {
@@ -288,4 +298,23 @@ button::after {
     font-size: 15px;
     text-align: center;
     line-height: 450px;
+}
+/*主推产品*/
+.jd_product_card{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 90px;
+}
+.jd_product_card .jd_product_desc{
+    color: #999;
+    margin-top: 5px;
+}
+.jd_price_box_edit{
+    display: flex;
+    justify-content: space-between;
+}
+.jd_edit_product{
+    width: 20px;
+    height: 20px;
 }

@@ -1,0 +1,28 @@
+<import src="/dist/select/index.wxml" />
+<view class="doc-title zan-hairline--bottom">产品信息</view>
+<form bindsubmit="formSubmit">
+    <view class="zan-panel">
+        <view class="zan-cell zan-field">
+            <view class="zan-cell__hd zan-field__title">产品名称</view>
+            <input class="zan-field__input zan-cell__bd" type="text" value="{{ name }}" bindinput="blurName" name="name" placeholder="请输入产品名称" />
+        </view>
+        <view class="zan-cell zan-field">
+            <view class="zan-cell__hd zan-field__title">产品价格</view>
+            <input class="zan-field__input zan-cell__bd" type="text" value="{{ price }}" bindinput="blurPrice" name="price" placeholder="单位(元)" maxlength="11" />
+        </view>
+        <view class="zan-cell zan-field">
+            <view class="zan-cell__hd zan-field__title">产品描述</view>
+            <input class="zan-field__input zan-cell__bd" type="text" value="{{ desc }}" bindinput="blurDesc" name="desc" placeholder="请输入产品描述" />
+        </view>
+    </view>
+    <view class="zan-panel-title">产品详情</view>
+    <view class="zan-panel">
+        <view class="zan-cell zan-field">
+            <textarea class="addProduct_text" type="text" value="{{ detail }}" bindinput="blurInfo" name="detail" placeholder="请输入产品详情" />
+        </view>
+    </view>
+    <view class="zan-btns">
+        <button class="zan-btn zan-btn--primary" formType="submit">保存</button>
+        <button wx:if="{{  }}" class="zan-btn zan-btn--danger">删除</button>
+    </view>
+</form>
