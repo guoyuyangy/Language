@@ -30,8 +30,8 @@
       {
         "pagePath": "pages/collection/collection",
         "text": "名片夹",
-        "iconPath": "/images/2.png",
-        "selectedIconPath": "/images/21.png"
+        "iconPath": "/images/2t.png",
+        "selectedIconPath": "/images/21t.png"
       },
       {
         "pagePath": "pages/rankinglist/rankinglist",
