@@ -149,6 +149,26 @@ const postData = (api, data, callback) => {
     })
 }
 
+const getDataPro = (api, data, type, header, callback) => {
+    if (header == null) {
+        header = { 'content-type': 'application/json' }
+    } else {
+        header = {
+            'Accept': 'application/json',
+            'Authorization': `Bearer ${app.globalData.access_token}`
+        }
+    }
+    wx.request({
+        url: `${app.globalData.host}/api/` + api,
+        method: type,
+        data: data,
+        header: header,
+        success: res => {
+            callback(res)
+        }
+    })
+}
+
 function relationship(topuserid) {
     if (app.globalData.access_token) {
         this.request_after_login(topuserid);
@@ -242,6 +262,7 @@ module.exports = {
     cardpaginationSearch: cardpaginationSearch,
     postData: postData,
     getData: getData,
+    getDataPro: getDataPro,
     mathRand: mathRand,
     relationship: relationship,
     request_after_login: request_after_login,

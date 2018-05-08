@@ -18,11 +18,11 @@
     <view class="zan-panel-title">产品详情</view>
     <view class="zan-panel">
         <view class="zan-cell zan-field">
-            <textarea class="addProduct_text" type="text" value="{{ detail }}" bindinput="blurInfo" name="detail" placeholder="请输入产品详情" />
+            <textarea class="addProduct_text" type="text" value="{{ detail }}" bindinput="blurDetail" name="detail" placeholder="请输入产品详情" />
         </view>
     </view>
     <view class="zan-btns">
         <button class="zan-btn zan-btn--primary" formType="submit">保存</button>
-        <button wx:if="{{  }}" class="zan-btn zan-btn--danger">删除</button>
+        <button wx:if="{{ type == 'edit' }}" bindtap="delete" class="zan-btn zan-btn--danger">删除</button>
     </view>
 </form>

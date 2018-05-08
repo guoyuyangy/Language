@@ -6,7 +6,7 @@ Page({
         price: null,
         detail: null,
         card_id: null,
-        desc: null,
+        description: null,
         type: null,
         product_id: null
     },
@@ -28,7 +28,7 @@ Page({
                     this.setData({
                         name: res.data.data.name,
                         price: res.data.data.price,
-                        desc: res.data.data.description,
+                        description: res.data.data.description,
                         detail: res.data.data.detail
                     })
                 }
@@ -41,17 +41,62 @@ Page({
             name: this.data.name,
             price: this.data.price,
             info: this.data.info,
-            description: this.data.desc
+            description: this.data.description,
+            detail: this.data.detail
         }
         if (this.data.type == 'edit') {
             util.postData(`cards/products/${this.data.product_id}`, arr, res => {
-                console.log(res)
+                if (res.data.code == 0) {
+                    wx.showModal({
+                        title: '提示',
+                        content: '修改成功',
+                        showCancel: false,
+                        success: function(res) {
+                            if (res.confirm) {
+                                wx.switchTab({
+                                    url: '/pages/index/index'
+                                })
+                            }
+                        }
+                    })
+                }
             })
         } else {
             util.postData('cards/products', arr, res => {
-                console.log(res)
+                if (res.data.code == 0) {
+                    wx.showModal({
+                        title: '提示',
+                        content: '发布成功',
+                        showCancel: false,
+                        success: function(res) {
+                            if (res.confirm) {
+                                wx.switchTab({
+                                    url: '/pages/index/index'
+                                })
+                            }
+                        }
+                    })
+                }
             })
         }
+    },
+    delete: function() {
+        util.getDataPro(`cards/products/${this.data.product_id}`,{},'DELETE','', res => {
+            if (res.data.code == 0) {
+                wx.showModal({
+                    title: '提示',
+                    content: '删除成功',
+                    showCancel: false,
+                    success: function(res) {
+                        if (res.confirm) {
+                            wx.switchTab({
+                                url: '/pages/index/index'
+                            })
+                        }
+                    }
+                })
+            }
+        })
     },
     blurName: function(e) {
         this.setData({
@@ -63,14 +108,14 @@ Page({
             price: e.detail.value
         });
     },
-    blurInfo: function(e) {
-        this.setData({
-            detail: e.detail.value
-        });
-    },
     blurDesc: function(e) {
         this.setData({
-            desc: e.detail.value
+            description: e.detail.value
+        });
+    },
+    blurDetail: function(e) {
+        this.setData({
+            detail: e.detail.value
         });
     }
 })
