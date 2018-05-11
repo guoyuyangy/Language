@@ -36,13 +36,11 @@ Page({
 		wx.showLoading({
             title: '加载中',
         })
+        this.search([], 'statistics/view')
 	},
 
 	onShow: function() {
-		this.setData({
-			current_active_category: 0
-		})
-		this.search([], 'statistics/view')
+
 	},
 
 	selectMenu: function (e) {
