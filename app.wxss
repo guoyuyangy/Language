@@ -11,3 +11,6 @@ page{
 .color_red{
 	color: red;
 }
+.jd_fix_height{
+	height: 20px;
+}

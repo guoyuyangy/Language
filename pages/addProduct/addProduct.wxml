@@ -8,11 +8,11 @@
         </view>
         <view class="zan-cell zan-field">
             <view class="zan-cell__hd zan-field__title">产品价格</view>
-            <input class="zan-field__input zan-cell__bd" type="text" value="{{ price }}" bindinput="blurPrice" name="price" placeholder="单位(元)" maxlength="11" />
+            <input class="zan-field__input zan-cell__bd" type="digit" value="{{ price }}" bindinput="blurPrice" name="price" placeholder="单位(元)" maxlength="11" />
         </view>
         <view class="zan-cell zan-field">
             <view class="zan-cell__hd zan-field__title">产品描述</view>
-            <input class="zan-field__input zan-cell__bd" type="text" value="{{ desc }}" bindinput="blurDesc" name="desc" placeholder="请输入产品描述" />
+            <input class="zan-field__input zan-cell__bd" type="text" value="{{ description }}" bindinput="blurDesc" name="desc" placeholder="请输入产品描述" />
         </view>
     </view>
     <view class="zan-panel-title">产品详情</view>
@@ -21,8 +21,35 @@
             <textarea class="addProduct_text" type="text" value="{{ detail }}" bindinput="blurDetail" name="detail" placeholder="请输入产品详情" />
         </view>
     </view>
+        <view class="page__bd">
+        <view class="weui-cells">
+            <view class="weui-cell">
+                <view class="weui-cell__bd">
+                    <view class="weui-uploader">
+                        <view class="weui-uploader__hd">
+                            <view class="weui-uploader__title">产品相册</view>
+                            <view class="weui-uploader__info">{{files.length}}/4</view>
+                        </view>
+                        <view class="weui-uploader__bd">
+                            <view class="weui-uploader__files" id="uploaderFiles">
+                                <block wx:for-items="{{files}}" wx:key="{{index}}">
+                                    <view class="weui-uploader__file" bindtap="previewImage" id="{{item}}">
+                                        <image class="weui-uploader__img" src="{{item}}" mode="aspectFill" />
+                                    </view>
+                                </block>
+                            </view>
+                            <view class="weui-uploader__input-box" wx:if="{{ files.length < 4 }}">
+                                <view class="weui-uploader__input" bindtap="chooseImage"></view>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
     <view class="zan-btns">
         <button class="zan-btn zan-btn--primary" formType="submit">保存</button>
         <button wx:if="{{ type == 'edit' }}" bindtap="delete" class="zan-btn zan-btn--danger">删除</button>
     </view>
 </form>
+<view class="jd_fix_height"></view>

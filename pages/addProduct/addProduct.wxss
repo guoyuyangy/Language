@@ -1,3 +1,4 @@
+@import "/dist/weui.wxss";
 .doc-title {
     position: relative;
     padding: 15px 0;

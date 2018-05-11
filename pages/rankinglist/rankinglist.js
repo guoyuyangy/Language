@@ -33,6 +33,9 @@ Page({
 	 */
 	onLoad: function (options) {
 		this.init()
+		wx.showLoading({
+            title: '加载中',
+        })
 	},
 
 	onShow: function() {
@@ -43,6 +46,9 @@ Page({
 	},
 
 	selectMenu: function (e) {
+		wx.showLoading({
+            title: '加载中',
+        })
 		this.init()
 		let index = e.currentTarget.dataset.itemIndex
 		this.setData({
@@ -65,6 +71,7 @@ Page({
 				nodata: res.nodata,
 				flag: true
 			})
+			wx.hideLoading()
 		})
 	},
 

@@ -18,8 +18,13 @@ Page(Object.assign({}, Zan.Switch, {
         })
     },
     onShow() {
+        let that = this
         if (app.globalData.access_token) {
             this.getData()
+        }else{
+            setTimeout(function(){
+                that.getData()
+            },1000)
         }
     },
     getData() {
