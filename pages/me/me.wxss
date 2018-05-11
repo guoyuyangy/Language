@@ -79,3 +79,13 @@
 .company_pad{
 	padding-top: 10px;
 }
+.ba_text {
+	color: #a9a9ac;
+}
+
+.company-name {
+	display: block;
+	text-align: center;
+	font-size: 0.8em;
+	color: #a9a9ac;
+}

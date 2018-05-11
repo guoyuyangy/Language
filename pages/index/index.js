@@ -132,6 +132,11 @@ Page(Object.assign({}, Zan.Switch, {
             url: '/pages/addProduct/addProduct?card_id='+ this.data.id
         })
     },
+    creat(){
+        wx.navigateTo({
+            url: '/pages/company/company?card_id='+ this.data.id
+        })
+    },
     onShareAppMessage: function() {
         return {
           title: this.data.userData.name + '的名片',

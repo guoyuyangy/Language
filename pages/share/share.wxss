@@ -281,3 +281,22 @@ button::after {
     border-radius: 0 0 10% 10%;
     background: linear-gradient(to bottom, #1f8ae8 0%,#14c2e7 100%);
 }
+/*主推产品*/
+.jd_product_card{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 90px;
+}
+.jd_product_card .jd_product_desc{
+    color: #999;
+    margin-top: 5px;
+}
+.jd_price_box_edit{
+    display: flex;
+    justify-content: space-between;
+}
+.jd_edit_product{
+    width: 20px;
+    height: 20px;
+}

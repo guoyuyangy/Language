@@ -318,3 +318,10 @@ button::after {
     width: 20px;
     height: 20px;
 }
+.jd_btn_list_dt{
+    display: flex;
+    justify-content: space-between;
+}
+.jd_btn_list_dt button{
+    width: 49%
+}

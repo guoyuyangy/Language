@@ -20,14 +20,22 @@
         </view>
         <view class="zan-cell">
             <view class="zan-cell__bd">版本</view>
-            <view class="zan-cell__ft">V1.0.6</view>
+            <view class="zan-cell__ft">V1.2.5</view>
         </view>
     </view>
-</view>
-<view class="company_pad" bindtap="call_company">
-    <view class="ba">
-        <image class="ba_image" src="http://ovw2uynf4.bkt.clouddn.com/greylogo2.png"></image>
-        <view  hover-class="ba_text" class="company-name">烟台金东信息科技提供技术支持</view>
+    <view class="zan-panel">
+        <view bindtap="addWx" class="zan-cell zan-cell--access">
+            <view class="zan-cell__bd">添加微信号zhongwei，加入产品交流群</view>
+            <view class="zan-cell__ft"></view>
+        </view>
     </view>
-    <view class="ba_font">0535-6389615</view>
+
+</view>
+<view bindtap='call_company'>
+  <view class="ba">
+    <image class="ba_image" src="http://ovw2uynf4.bkt.clouddn.com/greylogo2.png"></image>
+    <view hover-class="ba_text" class="company-name">金东信息科技，小程序定制开发专家</view>
+  </view>
+  <view hover-class="ba_text" class="company-name notice">欢迎电话咨询合作</view>
+  <view class="ba_font">0535-6389615</view>
 </view>

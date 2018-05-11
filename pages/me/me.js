@@ -44,5 +44,20 @@ Page({
         wx.makePhoneCall({
             phoneNumber: this.data.company_number
         })
+        wx.reportAnalytics('click_bottom', {
+            number: 1
+        })
     },
+    addWx() {
+        wx.setClipboardData({
+            data: 'zhongwei',
+            success: function(res) {
+                wx.showToast({
+                    title: '已复制微信号',
+                    icon: 'success',
+                    duration: 1500
+                })
+            }
+        })
+    }
 })

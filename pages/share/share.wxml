@@ -69,4 +69,28 @@
             <button class="zan-btn" bindtap="edit">编辑名片</button>
         </view>
     </view>
+        <view class="jd_product_layouts" wx:if="{{ products.length != 0 }}">
+        <view class="doc-title">主推产品</view>
+        <navigator url="/pages/details/details?id={{ item.id }}" hover-class="none" wx:for="{{ products }}" class="zan-panel">
+            <view class="zan-card">
+                <view class="zan-card__thumb">
+                    <image wx:if="{{ item.images.length != 0 }}" mode="aspectFill" class="zan-card__img" src="{{ item.images[0] }}"></image>
+                    <image class="zan-card__img" src="https://img.yzcdn.cn/upload_files/2016/11/25/FpqPXlrMRjKwJs8VdTu3ZDJCj4j5.jpeg?imageView2/2/w/200/h/200/q/90/format/jpeg" mode="aspectFit" wx:else></image>
+                </view>
+                <view class="zan-card__detail jd_product_card">
+                    <view class="zan-card__detail-row">
+                        <view class="zan-ellipsis--l2 jd_product_name">
+                            {{ item.name }}
+                        </view>
+                        <view class="zan-card__detail-row jd_product_desc">
+                            {{ item.description }}
+                        </view>
+                    </view>
+                    <view class="jd_price_box_edit">
+                        <view class="color_red">¥ {{ item.price }}</view>
+                    </view>
+                </view>
+            </view>
+        </navigator>
+    </view>
 </view>

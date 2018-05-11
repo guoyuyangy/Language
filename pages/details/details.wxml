@@ -1,0 +1,43 @@
+<import src="/wxParse/wxParse.wxml" />
+<view>
+    <swiper class="layout" indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+        <block wx:for="{{detailData.images}}" wx:key="">
+            <swiper-item>
+                <image mode='aspectFill' style="height:100%" src="{{item}}?imageView2/2/w/600" />
+            </swiper-item>
+        </block>
+    </swiper>
+    <view class="detail_price">
+        <view class="detail_price_box">
+            <view class="detail_price_left">
+                <view class="price_box">
+                    <view class="detail_group_price">￥{{ detailData.price }}</view>
+                </view>
+            </view>
+            <view class="detail_price_right">
+                <button class="right_image" open-type="share">
+                    <image src="http://beibeicdn.jindongsoft.com/share.png" class="icon_share"></image>
+                </button>
+                <view class="right_text">
+                    <text class="text_share">分享</text>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="detail_title_box">
+        <view class="title_info">
+            <view class="detail_title">{{ detailData.name }}</view>
+            <view class="detail_title_dec">{{ detailData.description }}</view>
+        </view>
+    </view>
+</view>
+<view class="swiper-box">
+    <!-- 服务详情 -->
+    <view>
+        <view class="detail_list_info">
+            <!-- <template is="wxParse" data="{{ wxParseData:description.nodes }}" /> -->
+            {{ detailData.detail }}
+        </view>
+    </view>
+</view>
+<view class="fix_height"></view>

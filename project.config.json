@@ -38,8 +38,8 @@
 				{
 					"id": 0,
 					"name": "edit",
-					"pathName": "pages/addProduct/addProduct",
-					"query": "type=edit&id=2"
+					"pathName": "pages/details/details",
+					"query": "id=13"
 				},
 				{
 					"id": -1,
