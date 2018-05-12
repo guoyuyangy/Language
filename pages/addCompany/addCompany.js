@@ -4,12 +4,10 @@ const qiniuUploader = require("../../utils/qiniuUploader");
 Page({
     data: {
         name: null,
-        price: null,
         detail: null,
         card_id: null,
-        description: null,
         type: null,
-        product_id: null,
+        company_id: null,
         files: []
     },
     onLoad: function(options) {
@@ -23,13 +21,11 @@ Page({
             })
         }
         if (this.data.type == 'edit') {
-            util.getData(`cards/products/${this.data.product_id}`, {}, res => {
+            util.getData(`cards/${this.data.card_id}/website`, {}, res => {
                 if (res.data.code == 0) {
                     this.setData({
                         name: res.data.data.name,
-                        price: res.data.data.price,
-                        description: res.data.data.description,
-                        detail: res.data.data.detail,
+                        detail: res.data.data.intro,
                         files: res.data.data.images
                     })
                 }
@@ -37,21 +33,17 @@ Page({
         }
     },
     onShow: function() {
-        
+
     },
     formSubmit: function() {
-        console.log(this.data.files)
         let arr = {
             card_id: this.data.card_id,
             name: this.data.name,
-            price: this.data.price,
-            info: this.data.info,
-            description: this.data.description,
-            detail: this.data.detail,
+            intro: this.data.detail,
             images: this.data.files
         }
         if (this.data.type == 'edit') {
-            util.postData(`cards/products/${this.data.product_id}`, arr, res => {
+            util.postData(`cards/${this.data.card_id}/website/update`, arr, res => {
                 if (res.data.code == 0) {
                     wx.showModal({
                         title: '提示',
@@ -68,7 +60,7 @@ Page({
                 }
             })
         } else {
-            util.postData('cards/products', arr, res => {
+            util.postData(`cards/${this.data.card_id}/website`, arr, res => {
                 if (res.data.code == 0) {
                     wx.showModal({
                         title: '提示',
@@ -83,43 +75,8 @@ Page({
                         }
                     })
                 }
-                if (res.data.status_code != 200) {
-                    wx.showModal({
-                        title: '提示',
-                        content: res.data.errors.name[0],
-                        showCancel: false,
-                        success: function(res) {}
-                    })
-                }
             })
         }
-    },
-    delete: function() {
-        let that = this
-        wx.showModal({
-            title: '提示',
-            content: '确定删除此商品？',
-            success: function(res) {
-                if (res.confirm) {
-                    util.getDataPro(`cards/products/${that.data.product_id}`, {}, 'DELETE', '', res => {
-                        if (res.data.code == 0) {
-                            wx.showModal({
-                                title: '提示',
-                                content: '删除成功',
-                                showCancel: false,
-                                success: function(res) {
-                                    if (res.confirm) {
-                                        wx.switchTab({
-                                            url: '/pages/index/index'
-                                        })
-                                    }
-                                }
-                            })
-                        }
-                    })
-                }
-            }
-        })
     },
     chooseImage: function(e) {
         var that = this;
@@ -158,19 +115,36 @@ Page({
             name: e.detail.value
         });
     },
-    blurPrice: function(e) {
-        this.setData({
-            price: e.detail.value
-        });
-    },
-    blurDesc: function(e) {
-        this.setData({
-            description: e.detail.value
-        });
-    },
     blurDetail: function(e) {
         this.setData({
             detail: e.detail.value
         });
-    }
+    },
+    delete: function() {
+        let that = this
+        wx.showModal({
+            title: '提示',
+            content: '确定删除公司信息？',
+            success: function(res) {
+                if (res.confirm) {
+                    util.getDataPro(`cards/${that.data.card_id}/website `, {}, 'DELETE', '', res => {
+                        if (res.data.code == 0) {
+                            wx.showModal({
+                                title: '提示',
+                                content: '删除成功',
+                                showCancel: false,
+                                success: function(res) {
+                                    if (res.confirm) {
+                                        wx.switchTab({
+                                            url: '/pages/index/index'
+                                        })
+                                    }
+                                }
+                            })
+                        }
+                    })
+                }
+            }
+        })
+    },
 })

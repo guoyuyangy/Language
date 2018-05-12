@@ -77,11 +77,46 @@
                 <button class="zan-btn zan-btn--primary" open-type="share">递名片</button>
                 <view class="jd_btn_list_dt">
                     <button class="zan-btn zan-btn--default" bindtap="show">发布产品</button>
-                    <button class="zan-btn zan-btn--default" bindtap="creat">创建官网</button>
+                    <button class="zan-btn zan-btn--default" bindtap="creat" wx:if="{{ companyData == null }}">创建官网</button>
+                    <navigator class="zan-btn zan-btn--default" wx:if="{{ companyData != null }}" url="/pages/addCompany/addCompany?id={{ companyData.id }}&type=edit&card_id={{ companyData.card_id }}" hover-class="none">
+                        编辑官网
+                    </navigator>
                 </view>
             </view>
         </view>
     </view>
+    <!-- 公司官网开始 -->
+    <view class="jd_product_layouts" wx:if="{{ companyData != null }}">
+        <view class="doc-title">公司官网</view>
+        <view class="zan-panel">
+            <view class="zan-card">
+                <navigator url="/pages/details/details?card_id={{ companyData.card_id }}" hover-class="none">
+                    <view class="zan-card__thumb">
+                        <image wx:if="{{ companyData.images.length != 0 }}" mode="aspectFill" class="zan-card__img" src="{{ companyData.images[0] }}"></image>
+                        <image class="zan-card__img" src="https://img.yzcdn.cn/upload_files/2016/11/25/FpqPXlrMRjKwJs8VdTu3ZDJCj4j5.jpeg?imageView2/2/w/200/h/200/q/90/format/jpeg" mode="aspectFit" wx:else></image>
+                    </view>
+                </navigator>
+                <view class="zan-card__detail jd_product_card">
+                    <navigator url="/pages/company/company?card_id={{ companyData.card_id }}" hover-class="none">
+                        <view class="zan-card__detail-row">
+                            <view class="zan-ellipsis--l2 jd_product_name">
+                                {{ companyData.name }}
+                            </view>
+                            <view class="zan-card__detail-row jd_product_desc">
+                                {{ companyData.intro }}
+                            </view>
+                        </view>
+                    </navigator>
+                    <view class="jd_company_box_edit">
+                        <navigator url="/pages/addCompany/addCompany?id={{ companyData.id }}&type=edit&card_id={{ companyData.card_id }}">
+                            <image src="/images/edit_product.png" class="jd_edit_product"></image>
+                        </navigator>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <!-- 公司官网结束 -->
     <view class="jd_product_layouts" wx:if="{{ products.length != 0 }}">
         <view class="doc-title">主推产品</view>
         <view wx:for="{{ products }}" class="zan-panel">

@@ -1,1 +1,21 @@
-/* pages/company/company.wxss */
+.jd_company_name_box{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	height: 45px;
+}
+.jd_company_intro{
+	width: 92%;
+	margin: 0 auto;
+	font-size: 14px;
+	color: #555;
+}
+.jd_company_image_box{
+	width: 92%;
+	margin: 0 auto;
+	margin-top: 15px;
+}
+.jd_company_image_box image{
+	width: 100%;
+}

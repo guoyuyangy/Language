@@ -1,66 +1,30 @@
-// pages/company/company.js
+const app = getApp()
+var util = require('../../utils/util.js');
+const qiniuUploader = require("../../utils/qiniuUploader");
 Page({
+    data: {
+        company: {},
+        card_id: null
+    },
+    onLoad: function(options) {
+        console.log(options.card_id)
+        if (options.card_id) {
+            this.setData({
+                card_id: options.card_id
+            })
+            util.getData(`cards/${this.data.card_id}/website`, {}, res => {
+                if (res.data.code == 0) {
+                    this.setData({
+                        company: res.data.data
+                    })
+                }
+            })
+        }
+    },
+    onShow: function() {
 
-  /**
-   * 页面的初始数据
-   */
-  data: {
-  
-  },
+    },
+    onShareAppMessage: function() {
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-  
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-  
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-  
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-  
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-  
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-  
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-  
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-  
-  }
+    }
 })

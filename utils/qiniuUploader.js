@@ -64,6 +64,7 @@ function upload(filePath, success, fail, options, progress, cancelTask) {
         });
     } else if (config.qiniuUploadTokenFunction) {
         config.qiniuUploadToken = config.qiniuUploadTokenFunction();
+        console.log(config.qiniuUploadToken)
         if (null == config.qiniuUploadToken && config.qiniuUploadToken.length > 0) {
             console.error('qiniu UploadTokenFunction result is null, please check the return value');
             return

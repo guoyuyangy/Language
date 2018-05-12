@@ -1,2 +1,7 @@
-<!--pages/company/company.wxml-->
-<text>pages/company/company.wxml</text>
+<view class="jd_company_name_box">
+	<text class="jd_company_name">{{ company.name }}</text>
+</view>
+<view class="jd_company_intro">{{ company.intro }}</view>
+<view class="jd_company_image_box">
+	<image wx:for="{{ company.images }}" src="{{ item }}?imageView2/2/w/600"></image>
+</view>

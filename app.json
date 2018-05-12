@@ -10,7 +10,8 @@
     "pages/rankinglist/rankinglist",
     "pages/addProduct/addProduct",
     "pages/details/details",
-    "pages/company/company"
+    "pages/company/company",
+    "pages/addCompany/addCompany"
   ],
   "window": {
     "backgroundTextStyle": "light",

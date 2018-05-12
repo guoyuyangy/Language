@@ -322,6 +322,11 @@ button::after {
     display: flex;
     justify-content: space-between;
 }
-.jd_btn_list_dt button{
+.jd_btn_list_dt button,.jd_btn_list_dt navigator{
     width: 49%
+}
+/*公司官网*/
+.jd_company_box_edit{
+    display: flex;
+    justify-content: flex-end;
 }

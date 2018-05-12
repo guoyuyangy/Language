@@ -1,0 +1,12 @@
+@import "/dist/weui.wxss";
+.doc-title {
+    position: relative;
+    padding: 15px 0;
+    margin: 10px 15px;
+    line-height: 25px;
+    font-size: 25px;
+    color: #666;
+}
+.addProduct_text{
+	width: 100%;
+}

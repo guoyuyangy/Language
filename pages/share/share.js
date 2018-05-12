@@ -10,7 +10,8 @@ Page(Object.assign({}, Zan.Switch, {
         id: null,
         save: 0,
         in_wallet: false,
-        products: []
+        products: [],
+        companyData: null
     },
     onLoad(options) {
         this.setData
@@ -40,6 +41,11 @@ Page(Object.assign({}, Zan.Switch, {
                 util.getData('cards/products', {card_id: res.data.data.id}, res => {
                     this.setData({
                         products: res.data.data
+                    })
+                })
+                util.getData(`cards/${res.data.data.id}/website`, {}, res => {
+                    this.setData({
+                        companyData: res.data.data
                     })
                 })
                 wx.hideLoading()
