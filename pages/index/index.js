@@ -50,7 +50,6 @@ Page(Object.assign({}, Zan.Switch, {
     getData() {
         let that = this
         util.getData('user', {}, res => {
-            console.log(res)
             if(res.statusCode == 403){
                 util.reLogin(res=>{
                     that.getData()

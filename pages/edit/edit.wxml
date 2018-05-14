@@ -2,7 +2,7 @@
     <view class="jd_edit_box">
         <view class="jd_edit_avatar" bindtap="selectImage">
             <image class="jd_edit_avatar_btn" src="/images/cam.png"></image>
-            <button wx:if="{{ avatar == null || avatar == ''  }}" open-type="getUserInfo" bindgetuserinfo="getUser">
+            <button wx:if="{{ avatar == null || avatar == ''  }}" bindgetuserinfo="getUser">
                 <image class="jd_edit_avatar_info" src="/images/default.png"></image>
             </button>
             <image class="jd_edit_avatar_info" wx:if="{{ avatar != null && avatar != '' }}" src="{{ avatar }}"></image>

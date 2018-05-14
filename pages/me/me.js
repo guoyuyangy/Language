@@ -6,12 +6,16 @@ Page({
         name: '人脉名片王',
         id: null,
         company_number: '0535-6389615',
-        internal: false
+        internal: false,
+        version: ''
     },
     onLoad: function(options) {
 
     },
     onShow: function() {
+        this.setData({
+            version: app.globalData.version
+        })
         if (app.globalData.access_token && app.globalData.userid != null) {
             this.getData()
         }else{
@@ -41,6 +45,11 @@ Page({
     },
     getData(){
         util.getData('users/' + app.globalData.userid, {}, res => {
+            if(res.statusCode == 403){
+                util.reLogin(res=>{
+                    this.getData()
+                })
+            }
             app.globalData.internal = res.data.data.internal
             this.setData({
                 id: app.globalData.userid,
