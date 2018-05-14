@@ -124,6 +124,7 @@ Page({
     chooseImage: function(e) {
         var that = this;
         wx.chooseImage({
+            count: 1,
             sizeType: ['original', 'compressed'],
             sourceType: ['album', 'camera'],
             success: function(res) {
@@ -148,9 +149,19 @@ Page({
         })
     },
     previewImage: function(e) {
-        wx.previewImage({
-            current: e.currentTarget.id, // 当前显示图片的http链接
-            urls: this.data.files // 需要预览的图片http链接列表
+        let that = this
+        wx.showModal({
+            title: '提示',
+            content: '是否删除此图片？',
+            success: function(res) {
+                if (res.confirm) {
+                    let files = that.data.files
+                    files.splice(e.currentTarget.id,1)
+                    that.setData({
+                        files: files
+                    })
+                }
+            }
         })
     },
     blurName: function(e) {

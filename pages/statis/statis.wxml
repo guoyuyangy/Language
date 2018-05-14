@@ -10,7 +10,7 @@
   </view>
 </view>
 <scroll-view scroll-y style="height:{{winHeight}}px" bindscrolltolower="bindDownLoad" lower-threshold="1"  enable-back-to-top="true">
-  <view class="jd_card_box_two" wx:for="{{ listData }}" wx:key="{{item.id}}">
+  <navigator url="/pages/share/share?id={{ item.id }}&type=collection" class="jd_card_box_two" wx:for="{{ listData }}" wx:key="{{item.id}}">
     <view class="jd_card_box_two_box">
       <view class="jd_card_box_two_left">
         <view class="jd_card_fix_name">{{ item.name }}
@@ -44,7 +44,7 @@
         <view class="jd_tab_list_text">转发：{{ item.forward }}</view>
       </view>
     </view>
-  </view>
+  </navigator>
   <!-- </navigator> -->
   <template is="zan-loadmore" data="{{ loading: loading }}" />
   <template is="zan-loadmore" data="{{ nodata: nodata }}" />

@@ -1,21 +1,30 @@
 import { is_dev, dev_host, production_host } from 'env.js'
 App({
     onLaunch: function() {
-        wx.clearStorageSync()
         var logs = wx.getStorageSync('logs') || []
         logs.unshift(Date.now())
         wx.setStorageSync('logs', logs)
         this.globalData.access_token = wx.getStorageSync('access_token');
-    },
-
-    onShow: function() {
         if (!this.globalData.access_token) {
             console.log("No access token found, try to login!");
             this.login();
         }
     },
+    onShow: function() {
+        // 检测微信登录态是否失效
+        wx.checkSession({
+            success: () => {
+                console.log("Good session!");
+            },
+            fail: () => {
+                console.log("Bad session!");
+                // 登录态过期
+                this.login()
+            }
+        })
+    },
     login: function() {
-        wx.login({ 
+        wx.login({
             success: res => {
                 if (res.code) {
                     //发起网络请求
@@ -48,7 +57,7 @@ App({
         userid: null,
         avatar: null,
         name: null,
-        internal:null,
+        internal: null,
         host: is_dev() ? dev_host() : production_host(),
         version: 'v1.0.0',
     }

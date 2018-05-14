@@ -10,3 +10,9 @@
 .addProduct_text{
 	width: 100%;
 }
+.jd_btn_box{
+	display: flex;
+}
+.jd_btn_box button{
+	width: 48%;
+}

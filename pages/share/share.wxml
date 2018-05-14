@@ -1,35 +1,38 @@
 <view class="jd_card_background">
     <view class="jd_card_background_info"></view>
     <view class="jd_card_box_two">
-        <view class="jd_card_box_two_box">
-            <view class="jd_card_box_two_left">
-                <view class="jd_card_fix_name">{{ userData.name }} <span>{{ userData.title }}</span></view>
-                <view class="jd_card_fix_title" wx:if="{{ userData.company != null }}"><span>{{ userData.company }}</span></view>
-                <view class="jd_card_fix_tel" bindtap="call">
-                    <image class="jd_two_icon" src="/images/2.jpg"></image> {{ userData.mobile }}</view>
-                <view class="jd_card_fix_email" wx:if="{{ userData.email != '' }}">
-                    <image class="jd_two_icon" src="/images/4.jpg"></image>
-                    <view class="jd_card_fix_email_info">{{ userData.email }}</view>
+        <view class="jd_fifter"></view>
+        <view class="jd_top_index_fifter">
+            <view class="jd_card_box_two_box">
+                <view class="jd_card_box_two_left">
+                    <view class="jd_card_fix_name">{{ userData.name }} <span>{{ userData.title }}</span></view>
+                    <view class="jd_card_fix_title" wx:if="{{ userData.company != null }}"><span>{{ userData.company }}</span></view>
+                    <view class="jd_card_fix_tel" bindtap="call">
+                        <image class="jd_two_icon" src="/images/2.jpg"></image> {{ userData.mobile }}</view>
+                    <view class="jd_card_fix_email" wx:if="{{ userData.address.name != '' && userData.address.name != null }}">
+                        <image class="jd_two_icon" src="/images/position.png"></image>
+                        <view class="jd_card_fix_email_info">{{ userData.address.name }}</view>
+                    </view>
+                </view>
+                <view wx:if="{{ userData.avatar }}" class="jd_card_box_two_right">
+                    <image src="{{ userData.avatar }}"></image>
                 </view>
             </view>
-            <view wx:if="{{ userData.avatar }}" class="jd_card_box_two_right">
-                <image src="{{ userData.avatar }}"></image>
+            <view class="jd_tab_list">
+                <view class="jd_tab_list_item jd_tab_list_item_no">
+                    <image src="/images/5.jpg" class="jd_tab_list_icon"></image>
+                    <view class="jd_tab_list_text">人气 {{ userData.hot }}</view>
+                </view>
+                <view class="jd_tab_list_item jd_tab_list_item_no" bindtap="animation">
+                    <image src="/images/6.jpg" wx:if="{{ !in_wallet }}" class="jd_tab_list_icon"></image>
+                    <image src="/images/61.jpg" wx:if="{{ in_wallet }}" class="jd_tab_list_icon"></image>
+                    <view class="jd_tab_list_text">收藏 {{ save }}</view>
+                </view>
+                <button open-type="share" class="jd_tab_list_item">
+                    <image src="/images/7.jpg" class="jd_tab_list_icon"></image>
+                    <view class="jd_tab_list_text" style='color: #fff;'>转发 {{ userData.forward }}</view>
+                </button>
             </view>
-        </view>
-        <view class="jd_tab_list">
-            <view class="jd_tab_list_item jd_tab_list_item_no">
-                <image src="/images/5.jpg" class="jd_tab_list_icon"></image>
-                <view class="jd_tab_list_text">人气 {{ userData.hot }}</view>
-            </view>
-            <view class="jd_tab_list_item jd_tab_list_item_no" bindtap="animation">
-                <image src="/images/6.jpg" wx:if="{{ !in_wallet }}" class="jd_tab_list_icon"></image>
-                <image src="/images/61.jpg" wx:if="{{ in_wallet }}" class="jd_tab_list_icon"></image>
-                <view class="jd_tab_list_text">收藏 {{ save }}</view>
-            </view>
-            <button open-type="share" class="jd_tab_list_item">
-                <image src="/images/7.jpg" class="jd_tab_list_icon"></image>
-                <view class="jd_tab_list_text" style='color: #fff;'>转发 {{ userData.forward }}</view>
-            </button>
         </view>
     </view>
 </view>
@@ -48,9 +51,9 @@
             <text class="jd_card_info_text">{{ userData.industry }}</text>
             <view class="zan-cell__ft"></view>
         </view>
-        <view wx:if="{{ userData.address.name != '' && userData.address.name != null }}" class="zan-cell">
-            <view class="zan-cell__bd">地址</view>
-            <text class="jd_card_info_text">{{ userData.address.name }}</text>
+        <view wx:if="{{ userData.email != '' && userData.email != null }}" class="zan-cell">
+            <view class="zan-cell__bd">邮箱</view>
+            <text class="jd_card_info_text">{{ userData.email }}</text>
         </view>
         <view wx:if="{{ userData.slogan != '' }}" class="zan-cell">
             <view class="zan-cell__bd">签名</view>
@@ -69,55 +72,33 @@
             <button class="zan-btn" bindtap="edit">编辑名片</button>
         </view>
     </view>
-        <!-- 公司官网开始 -->
+    <!-- 公司官网开始 -->
     <view class="jd_product_layouts" wx:if="{{ companyData != null }}">
         <view class="doc-title">公司官网</view>
-        <view class="zan-panel">
-            <view class="zan-card">
-                <navigator url="/pages/details/details?card_id={{ companyData.card_id }}" hover-class="none">
-                    <view class="zan-card__thumb">
-                        <image wx:if="{{ companyData.images.length != 0 }}" mode="aspectFill" class="zan-card__img" src="{{ companyData.images[0] }}"></image>
-                        <image class="zan-card__img" src="https://img.yzcdn.cn/upload_files/2016/11/25/FpqPXlrMRjKwJs8VdTu3ZDJCj4j5.jpeg?imageView2/2/w/200/h/200/q/90/format/jpeg" mode="aspectFit" wx:else></image>
-                    </view>
+        <navigator url="/pages/company/company?card_id={{ companyData.card_id }}" hover-class="none" class="jd_company_box">
+            <image wx:if="{{ companyData.images.length != 0 }}" mode="aspectFill" class="jd_company_image" src="{{ companyData.images[0] }}"></image>
+            <view wx:if="{{ companyData.intro != '' }}" class="jd_company_info">{{ companyData.intro }}</view>
+        </navigator>
+    </view>
+    <!-- 公司官网结束 -->
+    <!-- 主推产品开始 -->
+    <view class="jd_product_layouts" wx:if="{{ products.length != 0 }}">
+        <view class="doc-title">主推产品</view>
+        <view class="jd_product_list_box">
+            <view wx:for="{{ products }}" class="jd_product_list">
+                <navigator url="/pages/details/details?id={{ item.id }}" hover-class="none">
+                    <image wx:if="{{ item.images.length != 0 }}" mode="aspectFill" class="jd_product_list_image" src="{{ item.images[0] }}"></image>
                 </navigator>
-                <view class="zan-card__detail jd_product_card">
-                    <navigator url="/pages/company/company?card_id={{ companyData.card_id }}" hover-class="none">
-                        <view class="zan-card__detail-row">
-                            <view class="zan-ellipsis--l2 jd_product_name">
-                                {{ companyData.name }}
-                            </view>
-                            <view class="zan-card__detail-row jd_product_desc">
-                                {{ companyData.intro }}
-                            </view>
-                        </view>
-                    </navigator>
+                <view class="jd_product_info_box">
+                    <view class="jd_product_name">{{ item.name }}</view>
+                    <view class="jd_product_price_bottom">
+                        <view class="color_red"> ¥{{ item.price }}</view>
+                    </view>
                 </view>
             </view>
         </view>
     </view>
-    <!-- 公司官网结束 -->
-        <view class="jd_product_layouts" wx:if="{{ products.length != 0 }}">
-        <view class="doc-title">主推产品</view>
-        <navigator url="/pages/details/details?id={{ item.id }}" hover-class="none" wx:for="{{ products }}" class="zan-panel">
-            <view class="zan-card">
-                <view class="zan-card__thumb">
-                    <image wx:if="{{ item.images.length != 0 }}" mode="aspectFill" class="zan-card__img" src="{{ item.images[0] }}"></image>
-                    <image class="zan-card__img" src="https://img.yzcdn.cn/upload_files/2016/11/25/FpqPXlrMRjKwJs8VdTu3ZDJCj4j5.jpeg?imageView2/2/w/200/h/200/q/90/format/jpeg" mode="aspectFit" wx:else></image>
-                </view>
-                <view class="zan-card__detail jd_product_card">
-                    <view class="zan-card__detail-row">
-                        <view class="zan-ellipsis--l2 jd_product_name">
-                            {{ item.name }}
-                        </view>
-                        <view class="zan-card__detail-row jd_product_desc">
-                            {{ item.description }}
-                        </view>
-                    </view>
-                    <view class="jd_price_box_edit">
-                        <view class="color_red">¥ {{ item.price }}</view>
-                    </view>
-                </view>
-            </view>
-        </navigator>
-    </view>
+    <!-- 主推产品结束 -->
 </view>
+<view class="clear"></view>
+<view class="jd_fix_height"></view>

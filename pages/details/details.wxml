@@ -1,6 +1,6 @@
 <import src="/wxParse/wxParse.wxml" />
 <view>
-    <swiper class="layout" indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+    <swiper class="layout" indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" circular="true" interval="{{interval}}" duration="{{duration}}">
         <block wx:for="{{detailData.images}}" wx:key="">
             <swiper-item>
                 <image mode='aspectFill' style="height:100%" src="{{item}}?imageView2/2/w/600" />
@@ -31,44 +31,49 @@
         </view>
     </view>
 </view>
-<view class="swiper-box">
+<view class="swiper-box jd_bottom_style">
     <!-- 服务详情 -->
     <view>
         <view class="detail_list_info">
-            {{ detailData.detail }}
+            <text>{{ detailData.detail }}</text>
         </view>
     </view>
 </view>
+<view class="jd_text_tag">对产品感兴趣，可以通过名片上的信息联系我哦！</view>
 <view class="jd_card_box_two">
-        <view class="jd_card_box_two_box">
-            <view class="jd_card_box_two_left">
-                <view class="jd_card_fix_name">{{ userData.name }} <span>{{ userData.title }}</span></view>
-                <view class="jd_card_fix_title" wx:if="{{ userData.company != null }}"><span>{{ userData.company }}</span></view>
-                <view class="jd_card_fix_tel" bindtap="call">
-                    <image class="jd_two_icon" src="/images/2.jpg"></image> {{ userData.mobile }}</view>
-                <view class="jd_card_fix_email" wx:if="{{ userData.email != '' }}">
-                    <image class="jd_two_icon" src="/images/4.jpg"></image>
-                    <view class="jd_card_fix_email_info">{{ userData.email }}</view>
-                </view>
-            </view>
-            <view wx:if="{{ userData.avatar }}" class="jd_card_box_two_right">
-                <image src="{{ userData.avatar }}"></image>
+    <view class="jd_fifter"></view>
+        <view class="jd_top_index_fifter">
+    <view class="jd_card_box_two_box">
+        <view class="jd_card_box_two_left">
+            <view class="jd_card_fix_name">{{ userData.name }} <span>{{ userData.title }}</span></view>
+            <view class="jd_card_fix_title" wx:if="{{ userData.company != null }}"><span>{{ userData.company }}</span></view>
+            <view class="jd_card_fix_tel" bindtap="call">
+                <image class="jd_two_icon" src="/images/2.jpg"></image> {{ userData.mobile }}</view>
+            <view class="jd_card_fix_email" wx:if="{{ userData.email != '' &&  userData.email != null}}">
+                <image class="jd_two_icon" src="/images/position.png"></image>
+                <view class="jd_card_fix_email_info">{{ userData.address.name }}</view>
             </view>
         </view>
-        <view class="jd_tab_list">
-            <view class="jd_tab_list_item jd_tab_list_item_no">
-                <image src="/images/5.jpg" class="jd_tab_list_icon"></image>
-                <view class="jd_tab_list_text">人气 {{ userData.hot }}</view>
-            </view>
-            <view class="jd_tab_list_item jd_tab_list_item_no" bindtap="animation">
-                <image src="/images/6.jpg" wx:if="{{ !in_wallet }}" class="jd_tab_list_icon"></image>
-                <image src="/images/61.jpg" wx:if="{{ in_wallet }}" class="jd_tab_list_icon"></image>
-                <view class="jd_tab_list_text">收藏 {{ save }}</view>
-            </view>
-            <button class="jd_tab_list_item">
-                <image src="/images/7.jpg" class="jd_tab_list_icon"></image>
-                <view class="jd_tab_list_text" style='color: #fff;'>转发 {{ userData.forward }}</view>
-            </button>
+        <view wx:if="{{ userData.avatar }}" class="jd_card_box_two_right">
+            <image src="{{ userData.avatar }}"></image>
         </view>
     </view>
+    <view class="jd_tab_list">
+        <view class="jd_tab_list_item jd_tab_list_item_no">
+            <image src="/images/5.jpg" class="jd_tab_list_icon"></image>
+            <view class="jd_tab_list_text">人气 {{ userData.hot }}</view>
+        </view>
+        <view class="jd_tab_list_item jd_tab_list_item_no" bindtap="animation">
+            <image src="/images/6.jpg" wx:if="{{ !in_wallet }}" class="jd_tab_list_icon"></image>
+            <image src="/images/61.jpg" wx:if="{{ in_wallet }}" class="jd_tab_list_icon"></image>
+            <view class="jd_tab_list_text">收藏 {{ save }}</view>
+        </view>
+        <button class="jd_tab_list_item">
+            <image src="/images/7.jpg" class="jd_tab_list_icon"></image>
+            <view class="jd_tab_list_text" style='color: #fff;'>转发 {{ userData.forward }}</view>
+        </button>
+    </view>
+</view>
+</view>
+<button type="primary"  bindtap="toIndex" style="width:92%;margin-top:20px;">我也要制作</button>
 <view class="fix_height"></view>

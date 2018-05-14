@@ -130,10 +130,11 @@
     margin: 0 auto;
     box-shadow: 0rpx 5rpx 20rpx #8d8d8d;
     display: flex;
-    background: url('http://card-cdn.jindongsoft.com/card-bg.png');
+    /*background: url('http://card-cdn.jindongsoft.com/card-bg.png');*/
     background-size: 100% 100%;
     position: relative;
     z-index: 9;
+    overflow: hidden;
 }
 
 .jd_card_box_two .jd_card_box_two_left {
@@ -274,6 +275,8 @@ button::after {
 .jd_card_fix_email_info {
     width: 90%;
     overflow: hidden;
+    max-height: 38px;
+    overflow: hidden;
 }
 
 .jd_card_background {
@@ -309,6 +312,8 @@ button::after {
 .jd_product_card .jd_product_desc{
     color: #999;
     margin-top: 5px;
+    height: 40px;
+    overflow: hidden;
 }
 .jd_price_box_edit{
     display: flex;
@@ -329,4 +334,82 @@ button::after {
 .jd_company_box_edit{
     display: flex;
     justify-content: flex-end;
+}
+/*512修改*/
+.jd_fifter{
+    width: 100%;
+    height: 225px;
+    position: absolute;
+    z-index: 9;
+    background: url('http://card-cdn.jindongsoft.com/card-bg.png');
+    filter: blur(15px);
+}
+.jd_top_index_fifter{
+    position: relative;
+    z-index: 10;
+}
+/*产品修改*/
+.jd_product_list_box{
+    width: 95%;
+    margin: 0 auto;
+}
+.jd_product_list_box .jd_product_list{
+    width: 49%;
+    background: #fff;
+    margin-top: 10px;
+    border-radius: 2px;
+    overflow: hidden;
+}
+.jd_product_list_box .jd_product_list .jd_product_list_image{
+    width: 100%;
+    height: 150px;
+}
+.jd_product_info_box{
+    width: 92%;
+    margin: 0 auto;
+}
+.jd_product_list_box .jd_product_list{
+    float: left;
+}
+.jd_product_list_box .jd_product_list:nth-child(even){
+    margin-left: 2%;
+}
+.jd_product_list_box .jd_product_list .jd_product_name{
+    font-size: 14px;
+    color: #555;
+    width: 100%;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+.jd_product_list_box .jd_product_list .jd_product_price_bottom{
+    display: flex;
+    justify-content: space-between;
+}
+.jd_product_list_box .jd_product_list .jd_product_price_bottom .color_red{
+    font-size: 14px;
+}
+.jd_company_box{
+    width: 100%;
+    margin-top: 10px;
+    background: #fff;
+    padding-bottom: 10px;
+}
+.jd_company_box .jd_company_image{
+    width: 100%;
+    height: 200px;
+}
+.jd_company_box .jd_company_info{
+    width: 92%;
+    margin: 0 auto;
+    font-size: 13px;
+    color: #555;
+    max-height: 50px;
+    overflow: hidden;
+    margin-top: 5px;
+    overflow : hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
 }

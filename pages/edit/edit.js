@@ -1,5 +1,6 @@
 const app = getApp()
 var util = require('../../utils/util.js');
+const qiniuUploader = require("../../utils/qiniuUploader");
 Page({
     data: {
         itemId: null,
@@ -91,6 +92,33 @@ Page({
 
                     }
                 })
+            }
+        })
+    },
+    selectImage(e) {
+        var that = this;
+        wx.chooseImage({
+            count: 1,
+            sizeType: ['original', 'compressed'],
+            sourceType: ['album', 'camera'],
+            success: function(res) {
+                var filePath = res.tempFilePaths[0];
+                qiniuUploader.upload(filePath, (res) => {
+                        that.setData({
+                            avatar: res.imageURL
+                        });
+                    }, (error) => {
+                        console.error('error: ' + JSON.stringify(error));
+                    }, {
+                        region: 'ECN',
+                        uptokenURL: `${app.globalData.host}/api/upload/token`,
+                        domain: 'http://card-cdn.jindongsoft.com',
+                        shouldUseQiniuFileName: false
+                    },
+                    (progress) => {
+
+                    }, cancelTask => that.setData({ cancelTask })
+                );
             }
         })
     },

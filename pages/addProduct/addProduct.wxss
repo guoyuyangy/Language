@@ -10,3 +10,22 @@
 .addProduct_text{
 	width: 100%;
 }
+.jd_image_detele{
+	position: absolute;
+	right: -7px;
+	top: -12px;
+	background: #fff;
+	border-radius: 50%;
+}
+.jd_images_box{
+	position: relative;
+}
+.weui-uploader__bd{
+	overflow: visible;
+}
+.jd_btn_box{
+	display: flex;
+}
+.jd_btn_box button{
+	width: 48%;
+}

@@ -32,6 +32,11 @@ Page({
 
   search: function () {
     util.cardpaginationSearch(this.data.listData, 'statistics', this.data.searchData, 'loginState', res => {
+      if(res.statusCode == 403){
+          util.reLogin(res=>{
+              that.getData()
+          })
+      }
       this.data.searchData.offset = res.data.length
       this.setData({
         listData: res.data,

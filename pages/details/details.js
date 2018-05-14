@@ -6,20 +6,26 @@ Page({
         product_id: null,
         userData: null,
         in_wallet: false,
-        save: null
+        save: null,
+        detailData: null,
+        indicatorDots: false,
+        autoplay: true,
+        interval: 5000,
+        duration: 1000
     },
     onLoad: function(options) {
+        let that = this
         this.setData({
             product_id: options.id
         })
-        if(app.globalData.access_token){
+        if (app.globalData.access_token) {
             this.getData()
-        }else{
-            setTimeout(function(){
-                this.getData()
-            },1000)
+        } else {
+            util.reLogin(res=>{
+                that.getData()
+            })
         }
-        
+
     },
     getData() {
         util.getData(`cards/products/${this.data.product_id}`, {}, res => {
@@ -75,4 +81,14 @@ Page({
     onShow: function() {
 
     },
+    toIndex() {
+        wx.switchTab({
+            url: '/pages/index/index'
+        })
+    },
+    onShareAppMessage: function() {
+        return {
+            title: this.data.detailData.name
+        }
+    }
 })

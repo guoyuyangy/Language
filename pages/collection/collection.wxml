@@ -9,4 +9,6 @@
         <image style='border-radius: 50%;' src="{{ item.user.avatar }}"></image>
     </navigator>
 </view>
-<view wx:if="{{ wallet.length == 0 }}" class="jd_nodata">- 暂无收藏 -</view>
+<view wx:if="{{ wallet.length == 0 }}" class="jd_nodata">
+	<image src="/images/nodata.png"></image>
+</view>

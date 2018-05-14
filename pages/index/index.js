@@ -23,14 +23,39 @@ Page(Object.assign({}, Zan.Switch, {
         if (app.globalData.access_token) {
             this.getData()
         }else{
-            setTimeout(function(){
-                that.getData()
-            },1000)
+            wx.login({
+                success: res => {
+                    if (res.code) {
+                        //发起网络请求
+                        wx.request({
+                            url: `${app.globalData.host}/api/auth/login`,
+                            method: 'POST',
+                            data: {
+                                code: res.code
+                            },
+                            success: res => {
+                                app.globalData.access_token = res.data.data.access_token
+                                app.globalData.userid = res.data.data.user_id
+                                wx.setStorageSync('access_token', res.data.data.access_token)
+                                this.getData()
+                            }
+                        })
+                    } else {
+                        console.log('获取用户登录态失败！' + res.errMsg)
+                    }
+                }
+            })
         }
     },
     getData() {
         let that = this
         util.getData('user', {}, res => {
+            console.log(res)
+            if(res.statusCode == 403){
+                util.reLogin(res=>{
+                    that.getData()
+                })
+            }
             if (res.data.data.card != null) {
                 this.setData({
                     isExist: true,
@@ -145,7 +170,7 @@ Page(Object.assign({}, Zan.Switch, {
     },
     onShareAppMessage: function() {
         return {
-          title: this.data.userData.name + '的名片',
+          title: this.data.userData.name + '的名片，敬请惠存',
             path: '/pages/share/share?id=' + this.data.id,
             success: (res) => {
                 util.postData('cards/' + this.data.id + '/forward', {}, res => {})

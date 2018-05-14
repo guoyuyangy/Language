@@ -13,6 +13,7 @@
 	align-items: center;
 	justify-content: center;
 	padding-bottom: 5px;
+	position: relative;
 }
 .jd_edit_box .jd_edit_avatar .jd_edit_avatar_lay{
 	width: 70px;
@@ -20,10 +21,16 @@
 	border-radius: 50%;
 	overflow: hidden;
 }
-.jd_edit_box .jd_edit_avatar image{
+.jd_edit_box .jd_edit_avatar image.jd_edit_avatar_info{
 	width: 70px;
 	height: 70px;
 	border-radius: 50%;
+}
+.jd_edit_box .jd_edit_avatar image.jd_edit_avatar_btn{
+	width: 30px;
+	height: 30px;
+	position: absolute;
+	left: 46%;
 }
 .jd_edit_box .jd_edit_avatar button{
 	background: none;

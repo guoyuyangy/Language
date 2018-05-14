@@ -7,22 +7,36 @@ Page({
         card_id: null
     },
     onLoad: function(options) {
-        console.log(options.card_id)
+        let that = this
         if (options.card_id) {
             this.setData({
                 card_id: options.card_id
             })
-            util.getData(`cards/${this.data.card_id}/website`, {}, res => {
-                if (res.data.code == 0) {
-                    this.setData({
-                        company: res.data.data
-                    })
-                }
-            })
+            if (app.globalData.access_token) {
+                that.getData()
+            }else{
+                util.reLogin(res=>{
+                    that.getData()
+                })
+            }
         }
     },
     onShow: function() {
 
+    },
+    getData() {
+        util.getData(`cards/${this.data.card_id}/website`, {}, res => {
+            if (res.data.code == 0) {
+                this.setData({
+                    company: res.data.data
+                })
+            }
+        })
+    },
+    toIndex() {
+        wx.switchTab({
+            url: '/pages/index/index'
+        })
     },
     onShareAppMessage: function() {
 

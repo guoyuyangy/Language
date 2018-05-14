@@ -33,7 +33,7 @@
                         <view class="weui-uploader__bd">
                             <view class="weui-uploader__files" id="uploaderFiles">
                                 <block wx:for-items="{{files}}" wx:key="{{index}}">
-                                    <view class="weui-uploader__file" bindtap="previewImage" id="{{item}}">
+                                    <view class="weui-uploader__file" bindtap="previewImage" id="{{index}}">
                                         <image class="weui-uploader__img" src="{{item}}" mode="aspectFill" />
                                     </view>
                                 </block>
@@ -47,9 +47,12 @@
             </view>
         </view>
     </view>
-    <view class="zan-btns">
+    <view class="zan-btns jd_btn_box" wx:if="{{ type == 'edit' }}">
         <button class="zan-btn zan-btn--primary" formType="submit">保存</button>
-        <button wx:if="{{ type == 'edit' }}" bindtap="delete" class="zan-btn zan-btn--danger">删除</button>
+        <button bindtap="delete" class="zan-btn zan-btn--danger">删除</button>
+    </view>
+    <view class="zan-btns" wx:else>
+        <button class="zan-btn zan-btn--primary" formType="submit">保存</button>
     </view>
 </form>
 <view class="jd_fix_height"></view>
