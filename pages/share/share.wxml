@@ -15,7 +15,7 @@
                     </view>
                 </view>
                 <view wx:if="{{ userData.avatar }}" class="jd_card_box_two_right">
-                    <image src="{{ userData.avatar }}"></image>
+                    <image src="{{ userData.avatar }}?imageView2/2/w/150"></image>
                 </view>
             </view>
             <view class="jd_tab_list">
@@ -76,7 +76,7 @@
     <view class="jd_product_layouts" wx:if="{{ companyData != null }}">
         <view class="doc-title">公司官网</view>
         <navigator url="/pages/company/company?card_id={{ companyData.card_id }}" hover-class="none" class="jd_company_box">
-            <image wx:if="{{ companyData.images.length != 0 }}" mode="aspectFill" class="jd_company_image" src="{{ companyData.images[0] }}"></image>
+            <image wx:if="{{ companyData.images.length != 0 }}" mode="aspectFill" class="jd_company_image" src="{{ companyData.images[0] }}?imageView2/2/w/400"></image>
             <view wx:if="{{ companyData.intro != '' }}" class="jd_company_info">{{ companyData.intro }}</view>
         </navigator>
     </view>
@@ -87,7 +87,7 @@
         <view class="jd_product_list_box">
             <view wx:for="{{ products }}" class="jd_product_list">
                 <navigator url="/pages/details/details?id={{ item.id }}" hover-class="none">
-                    <image wx:if="{{ item.images.length != 0 }}" mode="aspectFill" class="jd_product_list_image" src="{{ item.images[0] }}"></image>
+                    <image wx:if="{{ item.images.length != 0 }}" mode="aspectFill" class="jd_product_list_image" src="{{ item.images[0] }}?imageView2/2/w/300"></image>
                 </navigator>
                 <view class="jd_product_info_box">
                     <view class="jd_product_name">{{ item.name }}</view>
