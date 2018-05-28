@@ -14,8 +14,9 @@
                         <view class="jd_card_fix_email_info">{{ userData.address.name }}</view>
                     </view>
                 </view>
-                <view wx:if="{{ userData.avatar }}" class="jd_card_box_two_right">
-                    <image src="{{ userData.avatar }}?imageView2/2/w/150"></image>
+                <view class="jd_card_box_two_right">
+                    <image src="../../images/default_user_portrait_blue.png" wx:if="{{ userData.avatar == '' }}"></image>
+                    <image src="{{ userData.avatar }}?imageView2/2/w/150" wx:if="{{ userData.avatar != '' && userData.avatar != null }}"></image>
                 </view>
             </view>
             <view class="jd_tab_list">

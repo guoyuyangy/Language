@@ -27,7 +27,8 @@
         </view>
       </view>
       <view class="jd_card_box_two_right">
-        <image src="{{ item.avatar }}"></image>
+        <image src="../../images/default_user_portrait.png" wx:if="{{ item.avatar == '' }}"></image>
+        <image src="{{ item.avatar }}" wx:else></image>
       </view>
     </view>
     <view class="jd_tab_list">
