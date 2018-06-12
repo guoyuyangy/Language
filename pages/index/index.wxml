@@ -102,8 +102,11 @@
         <view class="doc-title">主推产品</view>
         <view class="jd_product_list_box">
             <view wx:for="{{ products }}" class="jd_product_list">
-                <navigator url="/pages/details/details?id={{ item.id }}" hover-class="none">
+                <navigator url="/pages/details/details?id={{ item.id }}" wx:if="{{ item.images.length != 0 }}" hover-class="none">
                     <image wx:if="{{ item.images.length != 0 }}" mode="aspectFill" class="jd_product_list_image" src="{{ item.images[0] }}?imageView2/2/w/400"></image>
+                </navigator>
+                <navigator url="/pages/details/details?id={{ item.id }}" hover-class="none" wx:else>
+                    <image mode="aspectFill" class="jd_product_list_image" src="/images/default_product.png"></image>
                 </navigator>
                 <view class="jd_product_info_box">
                     <view class="jd_product_name">{{ item.name }}</view>
