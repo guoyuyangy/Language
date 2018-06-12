@@ -12,7 +12,10 @@
       <view class="zan-cell__bd" bindtap='select_bless' data-content='{{ item.name }}' style='display: flex;width:100%;'>
         <view class='rank_index' wx:if  ="{{ index < 3 }}"><image class='rank_image' src='../../images/top{{index+1}}.png'></image></view>
         <view class='rank_index' wx:else>{{ index + 1 }}</view>
-        <image class='avatar_url' src='{{ item.avatar == "" ? "../../images/default_avatar.jpg" : item.avatar }}?imageView2/2/w/50'></image>
+        <view class="image_wrapper">
+          <image class='avatar_url' src="../../images/default_avatar.jpg" wx:if="{{ item.avatar == '' }}"></image>
+        <image class='avatar_url' src="{{ item.avatar }}?imageView2/2/w/50" wx:else></image>
+        </view>
         <view class='name'>
             <view class="jd_rank_name_box">
                 <view class="jd_rank_name">{{ item.name == null ? '匿名' : item.name }}总</view>
