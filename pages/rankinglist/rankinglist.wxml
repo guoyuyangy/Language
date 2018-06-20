@@ -34,4 +34,5 @@
   <template is="zan-loadmore" data="{{ loading: loading }}" />
   <template is="zan-loadmore" data="{{ nodata: nodata }}" />
   <!-- <template is="zan-loadmore" data="{{ nomore: nomore }}" /> -->
+  <wxc-loading class="J_loading" type="mall"></wxc-loading>
 </scroll-view>

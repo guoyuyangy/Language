@@ -1,5 +1,6 @@
 const app = getApp()
 var util = require('../../utils/util.js');
+var $loading
 Page({
     data: {
         wallet: [],
@@ -8,9 +9,8 @@ Page({
         avatar: null
     },
     onLoad: function(options) {
-        wx.showLoading({
-            title: '加载中',
-        })
+        $loading = this.selectComponent(".J_loading")
+        $loading.show()
     },
     onShow: function() {
         if (app.globalData.access_token) {
@@ -49,9 +49,10 @@ Page({
             }
             this.setData({
                 wallet: res.data.data,
-                id: app.globalData.userid
+                id: app.globalData.userid,
             })
             wx.hideLoading()
+            $loading.hide()
         })
     }
 })

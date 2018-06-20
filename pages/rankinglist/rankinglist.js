@@ -1,5 +1,6 @@
 const app = getApp()
 var util = require('../../utils/util.js');
+var $loading
 Page({
 
     /**
@@ -33,9 +34,8 @@ Page({
      */
     onLoad: function(options) {
         this.init()
-        wx.showLoading({
-            title: '加载中',
-        })
+        $loading = this.selectComponent(".J_loading")
+        $loading.show()
         if (app.globalData.access_token) {
             this.search([], 'statistics/view')
         } else {
@@ -70,9 +70,8 @@ Page({
     },
 
     selectMenu: function(e) {
-        wx.showLoading({
-            title: '加载中',
-        })
+        $loading = this.selectComponent(".J_loading")
+        $loading.show()
         this.init()
         let index = e.currentTarget.dataset.itemIndex
         this.setData({
@@ -96,7 +95,7 @@ Page({
                 flag: true
             })
             setTimeout(function(){
-            	wx.hideLoading()
+              $loading.hide()
             },200)
         })
     },

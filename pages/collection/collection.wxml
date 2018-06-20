@@ -12,3 +12,4 @@
 <view wx:if="{{ wallet.length == 0 }}" class="jd_nodata">
 	<image src="/images/nodata.png"></image>
 </view>
+<wxc-loading class="J_loading" type="mall"></wxc-loading>

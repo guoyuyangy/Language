@@ -1,6 +1,7 @@
 const app = getApp()
 var util = require('../../utils/util.js');
 var Zan = require('../../dist/index');
+var $loading
 
 Page(Object.assign({}, Zan.Switch, {
     data: {
@@ -14,9 +15,8 @@ Page(Object.assign({}, Zan.Switch, {
         companyData: null
     },
     onLoad(options) {
-        wx.showLoading({
-            title: '加载中',
-        })
+      $loading = this.selectComponent(".J_loading")
+      $loading.show()
     },
     onShow() {
         let that = this
@@ -74,11 +74,13 @@ Page(Object.assign({}, Zan.Switch, {
                     })
                 })
                 wx.hideLoading()
+                $loading.hide()
             }else{
                 this.setData({
                     isExist: false
                 })
                 wx.hideLoading()
+                $loading.hide()
             }
         })
     },

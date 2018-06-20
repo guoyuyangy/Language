@@ -1,4 +1,7 @@
 {
 	"navigationBarBackgroundColor": "#D23630",
-	"navigationBarTitleText": "排行"
+	"navigationBarTitleText": "排行",
+  "usingComponents": {
+    "wxc-loading": "../../dist/wxc-loading/dist/index"
+  }
 }
