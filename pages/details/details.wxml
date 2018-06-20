@@ -1,6 +1,6 @@
 <import src="/wxParse/wxParse.wxml" />
 <view>
-    <swiper class="layout" indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" circular="true" interval="{{interval}}" duration="{{duration}}">
+    <swiper wx:if="{{ detailData.images.length != 0 }}" class="layout" indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" circular="true" interval="{{interval}}" duration="{{duration}}">
         <block wx:for="{{detailData.images}}" wx:key="">
             <swiper-item>
                 <image mode='aspectFill' style="height:100%" src="{{item}}?imageView2/2/w/600" />
