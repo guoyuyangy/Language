@@ -22,3 +22,11 @@
 .jd_company_intro image{
 	width: 100% !important;
 }
+.layout {
+  width: 100%;
+}
+
+.layout image {
+  width: 100%;
+  height: 225px;
+}

@@ -1,11 +1,15 @@
+<swiper wx:if="{{ company.images.length != 0 }}" class="layout" indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" circular="true" interval="{{interval}}" duration="{{duration}}">
+    <block wx:for="{{ company.images }}" wx:key="">
+        <swiper-item>
+            <image mode='aspectFill' style="height:100%" src="{{item}}?imageView2/2/w/600" />
+        </swiper-item>
+    </block>
+</swiper>
 <import src="/wxParse/wxParse.wxml" />
 <view class="jd_company_name_box">
 	<text class="jd_company_name">{{ company.name }}</text>
 </view>
 <view class="jd_company_intro"><template is="wxParse" data="{{ wxParseData:description.nodes }}" /></view>
-<view class="jd_company_image_box">
-	<image wx:for="{{ company.images }}" src="{{ item }}?imageView2/2/w/600"></image>
-</view>
 <view class="jd_float_btn" bindtap="toIndex">
     <image src="/images/index.png"></image>
     <text>回首页</text>

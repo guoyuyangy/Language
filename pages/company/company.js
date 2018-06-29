@@ -4,7 +4,11 @@ var WxParse = require("../../wxParse/wxParse.js")
 Page({
     data: {
         company: {},
-        card_id: null
+        card_id: null,
+        indicatorDots: true,
+        autoplay: true,
+        interval: 5000,
+        duration: 1000
     },
     onLoad: function(options) {
         let that = this
