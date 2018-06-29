@@ -93,7 +93,7 @@
         <view class="doc-title">公司官网</view>
         <navigator url="/pages/company/company?card_id={{ companyData.card_id }}" hover-class="none" class="jd_company_box">
             <image wx:if="{{ companyData.images.length != 0 }}" mode="aspectFill" class="jd_company_image" src="{{ companyData.images[0] }}?imageView2/2/w/600"></image>
-            <view wx:if="{{ companyData.intro != '' }}" class="jd_company_info">{{ companyData.intro }}</view>
+            <view wx:if="{{ companyData.intro != '' }}" class="jd_company_info">{{ companyData.name }}</view>
         </navigator>
     </view>
     <!-- 公司官网结束 -->

@@ -19,3 +19,6 @@
 .jd_company_image_box image{
 	width: 100%;
 }
+.jd_company_intro image{
+	width: 100% !important;
+}

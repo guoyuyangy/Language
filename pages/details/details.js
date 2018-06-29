@@ -36,6 +36,7 @@ Page({
                     in_wallet: res.data.data.card.in_wallet,
                     save: res.data.data.card.save
                 })
+                WxParse.wxParse('description', 'html', this.data.detailData.detail, this, 5);
             }
         })
 

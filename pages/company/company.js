@@ -1,6 +1,6 @@
 const app = getApp()
 var util = require('../../utils/util.js');
-const qiniuUploader = require("../../utils/qiniuUploader");
+var WxParse = require("../../wxParse/wxParse.js")
 Page({
     data: {
         company: {},
@@ -30,6 +30,7 @@ Page({
                 this.setData({
                     company: res.data.data
                 })
+                WxParse.wxParse('description', 'html', this.data.company.intro, this, 5);
             }
         })
     },

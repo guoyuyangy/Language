@@ -40,7 +40,6 @@ Page({
         
     },
     formSubmit: function() {
-        console.log(this.data.files)
         let arr = {
             card_id: this.data.card_id,
             name: this.data.name,
@@ -133,6 +132,41 @@ Page({
                         that.setData({
                             files: that.data.files.concat(res.imageURL)
                         });
+                    }, (error) => {
+                        console.error('error: ' + JSON.stringify(error));
+                    }, {
+                        region: 'ECN',
+                        uptokenURL: `${app.globalData.host}/api/upload/token`,
+                        domain: 'http://card-cdn.jindongsoft.com',
+                        shouldUseQiniuFileName: false
+                    },
+                    (progress) => {
+
+                    }, cancelTask => that.setData({ cancelTask })
+                );
+            }
+        })
+    },
+    insertImage(e) {
+        var that = this;
+        wx.chooseImage({
+            count: 1,
+            sizeType: ['original', 'compressed'],
+            sourceType: ['album', 'camera'],
+            success: function(res) {
+                var filePath = res.tempFilePaths[0];
+                qiniuUploader.upload(filePath, (res) => {
+                        let current = that.data.detail
+                        if(current != null){
+                            that.setData({
+                                detail: `${current}<img src="${res.imageURL}" />`
+                            })
+                        }else {
+                            that.setData({
+                                detail: `<img src="${res.imageURL}" />`
+                            })
+                        }
+                        
                     }, (error) => {
                         console.error('error: ' + JSON.stringify(error));
                     }, {

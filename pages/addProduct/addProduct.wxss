@@ -29,3 +29,20 @@
 .jd_btn_box button{
 	width: 48%;
 }
+.jd_insert_img{
+	width: 130rpx;
+	height: 40rpx;
+	background: gray;
+	color: #fff;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 2em;
+	margin-left: 12rpx;
+	font-size: 24rpx;
+}
+.zan-panel-title {
+	display:flex;
+	align-items:center;
+	justify-content: space-between;
+}

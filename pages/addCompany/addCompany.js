@@ -105,6 +105,35 @@ Page({
             }
         })
     },
+    insertImage(e) {
+        var that = this;
+        wx.chooseImage({
+            count: 9,
+            sizeType: ['original', 'compressed'],
+            sourceType: ['album', 'camera'],
+            success: function(res) {
+                var filePath = res.tempFilePaths[0];
+                qiniuUploader.upload(filePath, (res) => {
+                        console.log(res.imageURL)
+                        let current = that.data.detail
+                        that.setData({
+                            detail: `${current}<img src="${res.imageURL}" />`
+                        })
+                    }, (error) => {
+                        console.error('error: ' + JSON.stringify(error));
+                    }, {
+                        region: 'ECN',
+                        uptokenURL: `${app.globalData.host}/api/upload/token`,
+                        domain: 'http://card-cdn.jindongsoft.com',
+                        shouldUseQiniuFileName: false
+                    },
+                    (progress) => {
+
+                    }, cancelTask => that.setData({ cancelTask })
+                );
+            }
+        })
+    },
     previewImage: function(e) {
         let that = this
         wx.showModal({

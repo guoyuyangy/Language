@@ -7,10 +7,10 @@
             <input class="zan-field__input zan-cell__bd" type="text" value="{{ name }}" bindinput="blurName" name="name" placeholder="请输入公司名称" />
         </view>
     </view>
-    <view class="zan-panel-title">公司介绍</view>
+    <view class="zan-panel-title">公司介绍<view class="jd_insert_img" bindtap="insertImage">插入图片</view></view>
     <view class="zan-panel">
         <view class="zan-cell zan-field">
-            <textarea class="addProduct_text" type="text" value="{{ detail }}" bindinput="blurDetail" name="detail" placeholder="请输入公司介绍" />
+            <textarea class="addProduct_text" type="text" value="{{ detail }}" maxlength="-1" bindinput="blurDetail" name="detail" placeholder="请输入公司介绍" />
         </view>
     </view>
         <view class="page__bd">

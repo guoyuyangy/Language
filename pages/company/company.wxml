@@ -1,7 +1,8 @@
+<import src="/wxParse/wxParse.wxml" />
 <view class="jd_company_name_box">
 	<text class="jd_company_name">{{ company.name }}</text>
 </view>
-<view class="jd_company_intro"><text>{{ company.intro }}</text></view>
+<view class="jd_company_intro"><template is="wxParse" data="{{ wxParseData:description.nodes }}" /></view>
 <view class="jd_company_image_box">
 	<image wx:for="{{ company.images }}" src="{{ item }}?imageView2/2/w/600"></image>
 </view>

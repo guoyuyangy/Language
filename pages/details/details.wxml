@@ -35,7 +35,7 @@
     <!-- 服务详情 -->
     <view>
         <view class="detail_list_info">
-            <text>{{ detailData.detail }}</text>
+             <template is="wxParse" data="{{ wxParseData:description.nodes }}" />
         </view>
     </view>
 </view>
