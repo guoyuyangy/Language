@@ -11,7 +11,8 @@ Page({
         indicatorDots: false,
         autoplay: true,
         interval: 5000,
-        duration: 1000
+        duration: 1000,
+        companyData: null
     },
     onLoad: function(options) {
         let that = this
@@ -36,6 +37,16 @@ Page({
                     in_wallet: res.data.data.card.in_wallet,
                     save: res.data.data.card.save
                 })
+              util.getData(`cards/${res.data.data.card.id}/website`, {}, res => {
+                this.setData({
+                  companyData: res.data.data
+                })
+              })
+              util.getData('cards/products', { card_id: res.data.data.card.id }, res => {
+                this.setData({
+                  products: res.data.data
+                })
+              })
                 WxParse.wxParse('description', 'html', this.data.detailData.detail, this, 5);
             }
         })

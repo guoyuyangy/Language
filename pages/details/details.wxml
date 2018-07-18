@@ -68,7 +68,7 @@
             <image src="/images/61.jpg" wx:if="{{ in_wallet }}" class="jd_tab_list_icon"></image>
             <view class="jd_tab_list_text">收藏 {{ save }}</view>
         </view>
-        <button class="jd_tab_list_item">
+        <button open-type="share" class="jd_tab_list_item">
             <image src="/images/7.jpg" class="jd_tab_list_icon"></image>
             <view class="jd_tab_list_text" style='color: #fff;'>转发 {{ userData.forward }}</view>
         </button>
@@ -76,4 +76,34 @@
 </view>
 </view>
 <button type="primary"  bindtap="toIndex" style="width:92%;margin-top:20px;">我也要制作</button>
+    <!-- 公司官网开始 -->
+    <view class="jd_product_layouts" wx:if="{{ companyData != null }}">
+        <view class="doc-title">公司官网</view>
+        <navigator url="/pages/company/company?card_id={{ companyData.card_id }}" hover-class="none" class="jd_company_box">
+            <image wx:if="{{ companyData.images.length != 0 }}" mode="aspectFill" class="jd_company_image" src="{{ companyData.images[0] }}?imageView2/2/w/600"></image>
+            <view wx:if="{{ companyData.intro != '' }}" class="jd_company_info">{{ companyData.name }}</view>
+        </navigator>
+    </view>
+    <!-- 公司官网结束 -->
+        <!-- 主推产品开始 -->
+    <view class="jd_product_layouts" wx:if="{{ products.length != 0 }}">
+        <view class="doc-title">主要产品</view>
+        <view class="jd_product_list_box">
+            <view wx:for="{{ products }}" class="jd_product_list">
+                <navigator url="/pages/details/details?id={{ item.id }}" wx:if="{{ item.images.length != 0 }}" hover-class="none">
+                    <image wx:if="{{ item.images.length != 0 }}" mode="aspectFill" class="jd_product_list_image" src="{{ item.images[0] }}?imageView2/2/w/400"></image>
+                </navigator>
+                <navigator url="/pages/details/details?id={{ item.id }}" hover-class="none" wx:else>
+                    <image mode="aspectFill" class="jd_product_list_image" src="/images/default_product.png"></image>
+                </navigator>
+                <view class="jd_product_info_box">
+                    <view class="jd_product_name">{{ item.name }}</view>
+                    <view class="jd_product_price_bottom">
+                        <view class="color_red"> ¥{{ item.price }}</view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <!-- 主推产品结束 -->
 <view class="fix_height"></view>
