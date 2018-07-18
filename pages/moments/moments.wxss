@@ -1,0 +1,212 @@
+
+/* pages/moments/moments.wxss */
+page {
+  position: relative;
+  background: #fff;
+}
+.jd_avatar_box{
+	width: 92%;
+	margin: 0 auto;
+	display: flex;
+	margin-top: 25rpx;
+}
+.jd_avatar_box .jd_avatar_image{
+	width: 100rpx;
+	height: 100rpx;
+	border-radius: 5rpx;
+}
+.jd_avatar_box .jd_avatar_info {
+	line-height: 100rpx;
+  margin-left: 10px;
+}
+.jd_avatar_box .jd_avatar_info .jd_avatar_title{
+	font-size: 32rpx;
+	color: #333;
+}
+.jd_avatar_box .jd_avatar_info .jd_avatar_desc{
+	font-size: 26rpx;
+	color: #999;
+}
+.camera {
+  width: 50%;
+  line-height: 100rpx;
+}
+.camera button{
+  background: #fff;
+}
+.camera button::after{
+  border: 0px;
+}
+.camera image {
+  float: right;
+  margin-top: 10px;
+}
+.forumList {
+  align-items: flex-start;
+}
+.forumList .weui-media-box__desc{
+  -webkit-line-clamp: 6;
+}
+
+.share_name {
+  font-size: 17px;
+  color: #536a8a;
+}
+.share_text {
+  font-size: 17px;
+  color: #404040;
+}
+.forum_wrapper {
+  border-bottom: 1px solid #ebebeb;
+}
+.btn_wrapper,
+.zan,
+.comment {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+}
+.btn_wrapper {
+  padding: 0 15px 15px 90px;
+}
+.btn_wrap_left,
+.btn_wrap_right {
+  width: 50%;
+}
+.btn_wrap_right {
+  display: flex;
+  justify-content: flex-end;
+}
+.zan_icon {
+  width: 10px;
+  height: 10px;
+  margin-right: 2px;
+}
+.zan,
+.comment {
+  padding: 0 5px;
+  justify-content: flex-end;
+}
+.time {
+  padding-right: 5px;
+  color: #888;
+}
+.delete {
+  color: #536a8a;
+}
+.praise_comment {
+  margin-right: 15px;
+  margin-left: 90px;
+  margin-bottom: 10px;
+  padding: 0 15px 0 10px;
+  background-color: #f3f3f5;
+  font-size: 17px;
+}
+.praise_wrapper {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border-bottom: 1px solid #ebebeb;
+  line-height: 1.5;
+}
+.praiser_list {
+  font-size: 16px;
+}
+.praiseIcon {
+  width: 14px;
+  height: 14px;
+  padding-right: 5px;
+}
+.praiser_name,
+.comment_name {
+  color: #536a8a;
+}
+.comment_wrapper {
+  line-height: 1.75;
+}
+
+.input_null{
+    color: #C9C9C9;
+}
+
+.release{
+    display: flex;
+    align-items: center; /*底部对齐*/
+    justify-content: space-between; /*两端对齐*/
+    box-sizing: border-box;
+    position: fixed;
+    left: 0;
+    bottom: 470rpx;
+    width: 100%;
+    padding: 18rpx 0 18rpx 30rpx;
+    background-color: #F7F8F7;
+    font-size: 28rpx;
+    z-index: 999;
+}
+.release .text{
+    width: 604rpx;
+    min-height: 34rpx;
+    max-height: 102rpx; /*最多显示三行*/
+    border-width: 15rpx 20rpx; /*使用padding与预期留白不一致，故使用border*/
+    border-style: solid;
+    border-color:  #ffffff;
+    line-height: 34rpx;
+    font-size: 28rpx;
+    background-color: #ffffff;
+    border-radius: 4rpx;
+}
+.release .submit{
+    width: 116rpx;
+    height: 64rpx;
+    line-height: 64rpx;
+    text-align: center;
+    color: #66CC00;
+}
+.edit_wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  right: 10px;
+  bottom: 10px;
+  background-color: #fff;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  line-height: 30px;
+}
+.edit_icon {
+  width: 30px;
+  height: 30px;
+}
+.zanIcon {
+  margin-right: 3px;
+}
+/*empty*/
+.empty_wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 30px 0;
+  justify-content: center;
+  align-items:center;
+}
+.lvyou_image {
+  width: 80px;
+  height: 80px;
+}
+.noting_notice {
+  line-height: 1.75;
+  font-size: 17px;
+  color: #666;
+}
+.weui-panel:after {
+  display: none;
+}
+.weui-panel_access {
+  padding-bottom: 30px;
+}
+.images_wrapper {
+  padding-left: 90px;
+}

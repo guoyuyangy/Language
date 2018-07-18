@@ -11,7 +11,9 @@
     "pages/addProduct/addProduct",
     "pages/details/details",
     "pages/company/company",
-    "pages/addCompany/addCompany"
+    "pages/addCompany/addCompany",
+    "pages/moments/moments",
+    "pages/send_post/send_post"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -36,6 +38,12 @@
         "text": "名片夹",
         "iconPath": "/images/2t.png",
         "selectedIconPath": "/images/21t.png"
+      },
+      {
+        "pagePath": "pages/moments/moments",
+        "text": "人脉圈",
+        "iconPath": "/images/moment.png",
+        "selectedIconPath": "/images/moment.png"
       },
       {
         "pagePath": "pages/rankinglist/rankinglist",
