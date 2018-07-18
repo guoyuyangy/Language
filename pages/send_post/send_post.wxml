@@ -1,0 +1,28 @@
+<!--pages/send_post/send_post.wxml-->
+<import src="../../dist/field/index.wxml" />
+<import src="../../dist/toast/index.wxml" />
+<view class="container">
+  <view class="zan-btns btn_wrapper">
+    <button class="zan-btn cancel_btn" bindtap="back">取消</button>
+      <button class="zan-btn publish_btn" open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="publish">发表</button>
+  </view>
+  <!-- 去除标题后的输入框样式 -->
+
+  <view class="zan-panel">
+    <template
+      is="zan-field"
+      data="{{ ...config.notitle, value: content, placeholder: placeholder }}"></template>
+  </view>
+  <view class="images_wrapper">
+    <view bindtap="preview" class="image_wrap"  wx:for="{{images}}" wx:key=""
+  >
+      <image mode="aspectFill" src="{{item}}" class="images"></image>
+    </view>
+    <view class="add_image_wrapper" bindtap='didPressChooesImage'>
+      <view class="add_wrapper" >
+        <image src="../../images/add_icon.png"></image>
+      </view>
+    </view>
+  </view>
+  <template is="zan-toast" data="{{ zanToast }}"></template>
+</view>

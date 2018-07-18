@@ -1,0 +1,62 @@
+/* pages/send_post/send_post.wxss */
+page {
+  background: #fff;
+}
+.btn_wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+.cancel_btn {
+  color: #404040;
+}
+.publish_btn {
+  color: #1AAD19;
+}
+.cancel_btn,
+.publish_btn {
+  margin: 0;
+  border: none;
+}
+.zan-field::after,
+.zan-field::before {
+  display: none;
+}
+.zan-panel {
+  border: none;
+  padding: 0 15px;
+}
+.container .images_wrapper {
+  padding: 0 60px 15px 30px;
+}
+.add_image_wrapper {
+  height: 80px;
+  width: 80px;
+  float:left;
+}
+.add_wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80px;
+  height: 75px;
+  margin-top: 5px;
+  background: #ebebeb;
+}
+
+.add_wrapper image {
+  width: 40px;
+  height: 40px;
+}
+
+.images {
+  margin-top: 5px;
+}
+.zan-field__input {
+  font-size: 17px;
+}
+.btn_wrapper {
+  margin: 0 15px;
+}
+.zan-panel {
+  padding: 0 15px;
+}

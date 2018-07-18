@@ -1,0 +1,83 @@
+<import src="../../dist/loadmore/index.wxml" />
+<view class="page_bd">
+  <view class="jd_avatar_box" bindtap='gotoSentpost'>
+    <view class="jd_avatar_image">
+      <open-data type="userAvatarUrl"></open-data>
+    </view>
+    <view class="jd_avatar_info">
+      分享新鲜事
+    </view>
+    <view class="camera">
+      <image mode='widthFix' style='width: 30px;' src='/images/camera.png'></image>
+    </view>
+  </view>
+  <view class="weui-panel weui-panel_access">
+    <!-- <view class="weui-panel__hd">图文组合列表</view> -->
+    <view class="weui-panel__bd forum_wrapper" wx:for="{{posts}}" wx:key="id" wx:for-item="post">
+      <view url="" class="weui-media-box weui-media-box_appmsg forumList" hover-class="weui-cell_active">
+        <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
+          <image class="weui-media-box__thumb" wx:if="{{ post.post_owner }}" src="{{post.post_owner.avatar_url}}" />
+          <image class="weui-media-box__thumb" wx:else src="../../images/default_avatar.jpg" />
+        </view>
+        <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+          <view class="weui-media-box__title share_name" wx:if="{{ post.post_owner }}">{{post.post_owner.name?post.post_owner.name:'匿名'}}</view>
+          <view class="weui-media-box__title share_name" wx:else>匿名</view>
+          <view class="weui-media-box__desc share_text" wx:if="{{ post.content }}">{{post.content}}</view>
+        </view>
+      </view>
+
+      <view class="images_wrapper">
+        <view bindtap="preview" class="image_wrap" wx:for="{{post.images}}" wx:key="" wx:for-item="image" data-list="{{post.images}}" data-src="{{image}}">
+          <image mode="aspectFill" src="{{image + '?imageView2/1/w/160/h/150'}}" class="images"></image>
+        </view>
+      </view>
+      <view class="btn_wrapper">
+        <view class="btn_wrap_left">
+          <text class="time">{{post.created_at}}</text>
+          <text class="delete" wx:if="{{userInfo && post.post_owner.id == userInfo.id }}" bindtap="deletePost" data-postid="{{post.id}}">删除</text>
+        </view>
+        <view class="btn_wrap_right">
+          <view class="zan" bindtap="dianZan" data-action="{{post.zaned}}" data-postid="{{post.id}}" data-zanusers="{{post.zan_user_names}}">
+            <view class="zan-icon {{ post.zaned ?'zan-icon-like':'zan-icon-like-o'}} zanIcon"></view>
+          </view>
+          <view class="comment" bindtap="reply" data-postid="{{post.id}}">
+            <view class="zan-icon zan-icon-chat zanIcon"></view>
+            评论
+          </view>
+        </view>
+      </view>
+
+      <view class="praise_comment">
+        <view class="praise_wrapper" wx:if="{{post.zan_user_names.length >0}}">
+          <image class="praiseIcon" src="../../images/praise_list.png"></image>
+          <text class="praiser_list" wx:for="{{post.zan_user_names}}" wx:for-index="idx" wx:for-item="zan_user" wx:key=""><text class="praiser_name">{{zan_user}}</text>{{ idx == (post.zan_user_names.length - 1)?'':','}}</text>
+        </view>
+        <view class="comment_wrapper" wx:for="{{post.comments}}" wx:key="" wx:for-item="comment" bindtap="reply" data-postid="{{post.id}}" data-releasename="{{comment.comment_user.name}}" data-parentid="{{comment.id}}">
+          <view>
+            <text class="comment_name">{{comment.comment_user.name?comment.comment_user.name:"匿名"}}</text>
+            <text> {{comment.parent_comment_user!=null?'回复':''}} </text>
+            <text class="comment_name">{{comment.parent_comment_user!=null?comment.parent_comment_user.name:''}}</text>
+            <text class="comment_text">：{{comment.content}}</text>
+          </view>
+
+        </view>
+      </view>
+
+    </view>
+
+    <view class="release" hidden="{{!releaseFocus}}">
+      <textarea class="text" placeholder-class="input_null" fixed="true" maxlength="-1" show-confirm-bar="{{false}}" cursor-spacing="15" auto-height="true" focus="{{releaseFocus}}" bindblur="hideReply" bindinput="setReplyContent" value="{{replyContent}}" adjust-position="false"
+        placeholder="回复 {{releaseName}}"></textarea>
+      <view class="submit" bindtap="sendReply">发送</view>
+    </view>
+
+    <!-- 加载更多 -->
+    <template is="zan-loadmore" data="{{ loading: loading }}"></template>
+    <!-- 没有更多的数据了 -->
+    <template is="zan-loadmore" data="{{ nomore: nomore }}"></template>
+
+  </view>
+</view>
+<!-- <view url="" bindtap="toSendPost" class="edit_wrapper">
+  <image class="edit_icon" src="../../images/edit_forum.png"></image>
+</view> -->
