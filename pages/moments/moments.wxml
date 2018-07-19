@@ -17,7 +17,7 @@
       <navigator url="/pages/addmoments/addmoments?posts_id={{ post.id }}" hover-class="none">
       <view url="" class="weui-media-box weui-media-box_appmsg forumList" hover-class="weui-cell_active">
         <view class="weui-media-box__hd head_portrait weui-media-box__hd_in-appmsg">
-          <image class="weui-media-box__thumb" wx:if="{{ post.post_owner }}" src="{{post.post_owner.avatar_url}}" />
+          <image class="weui-media-box__thumb" wx:if="{{ post.post_owner }}" src="{{post.post_owner.avatar }}" />
           <image class="weui-media-box__thumb" wx:else src="../../images/default_avatar.jpg" />
         </view>
         <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">

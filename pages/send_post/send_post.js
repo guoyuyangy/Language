@@ -19,9 +19,11 @@ Page(Object.assign({}, Zan.Toast, {
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    this.setData({
-      user_id: options.user_id
-    })
+    util.getData('user', {}, res => {
+      this.setData({
+        user_id: res.data.data.card.id
+      })
+    });
   },
 
   back: function() {
