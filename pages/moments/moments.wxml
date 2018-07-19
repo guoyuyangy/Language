@@ -14,8 +14,9 @@
   <view class="weui-panel weui-panel_access">
     <!-- <view class="weui-panel__hd">图文组合列表</view> -->
     <view class="weui-panel__bd forum_wrapper" wx:for="{{posts}}" wx:key="id" wx:for-item="post">
+      <navigator url="/pages/addmoments/addmoments?posts_id={{ post.id }}" hover-class="none">
       <view url="" class="weui-media-box weui-media-box_appmsg forumList" hover-class="weui-cell_active">
-        <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
+        <view class="weui-media-box__hd head_portrait weui-media-box__hd_in-appmsg">
           <image class="weui-media-box__thumb" wx:if="{{ post.post_owner }}" src="{{post.post_owner.avatar_url}}" />
           <image class="weui-media-box__thumb" wx:else src="../../images/default_avatar.jpg" />
         </view>
@@ -25,6 +26,7 @@
           <view class="weui-media-box__desc share_text" wx:if="{{ post.content }}">{{post.content}}</view>
         </view>
       </view>
+      </navigator>
 
       <view class="images_wrapper">
         <view bindtap="preview" class="image_wrap" wx:for="{{post.images}}" wx:key="" wx:for-item="image" data-list="{{post.images}}" data-src="{{image}}">
@@ -34,7 +36,7 @@
       <view class="btn_wrapper">
         <view class="btn_wrap_left">
           <text class="time">{{post.created_at}}</text>
-          <text class="delete" wx:if="{{userInfo && post.post_owner.id == userInfo.id }}" bindtap="deletePost" data-postid="{{post.id}}">删除</text>
+          <text class="delete" wx:if="{{userInfo }}" style='display:block' bindtap="deletePost" data-postid="{{post.id}}">删除</text>
         </view>
         <view class="btn_wrap_right">
           <view class="zan" bindtap="dianZan" data-action="{{post.zaned}}" data-postid="{{post.id}}" data-zanusers="{{post.zan_user_names}}">

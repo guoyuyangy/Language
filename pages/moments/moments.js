@@ -13,7 +13,6 @@ Page({
     loading: false,
     nomore: false,
     isPreviewTriggerOnShow: false,
-
     releaseFocus: false,
     releaseName: '', //被回复的用户昵称
     parent_comment_id: null, //被回复评论的id
@@ -301,7 +300,7 @@ Page({
         if (res.confirm) {
           wx.request({
             url: `${app.globalData.host}/api/posts/${post_id}`,
-            method: 'DELETE',
+            method: 'GET',
             header: {
               'Accept': 'application/json',
               'Authorization': `Bearer ${app.globalData.access_token}`,
@@ -354,6 +353,8 @@ Page({
   onShareAppMessage: function() {
 
   },
+  postshow:function(){
 
+  }
 
 })

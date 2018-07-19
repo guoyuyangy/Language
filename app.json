@@ -13,6 +13,7 @@
     "pages/company/company",
     "pages/addCompany/addCompany",
     "pages/moments/moments",
+    "pages/addmoments/addmoments",
     "pages/send_post/send_post"
   ],
   "window": {

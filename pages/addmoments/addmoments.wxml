@@ -1,45 +1,21 @@
-<import src="/wxParse/wxParse.wxml" />
-<view>
-  <swiper wx:if="{{ detailData.images.length != 0 }}" class="layout" indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" circular="true" interval="{{interval}}" duration="{{duration}}">
-    <block wx:for="{{detailData.images}}" wx:key="">
-      <swiper-item>
-        <image mode='aspectFill' style="height:100%" src="{{item}}?imageView2/2/w/600" />
-      </swiper-item>
-    </block>
-  </swiper>
-  <view class="detail_price">
-    <view class="detail_price_box">
-      <view class="detail_price_left">
-        <view class="price_box">
-          <view class="detail_group_price">￥{{ detailData.price }}</view>
-        </view>
-      </view>
-      <view class="detail_price_right">
-        <button class="right_image" open-type="share">
-          <image src="http://beibeicdn.jindongsoft.com/share.png" class="icon_share"></image>
-        </button>
-        <view class="right_text">
-          <text class="text_share">分享</text>
-        </view>
-      </view>
-    </view>
+
+<view url="" class="weui-media-box weui-media-box_appmsg forumList" hover-class="weui-cell_active">
+  <view class="weui-media-box__hd head_portrait weui-media-box__hd_in-appmsg">
+    <image class="weui-media-box__thumb" wx:if="{{ post.post_owner }}" src="{{post.post_owner.avatar_url}}" />
+    <image class="weui-media-box__thumb" wx:else src="../../images/default_avatar.jpg" />
   </view>
-  <view class="detail_title_box">
-    <view class="title_info">
-      <view class="detail_title">{{ detailData.name }}</view>
-      <view class="detail_title_dec">{{ detailData.description }}</view>
-    </view>
+  <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+    <view class="weui-media-box__title share_name" wx:if="{{ post.post_owner }}">{{post.post_owner.name?post.post_owner.name:'匿名'}}</view>
+    <view class="weui-media-box__title share_name" wx:else>匿名</view>
+    <view class="weui-media-box__desc share_text" wx:if="{{ post.content }}">{{post.content}}</view>
   </view>
 </view>
-<view class="swiper-box jd_bottom_style">
-  <!-- 服务详情 -->
-  <view>
-    <view class="detail_list_info">
-      <template is="wxParse" data="{{ wxParseData:description.nodes }}" />
-    </view>
+<view class="images_wrapper">
+  <view bindtap="preview" class="image_wrap" wx:for="{{post.images}}" wx:key="" wx:for-item="image" data-list="{{post.images}}" data-src="{{image}}">
+    <image mode="aspectFill" src="{{image + '?imageView2/1/w/160/h/150'}}" class="images"></image>
   </view>
 </view>
-<view class="jd_text_tag">对产品感兴趣，可以通过名片上的信息联系我哦！</view>
+<view class="jd_text_tag">此人详细信息</view>
 <view class="jd_card_box_two">
   <view class="jd_fifter"></view>
   <view class="jd_top_index_fifter">
@@ -79,7 +55,6 @@
     </view>
   </view>
 </view>
-<button type="primary" bindtap="toIndex" style="width:92%;margin-top:20px;">我也要制作</button>
 <!-- 公司官网开始 -->
 <view class="jd_product_layouts" wx:if="{{ companyData != null }}">
   <view class="doc-title">公司官网</view>
@@ -110,4 +85,7 @@
   </view>
 </view>
 <!-- 主推产品结束 -->
-<view class="fix_height"></view>
+<view class="jd_float_btn" bindtap="toIndex">
+  <image src="/images/index.png"></image>
+  <text>回首页</text>
+</view>

@@ -1,0 +1,4 @@
+/* pages/addmoments/addmoments.wxss */
+
+@import "../details/details.wxss"; 
+@import "../moments/moments.wxss"; 
