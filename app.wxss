@@ -18,8 +18,8 @@ page{
 .clear{
 	clear: both;
 }
-/*返回首页悬浮按钮*/
-.jd_float_btn{
+/*返回首页和转发悬浮按钮*/
+.jd_float_btn , .jd_float_from{
 	width: 50px;
 	height: 50px;
 	background: #1f8ae8;
@@ -41,6 +41,27 @@ page{
 	font-size: 10px;
 	color: #fff;
 	margin-top: -3px;
+}
+.jd_float_from{
+	position: fixed;
+	bottom: 80px;
+	right: 10px;
+}
+.jd_float_from button{
+	width: 50px;
+	height: 50px;
+	background: rgb(224, 228, 25);
+	border-radius: 50%;
+}
+.jd_float_from button text{
+	font-size: 10px;
+	color: #000;
+  display: block;
+  margin-top: -20px;
+}
+.jd_float_from button image{
+	width: 20px;
+	height: 20px;
 }
 view{
 	overflow: visible;

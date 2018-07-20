@@ -2,3 +2,7 @@
 
 @import "../details/details.wxss"; 
 @import "../moments/moments.wxss"; 
+.share_texts {
+  font-size: 17px;
+  color: #404040;
+}

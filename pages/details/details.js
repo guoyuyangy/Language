@@ -6,12 +6,9 @@ Page({
         product_id: null,
         userData: null,
         in_wallet: false,
-        save: null,
         detailData: null,
         indicatorDots: false,
         autoplay: true,
-        interval: 5000,
-        duration: 1000,
         companyData: null
     },
     onLoad: function(options) {

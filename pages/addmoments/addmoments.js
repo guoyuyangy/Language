@@ -7,12 +7,16 @@ Page({
     next: null,
     userInfo: null,
     posts_id: null,
-    product_id: null,
+    product: null,
     userData: null,
-    in_wallet: false,
+    post_owner: null,
+    content: null,
     save: null,
     detailData: null,
-    companyData: null
+    companyData: null,
+    in_wallet: false,
+    share: null,
+    releaseFocus: false
   },
   onLoad: function (options) {
     let that = this
@@ -36,83 +40,23 @@ Page({
     util.getData(`posts/${this.data.posts_id}`, {}, res => {
       if (res.data.err_code == 0) {
         this.setData({
-          post: res.data.data
+          post: res.data.data,
+          post_owner: res.data.data.post_owner,
+          content: res.data.data.content,
+          in_wallet: res.data.data.post_owner.expose
         })
-        WxParse.wxParse('description', 'html', this.data.post.content, this, 5);
-      }
-    })
-    let that = this
-    util.getData('user', {}, res => {
-      if (res.statusCode == 403) {
-        util.reLogin(res => {
-          that.getData()
-        })
-      }
-      if (res.data.data.card != null) {
-        this.setData({
-          isExist: true,
-          userData: res.data.data.card,
-          save: res.data.data.card.save,
-          in_wallet: res.data.data.card.in_wallet,
-          id: res.data.data.card.id
-        })
-        util.getData('cards/products', { card_id: res.data.data.card.id }, res => {
-          this.setData({
-            products: res.data.data
-          })
-        })
-        util.getData(`cards/${res.data.data.card.id}/website`, {}, res => {
+        util.getData(`cards/${res.data.data.post_owner.id}/website`, {}, res => {
           this.setData({
             companyData: res.data.data
           })
         })
-        wx.hideLoading()
-        $loading.hide()
-      } else {
-        this.setData({
-          isExist: false
-        })
-        wx.hideLoading()
-        $loading.hide()
-      }
-    })
-  },
-  animation() {
-    if (this.data.in_wallet) {
-      util.postData('user/wallet/remove/' + this.data.userData.id, {}, res => {
-        if (res.data.code == 0) {
-          if (this.data.save > 0) {
-            this.setData({
-              in_wallet: false,
-              save: this.data.save - 1
-            })
-          }
-          wx.showToast({
-            title: '已取消收藏',
-            icon: 'success',
-            duration: 600
-          })
-        }
-      })
-    } else {
-      util.postData('user/wallet/add/' + this.data.userData.id, {}, res => {
-        if (res.data.code == 0) {
+        util.getData('cards/products', { card_id: res.data.data.post_owner.id }, res => {
           this.setData({
-            in_wallet: true,
-            save: this.data.save + 1
+            products: res.data.data
           })
-          wx.showToast({
-            title: '收藏成功',
-            icon: 'success',
-            duration: 600
-          })
-        }
-      })
-    }
-  },
-  call() {
-    wx.makePhoneCall({
-      phoneNumber: this.data.userData.mobile
+        })
+        WxParse.wxParse('description', 'html', this.data.post.content, this, 5);
+      }
     })
   },
   toIndex() {
@@ -120,7 +64,10 @@ Page({
       url: '/pages/index/index'
     })
   },
-  onShareAppMessage: function () {
 
+  onShareAppMessage: function (res) {
+    return {
+      title: this.data.content.split("\n")[0],
+    }
   }
 })

@@ -23,7 +23,7 @@
         <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
           <view class="weui-media-box__title share_name" wx:if="{{ post.post_owner }}">{{post.post_owner.name?post.post_owner.name:'匿名'}}</view>
           <view class="weui-media-box__title share_name" wx:else>匿名</view>
-          <view class="weui-media-box__desc share_text" wx:if="{{ post.content }}">{{post.content}}</view>
+          <text class="weui-media-box__desc share_text" wx:if="{{ post.content }}">{{post.content}}</text>
         </view>
       </view>
       </navigator>

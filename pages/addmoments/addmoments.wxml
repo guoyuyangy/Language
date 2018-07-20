@@ -1,13 +1,12 @@
-
 <view url="" class="weui-media-box weui-media-box_appmsg forumList" hover-class="weui-cell_active">
   <view class="weui-media-box__hd head_portrait weui-media-box__hd_in-appmsg">
-    <image class="weui-media-box__thumb" wx:if="{{ post.post_owner }}" src="{{post.post_owner.avatar_url}}" />
+    <image class="weui-media-box__thumb" wx:if="{{ post.post_owner }}" src="{{post.post_owner.avatar}}" />
     <image class="weui-media-box__thumb" wx:else src="../../images/default_avatar.jpg" />
   </view>
   <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
     <view class="weui-media-box__title share_name" wx:if="{{ post.post_owner }}">{{post.post_owner.name?post.post_owner.name:'匿名'}}</view>
     <view class="weui-media-box__title share_name" wx:else>匿名</view>
-    <view class="weui-media-box__desc share_text" wx:if="{{ post.content }}">{{post.content}}</view>
+    <text class="share_texts" wx:if="{{ post.content }}">{{post.content}}</text>
   </view>
 </view>
 <view class="images_wrapper">
@@ -15,46 +14,41 @@
     <image mode="aspectFill" src="{{image + '?imageView2/1/w/160/h/150'}}" class="images"></image>
   </view>
 </view>
-<view class="jd_text_tag">此人详细信息</view>
-<view class="jd_card_box_two">
-  <view class="jd_fifter"></view>
-  <view class="jd_top_index_fifter">
-    <view class="jd_card_box_two_box">
-      <view class="jd_card_box_two_left">
-        <view class="jd_card_fix_name">{{ userData.name }}
-          <span>{{ userData.title }}</span>
+<!-- 我的名片开始 -->
+<view class="jd_text_tag" style='float:left;margin-left:15px;'>我的名片</view>
+<navigator url="/pages/share/share?id={{ post_owner.id }}&type=collection" class="jd_collection_list">
+  <view class="jd_card_box_two">
+    <view class="jd_fifter"></view>
+    <view class="jd_top_index_fifter">
+      <view class="jd_card_box_two_box">
+        <view class="jd_card_box_two_left">
+          <view class="jd_card_fix_name" wx:if="{{post_owner.name!=null}}">{{ post_owner.name }}
+            <span wx:if="{{post_owner.title!=null}}">{{ post_owner.title }}</span>
+          </view>
+          <view class="jd_card_fix_title" wx:if="{{ post_owner.company != null }}">
+            <span>{{ post_owner.company }}</span>
+          </view>
+          <view class="jd_card_fix_tel">
+            <image class="jd_two_icon" src="/images/2.jpg"></image> {{ post_owner.mobile }}</view>
+          <view class="jd_card_fix_email" wx:if="{{ post_owner.email != '' &&  post_owner.email != null}}">
+            <image class="jd_two_icon" src="/images/position.png"></image>
+            <view class="jd_card_fix_email_info" wx:if="{{ post_owner.address.name != null }}">{{ post_owner.address.name }}</view>
+          </view>
         </view>
-        <view class="jd_card_fix_title" wx:if="{{ userData.company != null }}">
-          <span>{{ userData.company }}</span>
-        </view>
-        <view class="jd_card_fix_tel" bindtap="call">
-          <image class="jd_two_icon" src="/images/2.jpg"></image> {{ userData.mobile }}</view>
-        <view class="jd_card_fix_email" wx:if="{{ userData.email != '' &&  userData.email != null}}">
-          <image class="jd_two_icon" src="/images/position.png"></image>
-          <view class="jd_card_fix_email_info">{{ userData.address.name }}</view>
+        <view wx:if="{{ post_owner.avatar }}" class="jd_card_box_two_right">
+          <image src="{{ post_owner.avatar }}"></image>
         </view>
       </view>
-      <view wx:if="{{ userData.avatar }}" class="jd_card_box_two_right">
-        <image src="{{ userData.avatar }}"></image>
+      <view class="jd_tab_list">
+        <view class="jd_tab_list_item jd_tab_list_item_no">
+          <image src="/images/5.jpg" class="jd_tab_list_icon"></image>
+          <view class="jd_tab_list_text" wx:if="{{ post_owner.hot != null }}">人气 {{ post_owner.hot }}</view>
+        </view>
       </view>
-    </view>
-    <view class="jd_tab_list">
-      <view class="jd_tab_list_item jd_tab_list_item_no">
-        <image src="/images/5.jpg" class="jd_tab_list_icon"></image>
-        <view class="jd_tab_list_text">人气 {{ userData.hot }}</view>
-      </view>
-      <view class="jd_tab_list_item jd_tab_list_item_no" bindtap="animation">
-        <image src="/images/6.jpg" wx:if="{{ !in_wallet }}" class="jd_tab_list_icon"></image>
-        <image src="/images/61.jpg" wx:if="{{ in_wallet }}" class="jd_tab_list_icon"></image>
-        <view class="jd_tab_list_text">收藏 {{ save }}</view>
-      </view>
-      <button open-type="share" class="jd_tab_list_item">
-        <image src="/images/7.jpg" class="jd_tab_list_icon"></image>
-        <view class="jd_tab_list_text" style='color: #fff;'>转发 {{ userData.forward }}</view>
-      </button>
     </view>
   </view>
-</view>
+</navigator>
+<!-- 我的名片结束 -->
 <!-- 公司官网开始 -->
 <view class="jd_product_layouts" wx:if="{{ companyData != null }}">
   <view class="doc-title">公司官网</view>
@@ -68,7 +62,7 @@
 <view class="jd_product_layouts" wx:if="{{ products.length != 0 }}">
   <view class="doc-title">主要产品</view>
   <view class="jd_product_list_box">
-    <view wx:for="{{ products }}" class="jd_product_list">
+    <view wx:for="{{ products }}" wx:key="{{id}}" class="jd_product_list">
       <navigator url="/pages/details/details?id={{ item.id }}" wx:if="{{ item.images.length != 0 }}" hover-class="none">
         <image wx:if="{{ item.images.length != 0 }}" mode="aspectFill" class="jd_product_list_image" src="{{ item.images[0] }}?imageView2/2/w/400"></image>
       </navigator>
@@ -85,6 +79,13 @@
   </view>
 </view>
 <!-- 主推产品结束 -->
+
+<view class="jd_float_from">
+  <button open-type="share">
+    <image src="/images/share.png"></image>
+    <text>分享</text>
+  </button>
+</view>
 <view class="jd_float_btn" bindtap="toIndex">
   <image src="/images/index.png"></image>
   <text>回首页</text>

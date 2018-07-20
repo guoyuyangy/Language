@@ -6,7 +6,7 @@
             <view class="jd_collection_title" wx:if="{{ item.user.title }}">{{ item.user.title }}</view>
             <view class="jd_collection_tel" wx:if="{{ item.user.mobile }}">{{ item.user.mobile }}</view>
         </view>
-        <image style='border-radius: 50%;' src="{{ item.user.avatar }}?imageView2/2/w/300"></image>
+        <image wx:if="{{ item.user.avatar }}" style='border-radius: 50%;' src="{{ item.user.avatar }}?imageView2/2/w/300"></image>
     </navigator>
 </view>
 <view wx:if="{{ wallet.length == 0 }}" class="jd_nodata">
