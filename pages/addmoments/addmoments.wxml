@@ -80,6 +80,8 @@
 </view>
 <!-- 主推产品结束 -->
 
+<ad unit-id="adunit-4883f964d7413204"></ad>
+
 <view class="jd_float_from">
   <button open-type="share">
     <image src="/images/share.png"></image>
