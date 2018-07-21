@@ -105,7 +105,7 @@ Page({
             success: (res) => {
                 this.setData({
                     scrollHeight: res.windowHeight,
-                    listData: [],
+                    //listData: [],
                     loading: true,
                     nodata: false,
                     nomore: false,
