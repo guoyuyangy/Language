@@ -10,7 +10,8 @@
       <image mode='widthFix' style='width: 50rpx;' src='/images/camera.png'></image>
     </view>
   </view>
-  <view style='height: 70rpx;'></view>
+  <view style='height: 100rpx;'></view>
+  <ad unit-id="adunit-b51edad9cf2cf14e"></ad>
   <view class="weui-panel weui-panel_access">
     <view class="weui-panel__bd forum_wrapper" wx:for="{{posts}}" wx:key="id" wx:for-item="post">
       <navigator url="/pages/addmoments/addmoments?posts_id={{ post.id }}" class="weui-media-box weui-media-box_appmsg forumList" hover-class='none'>
