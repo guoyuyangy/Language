@@ -1,7 +1,7 @@
 <view url="" class="weui-media-box weui-media-box_appmsg forumList" hover-class="weui-cell_active">
-  <view class="weui-media-box__hd head_portrait weui-media-box__hd_in-appmsg">
-    <image class="weui-media-box__thumb" wx:if="{{ post.post_owner }}" src="{{post.post_owner.avatar}}" />
-    <image class="weui-media-box__thumb" wx:else src="../../images/default_avatar.jpg" />
+  <view class="weui-media-box__hd head_portrait weui-media-box__hd_in-appmsg" style='width: 70rpx;'>
+    <image mode='widthFix' class="weui-media-box__thumb" wx:if="{{ post.post_owner }}" src="{{post.post_owner.avatar}}" />
+    <image mode='widthFix' class="weui-media-box__thumb" wx:else src="../../images/default_avatar.jpg" />
   </view>
   <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
     <view class="weui-media-box__title share_name" wx:if="{{ post.post_owner }}">{{post.post_owner.name?post.post_owner.name:'匿名'}}</view>
