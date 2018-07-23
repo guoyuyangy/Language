@@ -15,7 +15,7 @@
   </view>
 </view>
 <!-- 我的名片开始 -->
-<view class="jd_text_tag" style='float:left;margin-left:15px;'>我的名片</view>
+<view class="doc-title" style='margin-bottom:10px;'>我的名片</view>
 <navigator url="/pages/share/share?id={{ post_owner.id }}&type=collection" class="jd_collection_list">
   <view class="jd_card_box_two">
     <view class="jd_fifter"></view>
