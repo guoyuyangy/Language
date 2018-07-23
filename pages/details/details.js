@@ -9,7 +9,9 @@ Page({
         detailData: null,
         indicatorDots: false,
         autoplay: true,
-        companyData: null
+        companyData: null,
+        interval: 4000,
+        duration:600
     },
     onLoad: function(options) {
         let that = this

@@ -7,7 +7,7 @@ Page({
     next: null,
     userInfo: null,
     posts_id: null,
-    product: null,
+    products: null,
     userData: null,
     post_owner: null,
     content: null,
@@ -16,7 +16,8 @@ Page({
     companyData: null,
     in_wallet: false,
     share: null,
-    releaseFocus: false
+    releaseFocus: false,
+    isPreviewTriggerOnShow: false
   },
   onLoad: function (options) {
     let that = this
@@ -33,7 +34,22 @@ Page({
       }
     }
   },
-  onShow: function () {
+  onShow: function (options) {
+    util.reLogin(() => {
+      util.getData('users/' + app.globalData.userid, {}, res => {
+        app.globalData.user_info = res.data.data
+        this.setData({
+          userInfo: res.data.data
+        });
+        if (!this.data.isPreviewTriggerOnShow) {
+          this.loadData(`${app.globalData.host}/api/posts`);
+        } else {
+          this.setData({
+            isPreviewTriggerOnShow: false
+          });
+        }
+      })
+    })
 
   },
   getData() {
@@ -69,5 +85,16 @@ Page({
     return {
       title: this.data.content.split("\n")[0],
     }
-  }
+  },
+  preview: function (e) {
+    wx.previewImage({
+      current: e.currentTarget.dataset.src, // 当前显示图片的http链接
+      urls: e.currentTarget.dataset.list, // 需要预览的图片http链接列表
+      complete: () => {
+        this.setData({
+          isPreviewTriggerOnShow: true
+        });
+      }
+    })
+  },
 })
