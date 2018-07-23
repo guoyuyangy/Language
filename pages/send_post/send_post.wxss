@@ -60,3 +60,7 @@ page {
 .zan-panel {
   padding: 0 15px;
 }
+
+.zan-panel::after, .zan-btn::after {
+  border: 0;
+}

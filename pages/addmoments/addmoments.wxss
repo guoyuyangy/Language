@@ -4,6 +4,12 @@
 @import "../moments/moments.wxss"; 
 @import "../share/share.wxss"; 
 .share_texts {
-  font-size: 17px;
+  font-size: 16px;
   color: #404040;
+}
+.images_wrapper {
+  padding: 0 15px 15px 3.8em;
+}
+.jd_collection_list {
+  margin-bottom: 20px;
 }

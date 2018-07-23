@@ -1,169 +1,204 @@
-
 /* pages/moments/moments.wxss */
+
 page {
   position: relative;
   background: #fff;
 }
-.jd_avatar_box{
-	width: 92%;
-	margin: 0 auto;
-	display: flex;
-	margin-top: 25rpx;
+
+.jd_avatar_box {
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  padding: 2% 5%;
+  position: fixed;
+  top: 0px;
+  z-index: 99;
+  background: #fff;
+  border-bottom: 1px solid #efefef;
 }
-.jd_avatar_box .jd_avatar_image{
-	width: 100rpx;
-	height: 100rpx;
-	border-radius: 5rpx;
+
+.jd_avatar_box .jd_avatar_image {
+  width: 70rpx;
+  height: 70rpx;
+  border-radius: 5rpx;
 }
+
 .jd_avatar_box .jd_avatar_info {
-	line-height: 100rpx;
+  line-height: 70rpx;
+  font-size: 15px;
   margin-left: 10px;
 }
-.jd_avatar_box .jd_avatar_info .jd_avatar_title{
-	font-size: 32rpx;
-	color: #333;
+
+.jd_avatar_box .jd_avatar_info .jd_avatar_title {
+  font-size: 32rpx;
+  color: #333;
 }
-.jd_avatar_box .jd_avatar_info .jd_avatar_desc{
-	font-size: 26rpx;
-	color: #999;
+
+.jd_avatar_box .jd_avatar_info .jd_avatar_desc {
+  font-size: 26rpx;
+  color: #999;
 }
+
 .camera {
-  width: 50%;
-  line-height: 100rpx;
+  line-height: 60rpx;
 }
-.camera button{
+
+.camera button {
   background: #fff;
 }
-.camera button::after{
+
+.camera button::after {
   border: 0px;
 }
+
 .camera image {
-  float: right;
-  margin-top: 10px;
+  position: fixed;
+  right: 40rpx;
+  top: 25rpx;
 }
+
 .forumList {
   align-items: flex-start;
 }
-.forumList .weui-media-box__desc{
+
+.forumList .weui-media-box__desc {
   -webkit-line-clamp: 6;
 }
 
 .share_name {
-  font-size: 17px;
+  font-size: 16px;
   color: #536a8a;
+  margin-bottom: 6px;
 }
+
 .share_text {
-  -webkit-line-clamp:2;
-  font-size: 17px;
+  font-size: 15px;
   color: #404040;
 }
+
 .forum_wrapper {
   border-bottom: 1px solid #ebebeb;
 }
-.btn_wrapper,
-.zan,
-.comment {
+
+.btn_wrapper, .zan, .comment {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  font-size: 14px;
+  font-size: 28rpx;
+  margin-left: 10px;
 }
+
 .btn_wrapper {
-  padding: 0 15px 15px 90px;
+  padding: 15px 15px 15px 4.1em;
 }
-.btn_wrap_left,
-.btn_wrap_right {
-  width: 50%;
+
+.btn_wrap_left {
+  width: 40%;
+  
 }
+
 .btn_wrap_right {
   display: flex;
   justify-content: flex-end;
+  width: 60%;
 }
+
 .zan_icon {
   width: 10px;
   height: 10px;
   margin-right: 2px;
 }
-.zan,
-.comment {
+
+.zan, .comment {
   padding: 0 5px;
   justify-content: flex-end;
 }
+
 .time {
   padding-right: 5px;
   color: #888;
 }
+
 .delete {
   color: #536a8a;
 }
+
 .praise_comment {
   margin-right: 15px;
-  margin-left: 90px;
+  margin-left: 4.1em;
   margin-bottom: 10px;
   padding: 0 15px 0 10px;
   background-color: #f3f3f5;
-  font-size: 17px;
+  font-size: 15px;
+  word-break: break-all;
 }
+
 .praise_wrapper {
   padding-top: 5px;
   padding-bottom: 5px;
   border-bottom: 1px solid #ebebeb;
   line-height: 1.5;
 }
+
 .praiser_list {
-  font-size: 16px;
+  font-size: 15px;
 }
+
 .praiseIcon {
   width: 14px;
   height: 14px;
   padding-right: 5px;
 }
-.praiser_name,
-.comment_name {
+
+.praiser_name, .comment_name {
   color: #536a8a;
 }
+
 .comment_wrapper {
   line-height: 1.75;
 }
 
-.input_null{
-    color: #C9C9C9;
+.input_null {
+  color: #c9c9c9;
 }
 
-.release{
-    display: flex;
-    align-items: center; /*底部对齐*/
-    justify-content: space-between; /*两端对齐*/
-    box-sizing: border-box;
-    position: fixed;
-    left: 0;
-    bottom: 470rpx;
-    width: 100%;
-    padding: 18rpx 0 18rpx 30rpx;
-    background-color: #F7F8F7;
-    font-size: 28rpx;
-    z-index: 999;
+.release {
+  display: flex;
+  align-items: center; /*底部对齐*/
+  justify-content: space-between; /*两端对齐*/
+  box-sizing: border-box;
+  position: fixed;
+  left: 0;
+  bottom: 470rpx;
+  width: 100%;
+  padding: 18rpx 0 18rpx 30rpx;
+  background-color: #f7f8f7;
+  font-size: 28rpx;
+  z-index: 999;
 }
-.release .text{
-    width: 604rpx;
-    min-height: 34rpx;
-    max-height: 102rpx; /*最多显示三行*/
-    border-width: 15rpx 20rpx; /*使用padding与预期留白不一致，故使用border*/
-    border-style: solid;
-    border-color:  #ffffff;
-    line-height: 34rpx;
-    font-size: 28rpx;
-    background-color: #ffffff;
-    border-radius: 4rpx;
+
+.release .text {
+  width: 604rpx;
+  min-height: 34rpx;
+  max-height: 102rpx; /*最多显示三行*/
+  border-width: 15rpx 20rpx; /*使用padding与预期留白不一致，故使用border*/
+  border-style: solid;
+  border-color: #fff;
+  line-height: 34rpx;
+  font-size: 28rpx;
+  background-color: #fff;
+  border-radius: 4rpx;
 }
-.release .submit{
-    width: 116rpx;
-    height: 64rpx;
-    line-height: 64rpx;
-    text-align: center;
-    color: #66CC00;
+
+.release .submit {
+  width: 116rpx;
+  height: 64rpx;
+  line-height: 64rpx;
+  text-align: center;
+  color: #6c0;
 }
+
 .edit_wrapper {
   display: flex;
   justify-content: center;
@@ -177,41 +212,65 @@ page {
   border-radius: 50%;
   line-height: 30px;
 }
+
 .edit_icon {
   width: 30px;
   height: 30px;
 }
+
 .zanIcon {
   margin-right: 3px;
 }
+
 /*empty*/
+
 .empty_wrapper {
   display: flex;
   flex-direction: column;
   width: 100%;
   padding: 30px 0;
   justify-content: center;
-  align-items:center;
+  align-items: center;
 }
+
 .lvyou_image {
   width: 80px;
   height: 80px;
 }
+
 .noting_notice {
   line-height: 1.75;
   font-size: 17px;
   color: #666;
 }
+
 .weui-panel:after {
   display: none;
 }
+
 .weui-panel_access {
   padding-bottom: 30px;
 }
+
 .images_wrapper {
-  padding-left: 90px;
 }
-.head_portrait{
-  width: 50px;
-  height: 50px;
+
+.wrap {
+  display: block;
+  padding-left: 3.8em;
 }
+
+.item {
+  width: 30%;
+  height: 190rpx;
+  margin: 1.1111%;
+  flex-grow: 0;
+}
+
+/* .item:nth-of-type(odd) {
+  background: #afdde3;
+}
+
+.item:nth-of-type(2n) {
+  background: #f397b2;
+} */

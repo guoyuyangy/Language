@@ -18,7 +18,7 @@ Page(Object.assign({}, Zan.Toast, {
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function(options) {
+  onLoad: function (options) {
     util.getData('user', {}, res => {
       this.setData({
         user_id: res.data.data.card.id
@@ -26,13 +26,21 @@ Page(Object.assign({}, Zan.Toast, {
     });
   },
 
-  back: function() {
+  back: function () {
     wx.navigateBack({
       delta: 1
     })
   },
 
-  didPressChooesImage: function() {
+  deleteImage: function (e) {
+    let index = e.currentTarget.dataset.index
+    this.data.images.splice(index, 1);
+    this.setData({
+      images: this.data.images
+    })
+  },
+
+  didPressChooesImage: function () {
     wx.chooseImage({
       success: (res) => {
         wx.showLoading({
@@ -42,13 +50,13 @@ Page(Object.assign({}, Zan.Toast, {
         for (var i = 0; i < filePaths.length; i++) {
           // 交给七牛上传
           qiniuUploader.upload(filePaths[i], (res) => {
-              this.data.images.push(res.imageURL);
-              this.setData({
-                images: this.data.images
-              });
-            }, (error) => {
-              console.error('error: ' + JSON.stringify(error));
-            }, {
+            this.data.images.push(res.imageURL);
+            this.setData({
+              images: this.data.images
+            });
+          }, (error) => {
+            console.error('error: ' + JSON.stringify(error));
+          }, {
               region: 'ECN', // 华北区
               domain: 'http://card-cdn.jindongsoft.com',
               shouldUseQiniuFileName: true,
@@ -75,7 +83,7 @@ Page(Object.assign({}, Zan.Toast, {
 
   },
 
-  publish: function(e) {
+  publish: function (e) {
     // if (e.detail.userInfo) {
     //   let data = {
     //     name: e.detail.userInfo.nickName,
@@ -109,6 +117,13 @@ Page(Object.assign({}, Zan.Toast, {
   }) {
     this.setData({
       content: detail.value
+    });
+  },
+
+  // 输入框内容更改时触发
+  setConent: function (e) {
+    this.setData({
+      content: e.detail.value
     });
   },
 }));
