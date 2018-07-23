@@ -59,6 +59,6 @@ App({
         name: null,
         internal: null,
         host: is_dev() ? dev_host() : production_host(),
-        version: 'v1.5.0',
+        version: 'v1.6.0',
     }
 })
