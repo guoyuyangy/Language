@@ -42,7 +42,7 @@ Page({
           userInfo: res.data.data
         });
         if (!this.data.isPreviewTriggerOnShow) {
-          this.loadData(`${app.globalData.host}/api/posts`);
+          this.getData();
         } else {
           this.setData({
             isPreviewTriggerOnShow: false
