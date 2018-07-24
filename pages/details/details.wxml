@@ -93,7 +93,7 @@
 <view class="jd_product_layouts" wx:if="{{ products.length != 0 }}">
   <view class="doc-title">主要产品</view>
   <view class="jd_product_list_box">
-    <view wx:for="{{ products }}" class="jd_product_list">
+    <view wx:key="" wx:for="{{ products }}" class="jd_product_list">
       <navigator url="/pages/details/details?id={{ item.id }}" wx:if="{{ item.images.length != 0 }}" hover-class="none">
         <image wx:if="{{ item.images.length != 0 }}" mode="aspectFill" class="jd_product_list_image" src="{{ item.images[0] }}?imageView2/2/w/400"></image>
       </navigator>

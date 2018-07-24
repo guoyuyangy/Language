@@ -1,126 +1,130 @@
 <view wx:if="{{ !isExist }}">
-    <view wx:if="{{ userData == null }}" class="jd_card_nodata">
-        您还没有创建名片，赶快创建一个吧！
+  <view wx:if="{{ userData == null }}" class="jd_card_nodata">
+    您还没有创建名片，赶快创建一个吧！
+  </view>
+  <view class="jd_card_info">
+    <view class="zan-btns" bindtap="add">
+      <button class="zan-btn zan-btn--primary">新增名片</button>
     </view>
-    <view class="jd_card_info">
-        <view class="zan-btns" bindtap="add">
-            <button class="zan-btn zan-btn--primary">新增名片</button>
-        </view>
-    </view>
+  </view>
 </view>
 <view wx:if="{{ isExist }}">
-    <view class="jd_card_background">
-        <view class="jd_card_background_info"></view>
-        <view class="jd_card_box_two">
-            <view class="jd_fifter"></view>
-            <view class="jd_top_index_fifter">
-                <view class="jd_card__edit_icon" data-item-id="{{ item.id }}" bindtap="edit">
-                    <image src="/images/edit.png" class="jd_card__edit_icon_image"></image>
-                </view>
-                <view class="jd_card_box_two_box">
-                    <view class="jd_card_box_two_left">
-                        <view class="jd_card_fix_name">{{ userData.name }} <span>{{ userData.title }}</span></view>
-                        <view class="jd_card_fix_title" wx:if="{{ userData.company != null }}"><span>{{ userData.company }}</span></view>
-                        <view class="jd_card_fix_tel" bindtap="call">
-                            <image class="jd_two_icon" src="/images/2.jpg"></image> {{ userData.mobile }}</view>
-                        <view class="jd_card_fix_email" wx:if="{{ userData.address.name != '' && userData.address.name != null }}">
-                            <image class="jd_two_icon" src="/images/position.png"></image>
-                            <view class="jd_card_fix_email_info">{{ userData.address.name }}</view>
-                        </view>
-                    </view>
-                    <view wx:if="{{ userData.avatar }}" class="jd_card_box_two_right">
-                        <image src="{{ userData.avatar }}?imageView2/2/w/300"></image>
-                    </view>
-                </view>
-                <view class="jd_tab_list">
-                    <view class="jd_tab_list_item jd_tab_list_item_no">
-                        <image src="/images/5.jpg" class="jd_tab_list_icon"></image>
-                        <view class="jd_tab_list_text">人气 {{ userData.hot }}</view>
-                    </view>
-                    <view class="jd_tab_list_item jd_tab_list_item_no" bindtap="animation">
-                        <image src="/images/6.jpg" wx:if="{{ !in_wallet }}" class="jd_tab_list_icon"></image>
-                        <image src="/images/61.jpg" wx:if="{{ in_wallet }}" class="jd_tab_list_icon"></image>
-                        <view class="jd_tab_list_text">收藏 {{ save }}</view>
-                    </view>
-                    <button open-type="share" class="jd_tab_list_item">
-                        <image src="/images/7.jpg" class="jd_tab_list_icon"></image>
-                        <view class="jd_tab_list_text" style='color: #fff;'>转发 {{ userData.forward }}</view>
-                    </button>
-                </view>
-            </view>
+  <view class="jd_card_background">
+    <view class="jd_card_background_info"></view>
+    <view class="jd_card_box_two">
+      <view class="jd_fifter"></view>
+      <view class="jd_top_index_fifter">
+        <view class="jd_card__edit_icon" data-item-id="{{ item.id }}" bindtap="edit">
+          <image src="/images/edit.png" class="jd_card__edit_icon_image"></image>
         </view>
+        <view class="jd_card_box_two_box">
+          <view class="jd_card_box_two_left">
+            <view class="jd_card_fix_name" style="color:{{color}}">{{ userData.name }}
+              <span>{{ userData.title }}</span>
+            </view>
+            <view class="jd_card_fix_title" wx:if="{{ userData.company != null }}">
+              <span>{{ userData.company }}</span>
+            </view>
+            <view class="jd_card_fix_tel" bindtap="call">
+              <image class="jd_two_icon" src="/images/2.jpg"></image> {{ userData.mobile }}</view>
+            <view class="jd_card_fix_email" wx:if="{{ userData.address.name != '' && userData.address.name != null }}">
+              <image class="jd_two_icon" src="/images/position.png"></image>
+              <view class="jd_card_fix_email_info">{{ userData.address.name }}</view>
+            </view>
+          </view>
+          <view animation="{{animation}}" wx:if="{{ userData.avatar }}" class="jd_card_box_two_right">
+            <image src="{{ userData.avatar }}?imageView2/2/w/300"></image>
+          </view>
+        </view>
+        <view class="jd_tab_list">
+          <view class="jd_tab_list_item jd_tab_list_item_no">
+            <image src="/images/5.jpg" class="jd_tab_list_icon"></image>
+            <view class="jd_tab_list_text">人气 {{ userData.hot }}</view>
+          </view>
+          <view class="jd_tab_list_item jd_tab_list_item_no" bindtap="animations">
+            <image src="/images/6.jpg" wx:if="{{ !in_wallet }}" class="jd_tab_list_icon"></image>
+            <image src="/images/61.jpg" wx:if="{{ in_wallet }}" class="jd_tab_list_icon"></image>
+            <view class="jd_tab_list_text">收藏 {{ save }}</view>
+          </view>
+          <button open-type="share" class="jd_tab_list_item">
+            <image src="/images/7.jpg" class="jd_tab_list_icon"></image>
+            <view class="jd_tab_list_text" style='color: #fff;'>转发 {{ userData.forward }}</view>
+          </button>
+        </view>
+      </view>
     </view>
-    <view class="jd_card_info">
-        <view class="jd_card_footer">
-            <view class="zan-btns">
-                <button class="zan-btn zan-btn--primary" open-type="share">递名片</button>
-                <view class="jd_btn_list_dt">
-                    <button class="zan-btn zan-btn--default" bindtap="show">发布产品</button>
-                    <button class="zan-btn zan-btn--default" bindtap="creat" wx:if="{{ companyData == null }}">创建官网</button>
-                    <navigator class="zan-btn zan-btn--default" wx:if="{{ companyData != null }}" url="/pages/addCompany/addCompany?id={{ companyData.id }}&type=edit&card_id={{ companyData.card_id }}" hover-class="none">
-                        编辑官网
-                    </navigator>
-                </view>
-            </view>
+  </view>
+  <view class="jd_card_info">
+    <view class="jd_card_footer">
+      <view class="zan-btns">
+        <button class="zan-btn zan-btn--primary" open-type="share">递名片</button>
+        <view class="jd_btn_list_dt">
+          <button class="zan-btn zan-btn--default" bindtap="show">发布产品</button>
+          <button class="zan-btn zan-btn--default" bindtap="creat" wx:if="{{ companyData == null }}">创建官网</button>
+          <navigator class="zan-btn zan-btn--default" wx:if="{{ companyData != null }}" url="/pages/addCompany/addCompany?id={{ companyData.id }}&type=edit&card_id={{ companyData.card_id }}" hover-class="none">
+            编辑官网
+          </navigator>
         </view>
-        <view class="doc-title" wx:if="{{ bigtel != '' || industry != '' || address.name != null || slogan != '' }}">个人信息</view>
-        <view class="zan-panel">
-            <view wx:if="{{ userData.tel != '' }}" class="zan-cell" bindtap="tel">
-                <view class="zan-cell__bd">座机</view>
-                <text class="jd_card_info_text">{{ userData.tel }}</text>
-                <view class="zan-cell__ft">
-                    <image class="jd_card_icon" src="/images/tel.png"></image>
-                </view>
-            </view>
-            <view wx:if="{{ userData.email != '' && userData.email != null }}" class="zan-cell">
-                <view class="zan-cell__bd">邮箱</view>
-                <text class="jd_card_info_text">{{ userData.email }}</text>
-            </view>
-            <view wx:if="{{ userData.industry != '' }}" class="zan-cell">
-                <view class="zan-cell__bd">行业</view>
-                <text class="jd_card_info_text">{{ userData.industry }}</text>
-                <view class="zan-cell__ft"></view>
-            </view>
-            <view wx:if="{{ userData.slogan != '' }}" class="zan-cell">
-                <view class="zan-cell__bd">签名</view>
-                <text class="jd_card_info_text">{{ userData.slogan }}</text>
-                <view class="zan-cell__ft"></view>
-            </view>
-        </view>
+      </view>
     </view>
-    <!-- 公司官网开始 -->
-    <view class="jd_product_layouts" wx:if="{{ companyData != null }}">
-        <view class="doc-title">公司官网</view>
-        <navigator url="/pages/company/company?card_id={{ companyData.card_id }}" hover-class="none" class="jd_company_box">
-            <image wx:if="{{ companyData.images.length != 0 }}" mode="aspectFill" class="jd_company_image" src="{{ companyData.images[0] }}?imageView2/2/w/600"></image>
-            <view wx:if="{{ companyData.intro != '' }}" class="jd_company_info">{{ companyData.name }}</view>
+    <view class="doc-title" wx:if="{{ bigtel != '' || industry != '' || address.name != null || slogan != '' }}">个人信息</view>
+    <view class="zan-panel">
+      <view wx:if="{{ userData.tel != '' }}" class="zan-cell" bindtap="tel">
+        <view class="zan-cell__bd">座机</view>
+        <text class="jd_card_info_text">{{ userData.tel }}</text>
+        <view class="zan-cell__ft">
+          <image class="jd_card_icon" src="/images/tel.png"></image>
+        </view>
+      </view>
+      <view wx:if="{{ userData.email != '' && userData.email != null }}" class="zan-cell">
+        <view class="zan-cell__bd">邮箱</view>
+        <text class="jd_card_info_text">{{ userData.email }}</text>
+      </view>
+      <view wx:if="{{ userData.industry != '' }}" class="zan-cell">
+        <view class="zan-cell__bd">行业</view>
+        <text class="jd_card_info_text">{{ userData.industry }}</text>
+        <view class="zan-cell__ft"></view>
+      </view>
+      <view wx:if="{{ userData.slogan != '' }}" class="zan-cell">
+        <view class="zan-cell__bd">签名</view>
+        <text class="jd_card_info_text">{{ userData.slogan }}</text>
+        <view class="zan-cell__ft"></view>
+      </view>
+    </view>
+  </view>
+  <!-- 公司官网开始 -->
+  <view class="jd_product_layouts" wx:if="{{ companyData != null }}">
+    <view class="doc-title">公司官网</view>
+    <navigator url="/pages/company/company?card_id={{ companyData.card_id }}" hover-class="none" class="jd_company_box">
+      <image wx:if="{{ companyData.images.length != 0 }}" mode="aspectFill" class="jd_company_image" src="{{ companyData.images[0] }}?imageView2/2/w/600"></image>
+      <view wx:if="{{ companyData.intro != '' }}" class="jd_company_info">{{ companyData.name }}</view>
+    </navigator>
+  </view>
+  <!-- 公司官网结束 -->
+  <!-- 主推产品开始 -->
+  <view class="jd_product_layouts" wx:if="{{ products.length != 0 }}">
+    <view class="doc-title">主推产品</view>
+    <view class="jd_product_list_box">
+      <view wx:for="{{ products }}" wx:key=" " class="jd_product_list">
+        <navigator url="/pages/details/details?id={{ item.id }}" wx:if="{{ item.images.length != 0 }}" hover-class="none">
+          <image wx:if="{{ item.images.length != 0 }}" mode="aspectFill" class="jd_product_list_image" src="{{ item.images[0] }}?imageView2/2/w/400"></image>
         </navigator>
-    </view>
-    <!-- 公司官网结束 -->
-    <!-- 主推产品开始 -->
-    <view class="jd_product_layouts" wx:if="{{ products.length != 0 }}">
-        <view class="doc-title">主推产品</view>
-        <view class="jd_product_list_box">
-            <view wx:for="{{ products }}" class="jd_product_list">
-                <navigator url="/pages/details/details?id={{ item.id }}" wx:if="{{ item.images.length != 0 }}" hover-class="none">
-                    <image wx:if="{{ item.images.length != 0 }}" mode="aspectFill" class="jd_product_list_image" src="{{ item.images[0] }}?imageView2/2/w/400"></image>
-                </navigator>
-                <navigator url="/pages/details/details?id={{ item.id }}" hover-class="none" wx:else>
-                    <image mode="aspectFill" class="jd_product_list_image" src="/images/default_product.png"></image>
-                </navigator>
-                <view class="jd_product_info_box">
-                    <view class="jd_product_name">{{ item.name }}</view>
-                    <view class="jd_product_price_bottom">
-                        <view class="color_red"> ¥{{ item.price }}</view>
-                        <navigator url="/pages/addProduct/addProduct?id={{ item.id }}&type=edit&card_id={{ id }}" hover-class="none">
-                            <image src="/images/edit_product.png" class="jd_edit_product"></image>
-                        </navigator>
-                    </view>
-                </view>
-            </view>
+        <navigator url="/pages/details/details?id={{ item.id }}" hover-class="none" wx:else>
+          <image mode="aspectFill" class="jd_product_list_image" src="/images/default_product.png"></image>
+        </navigator>
+        <view class="jd_product_info_box">
+          <view class="jd_product_name">{{ item.name }}</view>
+          <view class="jd_product_price_bottom">
+            <view class="color_red"> ¥{{ item.price }}</view>
+            <navigator url="/pages/addProduct/addProduct?id={{ item.id }}&type=edit&card_id={{ id }}" hover-class="none">
+              <image src="/images/edit_product.png" class="jd_edit_product"></image>
+            </navigator>
+          </view>
         </view>
+      </view>
     </view>
-    <!-- 主推产品结束 -->
+  </view>
+  <!-- 主推产品结束 -->
 </view>
 <view class="clear"></view>
 <view class="jd_fix_height"></view>

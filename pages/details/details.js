@@ -10,7 +10,8 @@ Page({
         indicatorDots: false,
         autoplay: true,
         companyData: null,
-        interval: 3000
+        interval: 3000,
+        duration: 600
     },
     onLoad: function(options) {
         let that = this

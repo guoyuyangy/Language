@@ -1050,7 +1050,7 @@ button::after {
 .jd_card_fix_email_info {
     width: 90%;
     overflow: hidden;
-    max-height: 38px;
+    max-height: 40px;
     overflow: hidden;
 }
 

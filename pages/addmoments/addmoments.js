@@ -17,7 +17,6 @@ Page({
     in_wallet: false,
     share: null,
     releaseFocus: false,
-    isPreviewTriggerOnShow: false
   },
   onLoad: function (options) {
     let that = this
@@ -41,13 +40,6 @@ Page({
         this.setData({
           userInfo: res.data.data
         });
-        if (!this.data.isPreviewTriggerOnShow) {
-          this.loadData(`${app.globalData.host}/api/posts`);
-        } else {
-          this.setData({
-            isPreviewTriggerOnShow: false
-          });
-        }
       })
     })
 
@@ -90,11 +82,6 @@ Page({
     wx.previewImage({
       current: e.currentTarget.dataset.src, // 当前显示图片的http链接
       urls: e.currentTarget.dataset.list, // 需要预览的图片http链接列表
-      complete: () => {
-        this.setData({
-          isPreviewTriggerOnShow: true
-        });
-      }
     })
   },
 })

@@ -182,14 +182,15 @@
     height: 155px;
     display: flex;
     justify-content: center;
-    padding-left: 10px;
+    margin-left: -20px;
+    padding-left: -10px;
 }
 
 .jd_card_box_two .jd_card_box_two_right image {
     width: 150rpx;
     height: 150rpx;
     border-radius: 50%;
-    margin-right: 30px;
+    margin-left: 20px;
     margin-top: 20px;
 }
 
@@ -275,7 +276,7 @@ button::after {
 .jd_card_fix_email_info {
     width: 90%;
     overflow: hidden;
-    max-height: 38px;
+    max-height: 40px;
     overflow: hidden;
 }
 
