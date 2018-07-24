@@ -19,7 +19,7 @@
         </view>
         <view class="jd_card_box_two_box">
           <view class="jd_card_box_two_left">
-            <view class="jd_card_fix_name" style="color:{{color}}">{{ userData.name }}
+            <view class="jd_card_fix_name">{{ userData.name }}
               <span>{{ userData.title }}</span>
             </view>
             <view class="jd_card_fix_title" wx:if="{{ userData.company != null }}">
