@@ -40,6 +40,13 @@ Page({
         this.setData({
           userInfo: res.data.data
         });
+        if (!this.data.isPreviewTriggerOnShow) {
+          this.getData();
+        } else {
+          this.setData({
+            isPreviewTriggerOnShow: false
+          });
+        }
       })
     })
 
