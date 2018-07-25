@@ -1,0 +1,64 @@
+page{
+	background: #f2f2f2;
+	height: 100%;
+}
+.jd_collection{
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding-bottom: 10px;
+}
+.jd_collection .jd_collection_list{
+	width: 90%;
+	height: 160px;
+	border-radius: 5px;
+	display: flex;
+	background: #f8f8f8;
+	margin-top: 15px;
+	box-shadow: 0rpx 10rpx 30rpx #d5d5d5;
+}
+.jd_collection .jd_collection_list image{
+	width: 55px;
+	height: 55px;
+	margin-right: 20px;
+	margin-top: 20px;
+}
+.jd_collection .jd_collection_list .jd_collection_info{
+	flex: 1;
+	margin-top: 20px;
+	margin-left: 20px;
+}
+.jd_collection .jd_collection_list .jd_collection_info .jd_collection_company{
+	font-size: 13px;
+	color: #9f9fa7;
+}
+.jd_collection .jd_collection_list .jd_collection_info .jd_collection_name{
+	font-size: 22px;
+	margin-top: 15px;
+}
+.jd_collection .jd_collection_list .jd_collection_info .jd_collection_title{
+	font-size: 13px;
+	color: #585858;
+	margin-top: 10px;
+}
+.jd_collection .jd_collection_list .jd_collection_info .jd_collection_tel{
+	font-size: 13px;
+	color: #9f9fa7;
+	margin-top: 16px;
+}
+.jd_nodata{
+	font-size: 14px;
+	color: #999;
+	width: 100%;
+	height: 50px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 100%;
+}
+.jd_nodata image{
+	width: 210px;
+	height: 172px;
+	margin-top: -50px;
+}

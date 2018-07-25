@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "粉丝库",
+  "usingComponents": {
+    "wxc-loading": "../../dist/wxc-loading/dist/index"
+  }
+}
