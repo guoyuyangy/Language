@@ -36,6 +36,7 @@
       <view class="btn_wrapper">
         <view class="btn_wrap_left">
           <text class="time">{{post.created_at}}</text>
+          <text class="count">浏览{{post.view_count}}次</text>          
           <text class="delete" wx:if="{{userInfo && post.post_owner.id == userInfo.id }}" bindtap="deletePost" data-postid="{{post.id}}">删除</text>
         </view>
         <view class="btn_wrap_right">
