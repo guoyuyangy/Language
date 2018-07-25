@@ -4,7 +4,7 @@
       <open-data type="userAvatarUrl"></open-data>
     </view>
     <view class="jd_avatar_info">
-	{{ title_desc }}
+      {{ title_desc }}
     </view>
     <view class="camera">
       <image mode='widthFix' style='width: 50rpx;' src='{{ title_icon }}'></image>
@@ -14,7 +14,7 @@
   <view style='height: 100rpx;'></view>
 
   <ad unit-id="adunit-b51edad9cf2cf14e"></ad>
-  
+
   <view class="weui-panel weui-panel_access">
     <view class="weui-panel__bd forum_wrapper" wx:for="{{posts}}" wx:key="id" wx:for-item="post">
       <navigator url="/pages/addmoments/addmoments?posts_id={{ post.id }}" class="weui-media-box weui-media-box_appmsg forumList" hover-class='none'>
@@ -26,7 +26,9 @@
           <view class="weui-media-box__title share_name" wx:if="{{ post.post_owner }}">{{post.post_owner.name?post.post_owner.name:'匿名'}}</view>
           <view class="weui-media-box__title share_name" wx:else>匿名</view>
           <text class="weui-media-box__desc share_text" wx:if="{{ post.content }}">{{post.content}}</text>
-          <view class="weui-msg__desc" wx:if="{{ post.content.length > 120 }}"><text class="weui-msg__link">查看全文</text></view>
+          <view class="weui-msg__desc" wx:if="{{ post.content.length > 120 }}">
+            <text class="weui-msg__link">查看全文</text>
+          </view>
         </view>
       </navigator>
 
@@ -39,7 +41,7 @@
       <view class="btn_wrapper">
         <view class="btn_wrap_left">
           <text class="time">{{post.created_at}}</text>
-          <text class="count">浏览{{post.view_count}}次</text>          
+          <text class="count">浏览{{post.view_count}}次</text>
           <text class="delete" wx:if="{{userInfo && post.post_owner.id == userInfo.id }}" bindtap="deletePost" data-postid="{{post.id}}">删除</text>
         </view>
         <view class="btn_wrap_right">
