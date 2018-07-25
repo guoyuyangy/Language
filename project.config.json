@@ -33,7 +33,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": -1,
+			"current": 2,
 			"list": [
 				{
 					"id": 0,
@@ -46,6 +46,11 @@
 					"name": "1",
 					"pathName": "pages/statis/statis",
 					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "人脉圈",
+					"pathName": "pages/moments/moments"
 				}
 			]
 		}

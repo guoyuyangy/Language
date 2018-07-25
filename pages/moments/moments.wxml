@@ -4,14 +4,17 @@
       <open-data type="userAvatarUrl"></open-data>
     </view>
     <view class="jd_avatar_info">
-      分享新鲜事~
+	{{ title_desc }}
     </view>
     <view class="camera">
-      <image mode='widthFix' style='width: 50rpx;' src='/images/camera.png'></image>
+      <image mode='widthFix' style='width: 50rpx;' src='{{ title_icon }}'></image>
     </view>
   </view>
+
   <view style='height: 100rpx;'></view>
+
   <ad unit-id="adunit-b51edad9cf2cf14e"></ad>
+  
   <view class="weui-panel weui-panel_access">
     <view class="weui-panel__bd forum_wrapper" wx:for="{{posts}}" wx:key="id" wx:for-item="post">
       <navigator url="/pages/addmoments/addmoments?posts_id={{ post.id }}" class="weui-media-box weui-media-box_appmsg forumList" hover-class='none'>
@@ -82,6 +85,7 @@
     </view>
   </view>
 </view>
+
 <view wx:else class='checkversion_text'>
   添加微信号zhongwei，加入人脉交流群
 </view>

@@ -18,7 +18,10 @@ Page({
     parent_comment_id: null, //被回复评论的id
     post_id: null, //被评论的帖子id
     replyContent: '',
-    checking_version: 1
+    checking_version: 1,
+    
+    title_desc: '加入我们的微信群',	// 分享新鲜事～
+    title_icon: '',  // /images/camera.png
   },
 
   onLoad: function () {
