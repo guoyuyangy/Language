@@ -254,7 +254,7 @@ button::after {
 
 .jd_card_box_two .jd_card_box_two_left .jd_card_fix_name {
     margin-left: 4px;
-    height: 25px;
+    height: 30px;
     overflow: hidden;
 }
 

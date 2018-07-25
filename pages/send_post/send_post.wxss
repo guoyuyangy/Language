@@ -2,27 +2,26 @@
 page {
   background: #fff;
 }
-.btn_wrapper {
-  display: flex;
-  justify-content: space-between;
-}
 .cancel_btn {
   color: #404040;
 }
-.publish_btn {
-  color: #1AAD19;
-}
 .cancel_btn,
 .publish_btn {
+  display: inline;
   margin: 0;
   border: none;
+}
+.publish_btn {
+  color: #1AAD19;
+  margin-left: 240px;
 }
 .zan-field::after,
 .zan-field::before {
   display: none;
 }
 .zan-panel {
-  border: none;
+  margin: 0;
+  border-top: 1px solid rgb(245, 245, 241);
   padding: 0 15px;
 }
 .container .images_wrapper {

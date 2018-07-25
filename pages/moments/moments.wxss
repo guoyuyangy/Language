@@ -94,14 +94,14 @@ page {
 }
 
 .btn_wrap_left {
-  width: 40%;
-  
+  width: 50%;
+  font-size: 12px;
 }
 
 .btn_wrap_right {
   display: flex;
   justify-content: flex-end;
-  width: 60%;
+  width: 50%;
 }
 
 .zan_icon {
@@ -115,7 +115,7 @@ page {
   justify-content: flex-end;
 }
 
-.time {
+.time ,.count{
   padding-right: 5px;
   color: #888;
 }

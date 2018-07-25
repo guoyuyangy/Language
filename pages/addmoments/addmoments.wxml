@@ -6,12 +6,13 @@
   <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
     <view class="weui-media-box__title share_name" wx:if="{{ post.post_owner }}">{{post.post_owner.name?post.post_owner.name:'匿名'}}</view>
     <view class="weui-media-box__title share_name" wx:else>匿名</view>
+    <view class="time">{{post.created_at}}</view>    
     <text class="share_texts" wx:if="{{ post.content }}">{{post.content}}</text>
   </view>
 </view>
 <view class="images_wrapper">
-  <view bindtap="preview" class="image_wrap" wx:for="{{post.images}}" wx:key="" wx:for-item="image" data-list="{{post.images}}" data-src="{{image}}">
-    <image mode="aspectFill" src="{{image + '?imageView2/1/w/160/h/150'}}" class="images"></image>
+  <view bindtap="preview" style='width: 120px; height:120px;' class="image_wrap" wx:for="{{post.images}}" wx:key="" wx:for-item="image" data-list="{{post.images}}" data-src="{{image}}">
+    <image mode="aspectFill" style='width: 110px; height:110px;' src="{{image + '?imageView2/1/w/160/h/150'}}" class="images"></image>
   </view>
 </view>
 <!-- 我的名片开始 -->
