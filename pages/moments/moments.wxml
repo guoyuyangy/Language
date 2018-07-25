@@ -1,4 +1,4 @@
-<view class="page_bd" wx:if="{{ checking_version != 1 }}">
+<view class="page_bd">
   <view class="jd_avatar_box" bindtap='gotoSentpost'>
     <view class="jd_avatar_image">
       <open-data type="userAvatarUrl"></open-data>
@@ -14,6 +14,14 @@
   <view style='height: 100rpx;'></view>
 
   <ad unit-id="adunit-b51edad9cf2cf14e"></ad>
+
+  <view class='checkversion_text' wx:if="{{ checking_version }}">
+    由于我们的名片小程序暂时没有社交资质，所以只能无奈地关闭此功能。
+    但是大家不要灰心，我们还可以在微信群进行交流。
+    添加微信好友 zhongwei，加入人脉交流群。
+    <button class='zan-btn zan-btn--primary' style='margin: 10px 20px;' bindtap='addWx'>复制微信号</button>
+  </view>
+  
 
   <view class="weui-panel weui-panel_access">
     <view class="weui-panel__bd forum_wrapper" wx:for="{{posts}}" wx:key="id" wx:for-item="post">
@@ -88,8 +96,3 @@
     </view>
   </view>
 </view>
-
-<view wx:else class='checkversion_text'>
-  添加微信号zhongwei，加入人脉交流群
-</view>
-<button class='zan-btn zan-btn--primary' style='margin: 0 20px;' bindtap='addWx'>复制微信号</button>

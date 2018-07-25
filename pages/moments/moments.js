@@ -18,9 +18,9 @@ Page({
     parent_comment_id: null, //被回复评论的id
     post_id: null, //被评论的帖子id
     replyContent: '',
-    checking_version: 1,
+    checking_version: true,
 
-    title_desc: '加入我们的微信群', // 分享新鲜事～
+    title_desc: '加入我们的微信交流群', // 分享新鲜事～
     title_icon: '', // /images/camera.png
   },
 
@@ -34,23 +34,33 @@ Page({
   onShow: function(options) {
     util.getData('get_checking_version', {}, res => {
       this.setData({
-        checking_version: res.data.checking_version == app.globalData.version ? 1 : 0
+        checking_version: res.data.checking_version == app.globalData.version ? true : false,
       })
-    })
-    util.reLogin(() => {
-      util.getData('users/' + app.globalData.userid, {}, res => {
-        app.globalData.user_info = res.data.data
+
+      if (!this.data.checking_version) {
         this.setData({
-          userInfo: res.data.data
+          title_desc: '分享新鲜事～',
+          title_icon: '/images/camera.png',
         });
-        if (!this.data.isPreviewTriggerOnShow) {
-          this.loadData(`${app.globalData.host}/api/posts`);
-        } else {
-          this.setData({
-            isPreviewTriggerOnShow: false
-          });
-        }
-      })
+
+        util.reLogin(() => {
+          util.getData('users/' + app.globalData.userid, {}, res => {
+            app.globalData.user_info = res.data.data
+
+            this.setData({
+              userInfo: res.data.data
+            });
+
+            if (!this.data.isPreviewTriggerOnShow) {
+              this.loadData(`${app.globalData.host}/api/posts`);
+            } else {
+              this.setData({
+                isPreviewTriggerOnShow: false
+              });
+            }
+          })
+        })
+      }
     })
 
   },
@@ -86,9 +96,12 @@ Page({
   },
 
   gotoSentpost: function() {
-    wx.navigateTo({
-      url: `/pages/send_post/send_post?user_id=${this.data.userInfo.id}`
-    });
+    if (!this.data.checking_version) {
+      wx.navigateTo({
+        url: `/pages/send_post/send_post?user_id=${this.data.userInfo.id}`
+      });
+    }
+    
   },
 
   processPostData: function(post) {
@@ -97,6 +110,7 @@ Page({
     }
     return post;
   },
+
   changeZanStatus: function(post_id, zan_user_names) {
     let index = this.getPostItemIndexByPostId(post_id);
     zan_user_names.push(this.data.userInfo.name);
