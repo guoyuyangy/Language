@@ -5,6 +5,8 @@
     "pages/edit/edit",
     "pages/collection/collection",
     "pages/me/me",
+    "pages/fans/fans",
+    "pages/jindong/jindong",    
     "pages/statis/statis",
     "pages/share/share",
     "pages/rankinglist/rankinglist",

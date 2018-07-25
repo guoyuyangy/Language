@@ -41,14 +41,14 @@ Page({
     }
   },
   getData() {
-    util.getData('cards/', {}, res => {
+    util.getData('user/wallet', {}, res => {
       if (res.statusCode == 403) {
         util.reLogin(res => {
           this.getData()
         })
       }
       this.setData({
-        wallet: res.data.data.card_wallet_items,
+        wallet: res.data.data,
         id: app.globalData.userid,
       })
       wx.hideLoading()

@@ -67,6 +67,17 @@ Page({
             url: '/pages/user/user'
         })
     },
+  
+  toabout: function() {
+    wx.navigateTo({
+      url: '/pages/jindong/jindong'
+    })
+  },
+  tofans: function () {
+    wx.navigateTo({
+      url: '/pages/fans/fans'
+    })
+  },
     setting: function() {
         wx.openSetting({
             success: (res) => {}
