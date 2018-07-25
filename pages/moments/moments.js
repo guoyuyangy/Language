@@ -17,7 +17,8 @@ Page({
     releaseName: '', //被回复的用户昵称
     parent_comment_id: null, //被回复评论的id
     post_id: null, //被评论的帖子id
-    replyContent: ''
+    replyContent: '',
+    checking_version: 1
   },
 
   onLoad: function () {
@@ -28,6 +29,11 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onShow: function (options) {
+    util.getData('get_checking_version', {}, res => {
+      this.setData({
+        checking_version: res.data.checking_version == app.globalData.version ? 1 : 0
+      })
+    })
     util.reLogin(() => {
       util.getData('users/' + app.globalData.userid, {}, res => {
         app.globalData.user_info = res.data.data
@@ -330,6 +336,18 @@ Page({
     })
   },
 
+  addWx() {
+    wx.setClipboardData({
+      data: 'zhongwei',
+      success: function (res) {
+        wx.showToast({
+          title: '已复制微信号',
+          icon: 'success',
+          duration: 1500
+        })
+      }
+    })
+  },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作

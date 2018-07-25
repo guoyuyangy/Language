@@ -274,3 +274,9 @@ page {
 .item:nth-of-type(2n) {
   background: #f397b2;
 } */
+
+.checkversion_text {
+  padding: 20px 10px;
+  text-align: center;
+  font-size: 16px;
+}

@@ -1,4 +1,4 @@
-<view class="page_bd">
+<view class="page_bd" wx:if="{{ checking_version != 1 }}">
   <view class="jd_avatar_box" bindtap='gotoSentpost'>
     <view class="jd_avatar_image">
       <open-data type="userAvatarUrl"></open-data>
@@ -83,3 +83,7 @@
     </view>
   </view>
 </view>
+<view wx:else class='checkversion_text'>
+  添加微信号zhongwei，加入人脉交流群
+</view>
+<button class='zan-btn zan-btn--primary' style='margin: 0 20px;' bindtap='addWx'>复制微信号</button>
