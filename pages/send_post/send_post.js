@@ -10,9 +10,12 @@ Page(Object.assign({}, Zan.Toast, {
    */
   data: {
     images: [],
-    placeholder: '请输入你这一刻的想法……',
+    placeholder: '请输入你的反馈意见', // 请输入你这一刻的想法……
     content: '',
     user_id: '',
+
+    button_right: '提交反馈', // 发表
+    checking_version: true,
   },
 
   /**
@@ -23,6 +26,21 @@ Page(Object.assign({}, Zan.Toast, {
       this.setData({
         user_id: res.data.data.card.id
       })
+    });
+  },
+
+  onShow: function() {
+    util.getData('get_checking_version', {}, res => {
+      this.setData({
+        checking_version: res.data.checking_version == app.globalData.version ? true : false,
+      })
+
+      if (!this.data.checking_version) {
+        this.setData({
+          button_right: '发表',
+          placeholder: '请输入你这一刻的想法……',
+        });
+      }
     });
   },
 
