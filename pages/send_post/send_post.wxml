@@ -4,11 +4,12 @@
 <view class="container">
   <view class="zan-btns btn_wrapper">
     <button class="zan-btn cancel_btn" bindtap="back">取消</button>
-    <button class="zan-btn publish_btn" open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="publish">发表</button>
+    <button class="zan-btn publish_btn" open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="publish">{{ button_right }}</button>
   </view>
+
   <!-- 去除标题后的输入框样式 -->
   <view class="zan-panel">
-    <textarea name='content' placeholder="{{ placeholder }}" bindinput='setConent' style='width: 100%; font-size: 15px;' maxlength='10000'></textarea>
+    <textarea name='content' placeholder="{{ placeholder }}" bindinput='setConent' style='width: 100%; font-size: 15px; margin-top: 10px;' maxlength='10000'></textarea>
   </view>
   <view class="images_wrapper">
     <view bindtap="preview" class="image_wrap" wx:for="{{images}}" wx:key="" style='position: relative'>
