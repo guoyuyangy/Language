@@ -30,6 +30,7 @@
       <view class="zan-cell__ft"></view>
     </view>
     <view bindtap="statis" wx:if="{{internal}}" class="zan-cell zan-cell--access">
+      <image style='width: 31px ; height: 31px ; margin: 0 12px 0 1px' src='../../images/data.png'></image>    
       <view class="zan-cell__bd">数据统计</view>
       <view class="zan-cell__ft"></view>
     </view>
@@ -42,7 +43,7 @@
   <view class="zan-panel zan-panel_two">
     <view bindtap="addWx" class="zan-cell zan-cell--access">
       <image style='width: 27px ; height: 27px ; margin: 0 11px 0 4px' src='../../images/add.png'></image>
-      <view class="zan-cell__bd"> 添加微信号zhongwei，加入产品交流群</view>
+      <view class="zan-cell__bd"> 添加微信号 加入产品交流群</view>
       <view class="zan-cell__ft"></view>
     </view>
   </view>

@@ -1,12 +1,9 @@
 .jd_card_me_top {
   width: 100%;
-  height: 160px;
-  background: #fff;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  margin-top: -20px;
 }
 
 .jd_card_me_top .jd_card_me_avatar {
@@ -52,13 +49,17 @@
 
 .jd_card_me_top .jd_card_me_top_info {
   width: 100%;
-  height: 350rpx;
+  height: 380rpx;
   background: #1f8ae8;
   position: absolute;
   top: 0;
   left: 0;
   border-radius: 0 0 10% 10%;
   background: linear-gradient(to bottom, #1f8ae8 0%, #14c2e7 100%);
+}
+
+.jd_card_me_list {
+  margin-top: 20px;
 }
 
 .zan-panel {
@@ -75,15 +76,16 @@
   height: 28px;
 }
 
-.zan-cell__bd{
+.zan-cell__bd {
   font-size: 16px;
-  white-space: pre; 
+  white-space: pre;
 }
 
-.zan-cell__ft{
+.zan-cell__ft {
   font-size: 13px;
-  color: #a9a9ac;  
+  color: #a9a9ac;
 }
+
 /*技术支持*/
 
 .ba {
