@@ -928,7 +928,7 @@ swiper {
     font-size: 14px;
     margin-top: 10px;
     margin-left: 4px;
-    max-height: 38px;
+    max-height: 40px;
     overflow: hidden;
 }
 

@@ -29,6 +29,10 @@ page{
 	margin-top: 20px;
 	margin-left: 20px;
 }
+.jd_collection_company{
+  height: 20px;
+  overflow: hidden;
+}
 .jd_collection .jd_collection_list .jd_collection_info .jd_collection_company{
 	font-size: 13px;
 	color: #9f9fa7;
