@@ -1,34 +1,51 @@
 <view class="jd_card_me_top">
-    <view class="jd_card_me_avatar"><open-data class="jd_card_me_avatar" type="userAvatarUrl"></open-data></view>
-    <view class="jd_card_me_name">
-        <open-data type="userNickName"></open-data>
-    </view>
+  <view class="jd_card_me_top_info"></view>
+  <view class="jd_card_me_avatar">
+    <open-data class="jd_card_me_avatar" type="userAvatarUrl"></open-data>
+  </view>
+  <view class="jd_card_me_name">
+    <open-data type="userNickName"></open-data>
+  </view>
 </view>
 <view class="jd_card_me_list">
-    <view class="zan-panel">
-        <view bindtap="toFriend" class="zan-cell zan-cell--access">
-            <view class="zan-cell__bd">我的所有名片</view>
-            <view class="zan-cell__ft"></view>
-        </view>
-<!--         <view bindtap="setting" class="zan-cell zan-cell--access">
-            <view class="zan-cell__bd">授权设置</view>
-            <view class="zan-cell__ft"></view>
-        </view> -->
-        <view bindtap="statis" wx:if="{{internal}}" class="zan-cell zan-cell--access">
-            <view class="zan-cell__bd">数据统计</view>
-            <view class="zan-cell__ft"></view>
-        </view>
-        <view class="zan-cell">
-            <view class="zan-cell__bd">版本</view>
-            <view class="zan-cell__ft">{{ version }}</view>
-        </view>
+  <view class="zan-panel zan-panel_one">
+    <view bindtap="toFriend" class="zan-cell zan-cell--access">
+      <image style='width: 30px ; height: 30px ; margin: 0 11px 0 2px' src='../../images/friend.png'></image>
+      <view class="zan-cell__bd">  我的所有名片</view>
+      <view class="zan-cell__ft"></view>
     </view>
-    <view class="zan-panel">
-        <view bindtap="addWx" class="zan-cell zan-cell--access">
-            <view class="zan-cell__bd">添加微信号zhongwei，加入产品交流群</view>
-            <view class="zan-cell__ft"></view>
-        </view>
+    <view bindtap="tofans" class="zan-cell zan-cell--access">
+      <image style='width: 28px ; height: 28px ; margin: 0 11px 0 2px' src='../../images/fans.png'></image>
+      <view class="zan-cell__bd">  我的粉丝</view>
+      <view class="zan-cell__ft">谁收藏了我</view>
     </view>
+    <view bindtap="toabout" class="zan-cell zan-cell--access">
+      <image style='width: 29px ; height: 29px ; margin: 0 11px 0 2px' src='../../images/about.png'></image>
+      <view class="zan-cell__bd">  关于我们</view>
+      <view class="zan-cell__ft"></view>
+    </view>
+    <view bindtap="setting" class="zan-cell zan-cell--access">
+      <image style='width: 35px ; height: 35px ; margin: 0 14px 0 0px' src='../../images/setting.png'></image>
+      <view class="zan-cell__bd">授权设置</view>
+      <view class="zan-cell__ft"></view>
+    </view>
+    <view bindtap="statis" wx:if="{{internal}}" class="zan-cell zan-cell--access">
+      <view class="zan-cell__bd">数据统计</view>
+      <view class="zan-cell__ft"></view>
+    </view>
+    <view class="zan-cell">
+      <image style='width: 32px ; height: 32px ; margin: 0 11px 0 1px' src='../../images/version.png'></image>
+      <view class="zan-cell__bd"> 版本</view>
+      <view class="zan-cell__ft">{{ version }}</view>
+    </view>
+  </view>
+  <view class="zan-panel zan-panel_two">
+    <view bindtap="addWx" class="zan-cell zan-cell--access">
+      <image style='width: 27px ; height: 27px ; margin: 0 11px 0 4px' src='../../images/add.png'></image>
+      <view class="zan-cell__bd"> 添加微信号zhongwei，加入产品交流群</view>
+      <view class="zan-cell__ft"></view>
+    </view>
+  </view>
 
 </view>
 <view bindtap='call_company'>

@@ -22,7 +22,7 @@
             <image src="/images/5.jpg" class="jd_tab_list_icon"></image>
             <view class="jd_tab_list_text">人气 {{ item.hot }}</view>
         </view>
-        <view class="jd_tab_list_item jd_tab_list_item_no" bindtap="animation">
+        <view class="jd_tab_list_item jd_tab_list_item_no">
             <image src="/images/6.jpg" class="jd_tab_list_icon"></image>
             <view class="jd_tab_list_text">收藏 {{ item.save }}</view>
         </view>
