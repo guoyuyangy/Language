@@ -1,18 +1,23 @@
-<view url="" class="weui-media-box weui-media-box_appmsg forumList" hover-class="weui-cell_active">
-  <view class="weui-media-box__hd head_portrait weui-media-box__hd_in-appmsg" style='width: 70rpx;'>
-    <image mode='widthFix' class="weui-media-box__thumb" wx:if="{{ post.post_owner }}" src="{{post.post_owner.avatar}}" />
-    <image mode='widthFix' class="weui-media-box__thumb" wx:else src="../../images/default_avatar.jpg" />
-  </view>
-  <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
-    <view class="weui-media-box__title share_name" wx:if="{{ post.post_owner }}">{{post.post_owner.name?post.post_owner.name:'匿名'}}</view>
-    <view class="weui-media-box__title share_name" wx:else>匿名</view>
-    <view class="time">{{post.created_at}}</view>    
-    <text class="share_texts" wx:if="{{ post.content }}">{{post.content}}</text>
+<view class="share">
+  <image mode='widthFix' class="share_face" wx:if="{{ post.post_owner }}" src="{{post.post_owner.avatar}}" />
+  <image mode='widthFix' class="share_face" wx:else src="../../images/default_avatar.jpg" />
+  <view class="share-message">
+    <view class="share_name">
+      <text wx:if="{{ post.post_owner }}">{{post.post_owner.name?post.post_owner.name:'匿名'}}</text>
+      <text wx:else>匿名</text>
+    </view>
+    <view class='time'>
+      <text>{{post.created_at}}</text>
+      <text style='margin-left:4px;'>浏览{{post.view_count}}次</text>
+    </view>
   </view>
 </view>
+<view class="share_texts">
+  <text class="share_content" wx:if="{{ post.content }}">{{post.content}}</text>
+</view>
 <view class="images_wrapper">
-  <view bindtap="preview" style='width: 120px; height:120px;' class="image_wrap" wx:for="{{post.images}}" wx:key="" wx:for-item="image" data-list="{{post.images}}" data-src="{{image}}">
-    <image mode="aspectFill" style='width: 110px; height:110px;' src="{{image + '?imageView2/1/w/160/h/150'}}" class="images"></image>
+  <view bindtap="preview" class="image_wrap" wx:for="{{post.images}}" wx:key="" wx:for-item="image" data-list="{{post.images}}" data-src="{{image}}">
+    <image mode="aspectFill" style='width: 100%; max-height: 190rpx;' src="{{image + '?imageView2/1/w/160/h/150'}}"></image>
   </view>
 </view>
 <!-- 我的名片开始 -->

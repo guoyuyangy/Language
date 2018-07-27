@@ -1,27 +1,52 @@
 /* pages/addmoments/addmoments.wxss */
+@import "../details/details.wxss";
+@import "../moments/moments.wxss";
+@import "../share/share.wxss";
 
-@import "../details/details.wxss"; 
-@import "../moments/moments.wxss"; 
-@import "../share/share.wxss"; 
+.share {
+  height: 60px;
+  margin: 10px 0;
+}
+
+.share_face {
+  float: left;
+  width: 10%;
+  margin: 10px 10px 0 10px;
+}
+
+.share-message{
+  float: left;
+}
+
+.time, .count {
+  font-size: 12px;
+  color: #888;
+  clear: both;
+}
+
 .share_texts {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.share_content {
   font-size: 16px;
   color: #404040;
-  display: block;
-  float:left;
-  margin-left: -50px;
-  margin-top: 10px;
 }
+
 .images_wrapper {
-  padding: 0 15px 15px 20px;
+  display: block;
+  padding-left: 10px;
 }
+
+.image_wrap {
+  display: inline-block;
+  width: 30%;
+  height: 190rpx;
+  margin: 1.1111%;
+  flex-grow: 0;
+}
+
 .jd_collection_list {
   margin-bottom: 20px;
-}
-.time{
-  font-size: 12px;
-  margin-top: -5px;
-  color: #888;
-}
-.share_name{
-  margin-top: -5px;
 }
