@@ -75,8 +75,16 @@ Page({
   },
 
   onShareAppMessage: function(res) {
-    return {
-      title: this.data.content.split("\n")[0],
+    console.log(this.data.post.images[1])    
+    if (this.data.post.images[0]) {
+      return {
+        title: this.data.content.split("\n")[0],
+        imageUrl: this.data.post.images[0]
+      }
+    } else {
+      return {
+        title: this.data.content.split("\n")[0],
+      }
     }
   },
   preview: function(e) {
