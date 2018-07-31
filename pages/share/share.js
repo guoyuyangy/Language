@@ -25,6 +25,7 @@ Page(Object.assign({}, Zan.Switch, {
         })
     },
     onShow() {
+        app.globalData.ranking = 1              
         let that = this
         if (app.globalData.access_token) {
             this.getData()
@@ -89,6 +90,7 @@ Page(Object.assign({}, Zan.Switch, {
     },
     animation() {
         if (this.data.in_wallet) {
+          app.globalData.wallet = 1 
             util.postData('user/wallet/remove/' + this.data.id, {}, res => {
                 if (res.data.code == 0) {
                     if (this.data.save > 0) {
@@ -105,6 +107,7 @@ Page(Object.assign({}, Zan.Switch, {
                 }
             })
         } else {
+          app.globalData.wallet = 1          
             util.postData('user/wallet/add/' + this.data.id, {}, res => {
                 if (res.data.code == 0) {
                     this.setData({

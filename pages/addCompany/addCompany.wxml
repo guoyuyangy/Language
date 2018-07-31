@@ -19,7 +19,7 @@
                 <view class="weui-cell__bd">
                     <view class="weui-uploader">
                         <view class="weui-uploader__hd">
-                            <view class="weui-uploader__title">公司相册</view>
+                            <view class="weui-uploader__title">公司封面图</view>
                             <view class="weui-uploader__info">{{files.length}}/4</view>
                         </view>
                         <view class="weui-uploader__bd">

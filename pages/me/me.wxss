@@ -78,7 +78,8 @@
 
 .zan-cell__bd {
   font-size: 16px;
-  white-space: pre;
+  float: left;
+  margin-left: 20px;
 }
 
 .zan-cell__ft {

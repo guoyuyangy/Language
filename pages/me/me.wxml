@@ -10,40 +10,40 @@
 <view class="jd_card_me_list">
   <view class="zan-panel zan-panel_one">
     <view bindtap="toFriend" class="zan-cell zan-cell--access">
-      <image style='width: 30px ; height: 30px ; margin: 0 11px 0 2px' src='../../images/friend.png'></image>
-      <view class="zan-cell__bd">  我的所有名片</view>
+      <image style='width: 30px ; height: 30px ; margin-left:3px;' src='../../images/friend.png'></image>
+      <view class="zan-cell__bd" style='margin-left:19px;'>我的所有名片</view>
       <view class="zan-cell__ft"></view>
     </view>
-    <view bindtap="tofans" class="zan-cell zan-cell--access">
-      <image style='width: 28px ; height: 28px ; margin: 0 11px 0 2px' src='../../images/fans.png'></image>
-      <view class="zan-cell__bd">  我的粉丝</view>
-      <view class="zan-cell__ft">谁收藏了我</view>
+    <view class="zan-cell zan-cell--access">
+      <image style='width: 28px ; height: 28px ; margin-left:3px;' src='../../images/fans.png'></image>
+      <view class="zan-cell__bd">我的粉丝</view>
+      <view class="zan-cell__ft">暂未开放</view>
     </view>
     <view bindtap="toabout" class="zan-cell zan-cell--access">
-      <image style='width: 29px ; height: 29px ; margin: 0 11px 0 2px' src='../../images/about.png'></image>
-      <view class="zan-cell__bd">  关于我们</view>
+      <image style='width: 29px ; height: 29px ; margin-left:3px;' src='../../images/about.png'></image>
+      <view class="zan-cell__bd">关于我们</view>
       <view class="zan-cell__ft"></view>
     </view>
     <view bindtap="setting" class="zan-cell zan-cell--access">
-      <image style='width: 35px ; height: 35px ; margin: 0 14px 0 0px' src='../../images/setting.png'></image>
-      <view class="zan-cell__bd">授权设置</view>
+      <image style='width: 35px ; height: 35px ; margin-left:0px;' src='../../images/setting.png'></image>
+      <view class="zan-cell__bd" style='margin-left:17px;'>授权设置</view>
       <view class="zan-cell__ft"></view>
     </view>
     <view bindtap="statis" wx:if="{{internal}}" class="zan-cell zan-cell--access">
-      <image style='width: 31px ; height: 31px ; margin: 0 12px 0 1px' src='../../images/data.png'></image>    
-      <view class="zan-cell__bd">数据统计</view>
+      <image style='width: 31px ; height: 31px ; margin-left:2px;' src='../../images/data.png'></image>    
+      <view class="zan-cell__bd" style='margin-left:19px;'>数据统计</view>
       <view class="zan-cell__ft"></view>
     </view>
     <view class="zan-cell">
-      <image style='width: 32px ; height: 32px ; margin: 0 11px 0 1px' src='../../images/version.png'></image>
-      <view class="zan-cell__bd"> 版本</view>
+      <image style='width: 32px ; height: 32px ; margin-left:1px;' src='../../images/version.png'></image>
+      <view class="zan-cell__bd" style='margin-left:19px;'>版本</view>
       <view class="zan-cell__ft">{{ version }}</view>
     </view>
   </view>
   <view class="zan-panel zan-panel_two">
     <view bindtap="addWx" class="zan-cell zan-cell--access">
-      <image style='width: 27px ; height: 27px ; margin: 0 11px 0 4px' src='../../images/add.png'></image>
-      <view class="zan-cell__bd"> 添加微信号 加入产品交流群</view>
+      <image style='width: 27px ; height: 27px ; margin-left:3px;' src='../../images/add.png'></image>
+      <view class="zan-cell__bd" style='margin-left:20px;'>添加微信号 加入产品交流群</view>
       <view class="zan-cell__ft"></view>
     </view>
   </view>

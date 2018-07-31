@@ -1,11 +1,10 @@
 <form bindsubmit="formSubmit">
     <view class="jd_edit_box">
-        <view class="jd_edit_avatar" bindtap="selectImage">
-            <image class="jd_edit_avatar_btn" src="/images/cam.png"></image>
-            <button wx:if="{{ avatar == null || avatar == ''  }}" bindgetuserinfo="getUser">
+        <view class="jd_edit_avatar">
+            <button bindtap="selectImage" wx:if="{{ avatar == null || avatar == ''  }}" bindgetuserinfo="getUser">
                 <image class="jd_edit_avatar_info" src="/images/default.png"></image>
             </button>
-            <image class="jd_edit_avatar_info" wx:if="{{ avatar != null && avatar != '' }}" src="{{ avatar }}"></image>
+            <image bindtap="selectImage" class="jd_edit_avatar_info" wx:if="{{ avatar != null && avatar != '' }}" src="{{ avatar }}"></image>
         </view>
         <view class="jd_layout">
             <input type="text" name="username" bindinput="nameChange" value="{{ name }}" placeholder="姓名(必填)" />

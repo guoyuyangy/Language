@@ -17,12 +17,14 @@ Page(Object.assign({}, Zan.Switch, {
   onLoad(options) {
     $loading = this.selectComponent(".J_loading")
     $loading.show()
+    var that = this
+    this.getData();
   },
-  onReady: function () {
+  onReady: function() {
     this.animation = wx.createAnimation()
   },
   onShow() {
-    this.timeout()    
+    this.timeout()
     let that = this
     if (app.globalData.access_token) {
       this.getData()
@@ -52,52 +54,109 @@ Page(Object.assign({}, Zan.Switch, {
     }
   },
   timeout() {
-    setTimeout(function () {
-      this.animation.translate(0, 30).step({ duration: 1000 })
+    setTimeout(function() {
+      this.animation.translate(0, 30).step({
+          duration: 1000
+        })
         .translate(0, 0)
-        .step({ duration: 1000 })
-      this.setData({ animation: this.animation.export() })
+        .step({
+          duration: 1000
+        })
+      this.setData({
+        animation: this.animation.export()
+      })
 
     }.bind(this), 1000)
   },
   getData() {
     let that = this
-    util.getData('user', {}, res => {
-      if (res.statusCode == 403) {
-        util.reLogin(res => {
-          that.getData()
+    var userList = wx.getStorageSync('userList')
+    if (!userList) {
+      util.getData('user', {}, res => {
+        if (res.statusCode == 403) {
+          util.reLogin(res => {
+            that.getData()
+          })
+        }
+        if (res.data.data.card != null) {
+          wx.setStorageSync('userList', res.data.data)
+          this.setData({
+            isExist: true,
+            userData: res.data.data.card,
+            save: res.data.data.card.save,
+            in_wallet: res.data.data.card.in_wallet,
+            id: res.data.data.card.id
+          })
+          util.getData('cards/products', {
+            card_id: res.data.data.card.id
+          }, res => {
+            this.setData({
+              products: res.data.data
+            })
+          })
+
+          util.getData(`cards/${res.data.data.card.id}/website`, {}, res => {
+            this.setData({
+              companyData: res.data.data
+            })
+          })
+          wx.hideLoading()
+          $loading.hide()
+        } else {
+          this.setData({
+            isExist: false
+          })
+          wx.hideLoading()
+          $loading.hide()
+        }
+      })
+    } else {
+      if (app.globalData.codes == 1) {
+        util.getData('user', {}, res => {
+          wx.setStorageSync('userList', res.data.data)
+          console.log('data from urlchange');
+          this.setData({
+            isExist: true,
+            userData: res.data.data.card,
+            save: res.data.data.card.save,
+            in_wallet: res.data.data.card.in_wallet,
+            id: res.data.data.card.id
+          })
+          wx.hideLoading()
+          $loading.hide()
         })
-      }
-      if (res.data.data.card != null) {
+        app.globalData.codes = 0
+      } else {
+        wx.hideLoading()
+        $loading.hide()
+        var userDatas = wx.getStorageSync('userList')
         this.setData({
           isExist: true,
-          userData: res.data.data.card,
-          save: res.data.data.card.save,
-          in_wallet: res.data.data.card.in_wallet,
-          id: res.data.data.card.id
+          userData: userDatas.card,
+          save: userDatas.card.save,
+          in_wallet: userDatas.card.in_wallet,
+          id: userDatas.card.id,
+          name: userDatas.name
         })
-        util.getData('cards/products', {
-          card_id: res.data.data.card.id
-        }, res => {
-          this.setData({
-            products: res.data.data
+        util.getData('user', {}, res => {
+
+          util.getData('cards/products', {
+            card_id: res.data.data.card.id
+          }, res => {
+            this.setData({
+              products: res.data.data
+            })
           })
-        })
-        util.getData(`cards/${res.data.data.card.id}/website`, {}, res => {
-          this.setData({
-            companyData: res.data.data
+          util.getData(`cards/${res.data.data.card.id}/website`, {}, res => {
+            this.setData({
+              companyData: res.data.data
+            })
           })
+          wx.hideLoading()
+          $loading.hide()
         })
-        wx.hideLoading()
-        $loading.hide()
-      } else {
-        this.setData({
-          isExist: false
-        })
-        wx.hideLoading()
-        $loading.hide()
       }
-    })
+    }
   },
   open() {
     wx.switchTab({
