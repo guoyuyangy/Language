@@ -109,6 +109,13 @@ Page(Object.assign({}, Zan.Toast, {
     //   }
     //   util.postData('update_user_info2', data, 'loginState', res => {})
     // }
+    if (!this.data.content) {
+      wx.showToast({
+        title: '内容不能为空',
+        duration: 2000
+      })
+      return;
+    }
     wx.request({
       url: `${app.globalData.host}/api/posts`,
       method: 'POST',
@@ -122,12 +129,7 @@ Page(Object.assign({}, Zan.Toast, {
         'Authorization': `Bearer ${app.globalData.access_token}`,
       },
       success: res => {
-        if (res.data.content == null) {
-          wx.showToast({
-            title: '内容不能为空',
-            duration: 2000
-          })
-        }
+        console.log(res.data.content)
         if (res.data.err_code == 0) {
           this.back();
         }

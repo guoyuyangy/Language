@@ -27,7 +27,7 @@
     <view class="weui-panel__bd forum_wrapper" wx:for="{{posts}}" wx:key="id" wx:for-item="post">
       <navigator url="/pages/addmoments/addmoments?posts_id={{ post.id }}" class="weui-media-box weui-media-box_appmsg forumList" hover-class='none'>
         <view class="weui-media-box__hd weui-media-box__hd_in-appmsg" style='width: 70rpx;'>
-          <image mode='widthFix' class="weui-media-box__thumb" wx:if="{{ post.post_owner }}" src="{{post.post_owner.avatar}}" />
+          <image mode='widthFix' class="weui-media-box__thumb" wx:if="{{ post.post_owner.avatar }}" src="{{post.post_owner.avatar}}" />
           <image mode='widthFix' class="weui-media-box__thumb" wx:else src="../../images/default_avatar.jpg" />
         </view>
         <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">

@@ -36,7 +36,7 @@
     </view>
     <view class="zan-cell">
       <image style='width: 32px ; height: 32px ; margin-left:1px;' src='../../images/version.png'></image>
-      <view class="zan-cell__bd" style='margin-left:19px;'>版本</view>
+      <view class="zan-cell__bd" style='margin-left:19px;'>当前版本</view>
       <view class="zan-cell__ft">{{ version }}</view>
     </view>
   </view>

@@ -45,6 +45,7 @@ Page({
     this.getSet()
   },
   formSubmit: function (e) {
+    app.globalData.codes = 1                      
     let that = this
     let formData = {
       name: that.data.name,
@@ -96,6 +97,7 @@ Page({
     })
   },
   selectImage(e) {
+    app.globalData.codes = 1                      
     var that = this;
     wx.chooseImage({
       count: 1,
@@ -128,6 +130,7 @@ Page({
     })
   },
   detele: function () {
+    app.globalData.codes = 1                      
     wx.showModal({
       title: '提示',
       content: '是否确定删除？',
@@ -198,6 +201,7 @@ Page({
     }
   },
   getAddress: function () {
+    app.globalData.codes = 1                      
     let that = this
     wx.chooseLocation({
       type: 'gcj02',
@@ -218,6 +222,7 @@ Page({
     })
   },
   getSet: function () {
+    app.globalData.codes = 1                      
     let that = this
     wx.getSetting({
       success: (res) => {
