@@ -114,7 +114,6 @@ Page(Object.assign({}, Zan.Switch, {
       })
     } else {        //有缓存
       if (app.globalData.codes == 1 || this.data.saving == 1 || this.data.forwarding == 1 || app.globalData.sharing == 1) {    //数据发生改变
-        console.log('cachechange')
         util.getData('user', {}, res => {
           wx.setStorageSync('userList', res.data.data)
           if (!res.data.data.card) {      //无名片
@@ -155,7 +154,6 @@ Page(Object.assign({}, Zan.Switch, {
         var userDatas = wx.getStorageSync('userList')
         wx.hideLoading()
         $loading.hide()
-        console.log('cache')
         this.setData({
           isExist: true,
           userData: userDatas.card,
