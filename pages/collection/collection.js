@@ -13,6 +13,7 @@ Page({
     $loading.show()
   },
   onShow: function() {
+    app.globalData.sharing = 1                      
     if (app.globalData.access_token) {
       this.getData()
     } else {

@@ -15,7 +15,7 @@ Page(Object.assign({}, Zan.Switch, {
     },
     onLoad(options) {
         this.setData
-
+        
         ({
             id: options.id,
             type: options.type
