@@ -60,7 +60,9 @@ App({
         internal: null,
         host: is_dev() ? dev_host() : production_host(),
         codes: 0,
+        saving: 0,
         wallet: 0,
         version: '2.0.0',
+        sharing: 0
     }
 })

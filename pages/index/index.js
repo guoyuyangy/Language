@@ -12,7 +12,9 @@ Page(Object.assign({}, Zan.Switch, {
     id: null,
     isExist: false,
     products: [],
-    companyData: null
+    companyData: null,
+    saving: 0,
+    forwarding: 0
   },
   onLoad(options) {
     $loading = this.selectComponent(".J_loading")
@@ -71,7 +73,7 @@ Page(Object.assign({}, Zan.Switch, {
   getData() {
     let that = this
     var userList = wx.getStorageSync('userList')
-    if (!userList) {
+    if (!userList) {        //无缓存
       util.getData('user', {}, res => {
         if (res.statusCode == 403) {
           util.reLogin(res => {
@@ -110,26 +112,50 @@ Page(Object.assign({}, Zan.Switch, {
           $loading.hide()
         }
       })
-    } else {
-      if (app.globalData.codes == 1) {
+    } else {        //有缓存
+      if (app.globalData.codes == 1 || this.data.saving == 1 || this.data.forwarding == 1 || app.globalData.sharing == 1) {    //数据发生改变
+        console.log('cachechange')
         util.getData('user', {}, res => {
           wx.setStorageSync('userList', res.data.data)
-          console.log('data from urlchange');
-          this.setData({
-            isExist: true,
-            userData: res.data.data.card,
-            save: res.data.data.card.save,
-            in_wallet: res.data.data.card.in_wallet,
-            id: res.data.data.card.id
-          })
+          if (!res.data.data.card) {      //无名片
+            this.setData({
+              isExist: false,
+              userData: null,
+            })
+          } else {                        //有名片
+            util.getData('user', {}, res => {
+              wx.setStorageSync('userList', res.data.data)              
+              this.setData({
+                isExist: true,
+                userData: res.data.data.card,
+                save: res.data.data.card.save,
+                in_wallet: res.data.data.card.in_wallet,
+                id: res.data.data.card.id,
+                saving: 0
+              })
+            })
+            util.getData('cards/products', {
+              card_id: res.data.data.card.id
+            }, res => {
+              this.setData({
+                products: res.data.data
+              })
+            })
+            util.getData(`cards/${res.data.data.card.id}/website`, {}, res => {
+              this.setData({
+                companyData: res.data.data
+              })
+            })
+          }
           wx.hideLoading()
           $loading.hide()
         })
         app.globalData.codes = 0
-      } else {
+      } else {                  //数据未发生改变
+        var userDatas = wx.getStorageSync('userList')
         wx.hideLoading()
         $loading.hide()
-        var userDatas = wx.getStorageSync('userList')
+        console.log('cache')
         this.setData({
           isExist: true,
           userData: userDatas.card,
@@ -139,7 +165,6 @@ Page(Object.assign({}, Zan.Switch, {
           name: userDatas.name
         })
         util.getData('user', {}, res => {
-
           util.getData('cards/products', {
             card_id: res.data.data.card.id
           }, res => {
@@ -174,13 +199,15 @@ Page(Object.assign({}, Zan.Switch, {
     })
   },
   animations() {
+    app.globalData.wallet = 1                         
     if (this.data.in_wallet) {
       util.postData('user/wallet/remove/' + this.data.id, {}, res => {
         if (res.data.code == 0) {
           if (this.data.save > 0) {
             this.setData({
               in_wallet: false,
-              save: this.data.save - 1
+              save: this.data.save - 1,
+              saving: 1
             })
           }
           wx.showToast({
@@ -195,7 +222,8 @@ Page(Object.assign({}, Zan.Switch, {
         if (res.data.code == 0) {
           this.setData({
             in_wallet: true,
-            save: this.data.save + 1
+            save: this.data.save + 1,
+            saving: 1
           })
           wx.showToast({
             title: '收藏成功',
@@ -205,6 +233,7 @@ Page(Object.assign({}, Zan.Switch, {
         }
       })
     }
+    this.getData();
   },
   call() {
     wx.makePhoneCall({
@@ -249,6 +278,10 @@ Page(Object.assign({}, Zan.Switch, {
       path: '/pages/share/share?id=' + this.data.id,
       success: (res) => {
         util.postData('cards/' + this.data.id + '/forward', {}, res => {})
+        app.globalData.codes == 1
+        this.setData({
+          forwarding: 1          
+        })
         wx.showToast({
           title: '转发成功',
           icon: 'success',

@@ -130,7 +130,8 @@ Page({
     })
   },
   detele: function () {
-    app.globalData.codes = 1                      
+    app.globalData.codes = 1
+    app.globalData.wallet = 1                     
     wx.showModal({
       title: '提示',
       content: '是否确定删除？',

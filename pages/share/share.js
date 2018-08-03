@@ -25,7 +25,6 @@ Page(Object.assign({}, Zan.Switch, {
         })
     },
     onShow() {
-        app.globalData.ranking = 1              
         let that = this
         if (app.globalData.access_token) {
             this.getData()
@@ -38,6 +37,7 @@ Page(Object.assign({}, Zan.Switch, {
     getData() {
         let that = this
         util.getData('cards/' + that.data.id, {}, res => {
+            app.globalData.sharing = 1                                                                          
             if(res.statusCode == 403){
                 util.reLogin(res=>{
                     that.getData()
