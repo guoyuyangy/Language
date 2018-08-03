@@ -7,27 +7,27 @@
 }
 
 .jd_card_me_top .jd_card_me_avatar {
-  width: 65px;
-  height: 65px;
+  width: 130rpx;
+  height: 130rpx;
   border-radius: 50%;
   overflow: hidden;
   position: relative;
 }
 
 .jd_card_me_top .jd_card_me_name {
-  font-size: 15px;
-  margin-top: 10px;
+  font-size: 30rpx;
+  margin-top: 20rpx;
   position: relative;
 }
 
 .jd_card_me_top .jd_card_me_updata {
-  width: 65px;
+  width: 130rpx;
   height: 12px;
   border-radius: 2em;
-  font-size: 12px;
+  font-size: 24rpx;
   color: #777;
   border: 1px solid #ebebeb;
-  margin-top: 6px;
+  margin-top: 12rpx;
   display: flex;
   align-items: center;
   padding: 5px;
@@ -59,7 +59,7 @@
 }
 
 .jd_card_me_list {
-  margin-top: 20px;
+  margin-top: 40rpx;
 }
 
 .zan-panel {
@@ -77,13 +77,13 @@
 }
 
 .zan-cell__bd {
-  font-size: 16px;
+  font-size: 32rpx;
   float: left;
   margin-left: 20px;
 }
 
 .zan-cell__ft {
-  font-size: 13px;
+  font-size: 26rpx;
   color: #a9a9ac;
 }
 
@@ -112,13 +112,13 @@
 .company-name {
   display: block;
   text-align: center;
-  font-size: 0.825em;
+  font-size: 26rpx;
 }
 
 .ba_font {
   width: 100%;
   text-align: center;
-  font-size: 0.785em;
+  font-size: 25rpx;
   color: #bfbec3;
 }
 
