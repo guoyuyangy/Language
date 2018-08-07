@@ -280,6 +280,10 @@ function get_user_info_and_upload() {
     })
 }
 
+function trim(s) {
+  return s.replace(/(^\s*)|(\s*$)/g, "");
+}
+
 module.exports = {
     formatTime: formatTime,
     formatDate: formatDate,
@@ -292,5 +296,6 @@ module.exports = {
     mathRand: mathRand,
     relationship: relationship,
     request_after_login: request_after_login,
-    get_user_info_and_upload: get_user_info_and_upload
+    get_user_info_and_upload: get_user_info_and_upload,
+    trim: trim
 }

@@ -333,6 +333,17 @@ Page({
                 this.setData({
                   posts: this.data.posts
                 });
+                util.postData(`posts`, this.data.posts, res => {
+                  if (res.data.code == 0) {
+                    wx.showModal({
+                      title: '提示',
+                      content: '删除成功',
+                      showCancel: false,
+                      success: function () {
+                      }
+                    })
+                  }
+                })
               }
             }
           });

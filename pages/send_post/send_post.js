@@ -100,7 +100,6 @@ Page(Object.assign({}, Zan.Toast, {
     })
 
   },
-
   publish: function(e) {
     // if (e.detail.userInfo) {
     //   let data = {
@@ -113,6 +112,13 @@ Page(Object.assign({}, Zan.Toast, {
       wx.showToast({
         title: '内容不能为空',
         duration: 2000
+      })
+      return;
+    }
+    if (!util.trim(this.data.content)){
+      wx.showToast({
+        title: '请不要瞎搞',
+        duration: 3000
       })
       return;
     }
