@@ -105,7 +105,7 @@ Page({
   },
 
   processPostData: function(post) {
-    if (this.data.userInfo && post.zan_user_ids.indexOf(this.data.userInfo.id) != -1) {
+    if (this.data.userInfo && post.zan_user_ids.indexOf(this.data.userInfo.card.id) != -1) {
       post.zaned = true;
     }
     return post;
@@ -135,7 +135,7 @@ Page({
           url: `${app.globalData.host}/api/zans`,
           method: 'POST',
           data: {
-            'user_id': this.data.userInfo.id,
+            'user_id': this.data.userInfo.card.id,
             'post_id': post_id
           },
           header: {
@@ -159,7 +159,7 @@ Page({
         url: `${app.globalData.host}/api/zans/cancel`,
         method: 'POST',
         data: {
-          'user_id': this.data.userInfo.id,
+          'user_id': this.data.userInfo.card.id,
           'post_id': post_id
         },
         header: {
