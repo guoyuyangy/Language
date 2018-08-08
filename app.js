@@ -62,7 +62,7 @@ App({
         codes: 0,
         saving: 0,
         wallet: 0,
-        version: '2.3.0',
+        version: '2.4.0',
         sharing: 0
     }
 })
