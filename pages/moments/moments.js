@@ -19,7 +19,7 @@ Page({
     post_id: null, //被评论的帖子id
     replyContent: '',
     checking_version: true,
-
+    internal: false,
     title_desc: '加入我们的微信交流群', // 分享新鲜事～
     title_icon: '', // /images/camera.png
   },
@@ -42,22 +42,21 @@ Page({
           title_desc: '分享新鲜事～',
           title_icon: '/images/camera.png',
         });
-
+        if (!this.data.isPreviewTriggerOnShow) {
+          this.loadData(`${app.globalData.host}/api/posts`);
+        } else {
+          this.setData({
+            isPreviewTriggerOnShow: false
+          });
+        }
         util.reLogin(() => {
           util.getData('users/' + app.globalData.userid, {}, res => {
             app.globalData.user_info = res.data.data
-
+            app.globalData.internal = res.data.data.internal
             this.setData({
+              internal: res.data.data.internal,
               userInfo: res.data.data
             });
-
-            if (!this.data.isPreviewTriggerOnShow) {
-              this.loadData(`${app.globalData.host}/api/posts`);
-            } else {
-              this.setData({
-                isPreviewTriggerOnShow: false
-              });
-            }
           })
         })
       }
@@ -101,7 +100,7 @@ Page({
         url: `/pages/send_post/send_post?user_id=${this.data.userInfo.id}`
       });
     }
-    
+
   },
 
   processPostData: function(post) {
@@ -173,8 +172,6 @@ Page({
         }
       });
     });
-
-
   },
 
   updatePost: function(post_id) {

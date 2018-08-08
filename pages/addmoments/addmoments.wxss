@@ -2,6 +2,8 @@
 @import "../details/details.wxss";
 @import "../moments/moments.wxss";
 @import "../share/share.wxss";
+@import "../index/index.wxss";
+@import "../../dist/csshake.wxss";
 
 .share {
   height: 60px;
@@ -14,7 +16,7 @@
   margin: 10px 10px 0 10px;
 }
 
-.share-message{
+.share-message {
   float: left;
 }
 
@@ -49,4 +51,15 @@
 
 .jd_collection_list {
   margin-bottom: 20px;
+}
+
+.jd_card_nodata {
+  height: 150rpx;
+}
+
+.shake-hard:hover, .shake-trigger:hover .shake-hard, .shake-hard.shake-freeze, .shake-hard.shake-constant {
+    animation-name: shake-hard;
+    animation-duration: 100ms;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
 }

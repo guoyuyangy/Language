@@ -50,7 +50,7 @@
         <view class="btn_wrap_left">
           <text class="time">{{post.created_at}}</text>
           <text class="count">浏览{{post.view_count}}次</text>
-          <text class="delete" wx:if="{{userInfo && post.post_owner.id == userInfo.card.id }}" bindtap="deletePost" data-postid="{{post.id}}">删除</text>
+          <text class="delete" wx:if="{{internal || post.post_owner.id == userInfo.card.id }}" bindtap="deletePost" data-postid="{{post.id}}">删除</text>
         </view>
         <view class="btn_wrap_right">
           <view class="zan" bindtap="dianZan" data-action="{{post.zaned}}" data-postid="{{post.id}}" data-zanusers="{{post.zan_user_names}}">

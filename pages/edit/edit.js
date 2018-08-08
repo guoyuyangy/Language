@@ -16,7 +16,8 @@ Page({
     email: null,
     array: [],
     isLocation: false,
-    type: null
+    type: null,
+    avatar_url: "http://card-cdn.jindongsoft.com/default_user_portrait.png"
   },
   onLoad: function (options) {
     this.setData({
@@ -64,6 +65,9 @@ Page({
       slogan: that.data.slogan,
       industry_id: parseInt(that.data.index) + 1,
       email: that.data.email
+    }
+    if(!this.data.avatar){
+        formData.avatar=this.data.avatar_url
     }
     let url = ''
     if (this.data.type == 'edit') {

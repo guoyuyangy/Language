@@ -8,15 +8,17 @@ Page({
     userInfo: null,
     posts_id: null,
     products: null,
-    userData: null,
     post_owner: null,
     content: null,
-    save: null,
     detailData: null,
     companyData: null,
-    in_wallet: false,
     share: null,
     releaseFocus: false,
+    userData: null,
+    isExist: false,
+    save: null,
+    in_wallet: false,
+    id: null
   },
   onLoad: function(options) {
     let that = this
@@ -52,6 +54,17 @@ Page({
           content: res.data.data.content,
           in_wallet: res.data.data.post_owner.expose
         })
+        util.getData('user', {}, res => {
+          if (res.data.data.card != null) {
+            this.setData({
+              isExist: true,
+              userData: res.data.data.card,
+              save: res.data.data.card.save,
+              in_wallet: res.data.data.card.in_wallet,
+              id: res.data.data.card.id
+            })
+          }
+        })
         util.getData(`cards/${res.data.data.post_owner.id}/website`, {}, res => {
           this.setData({
             companyData: res.data.data
@@ -73,7 +86,11 @@ Page({
       url: '/pages/index/index'
     })
   },
-
+  add() {
+    wx.navigateTo({
+      url: '/pages/edit/edit?type=add'
+    })
+  },
   onShareAppMessage: function(res) {
     if (this.data.post.images[0]) {
       return {

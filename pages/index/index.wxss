@@ -159,7 +159,6 @@
 .jd_card_box_two .jd_card_box_two_left .jd_card_fix_tel {
     color: #555;
     font-size: 14px;
-    margin-top: 15px;
     display: flex;
     align-items: center;
 }
