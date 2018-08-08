@@ -246,7 +246,7 @@ Page({
         url: `${app.globalData.host}/api/comments`,
         method: 'POST',
         data: {
-          'user_id': this.data.userInfo.id,
+          'user_id': this.data.userInfo.card.id,
           'post_id': this.data.post_id,
           'parent_id': this.data.parent_comment_id,
           'content': this.data.replyContent
