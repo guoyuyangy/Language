@@ -322,7 +322,7 @@ Page({
         if (res.confirm) {
           wx.request({
             url: `${app.globalData.host}/api/posts/${post_id}`,
-            method: 'GET',
+            method: 'DELETE',
             header: {
               'Accept': 'application/json',
               'Authorization': `Bearer ${app.globalData.access_token}`,
@@ -333,17 +333,6 @@ Page({
                 this.setData({
                   posts: this.data.posts
                 });
-                util.postData(`posts`, this.data.posts, res => {
-                  if (res.data.code == 0) {
-                    wx.showModal({
-                      title: '提示',
-                      content: '删除成功',
-                      showCancel: false,
-                      success: function () {
-                      }
-                    })
-                  }
-                })
               }
             }
           });
