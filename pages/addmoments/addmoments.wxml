@@ -59,7 +59,7 @@
 </navigator>
 <!-- 作者名片结束 -->
 <!-- 我的名片开始 -->
-<view animation="{{animation}}" wx:if="{{ !isExist }}">
+<view wx:if="{{ !isExist }}">
   <view wx:if="{{ userData == null }}" class="jd_card_nodata">
     <view class="jd_card_info">
       <view class="zan-btns " bindtap="add">
@@ -69,6 +69,15 @@
   </view>
 </view>
 <!-- 我的的名片结束 -->
+<!-- 发表文章开始 -->
+<view wx:if="{{ userData != null }}" class="jd_card_nodata">
+  <view class="jd_card_info">
+    <view class="zan-btns " bindtap="add">
+      <button class="shake-slow shake-constant shake-constant--hover zan-btn zan-btn--primary">我也要发表文章</button>
+    </view>
+  </view>
+</view>
+<!-- 发表文章结束 -->
 <!-- 公司官网开始 -->
 <view class="jd_product_layouts" wx:if="{{ companyData != null }}">
   <view class="doc-title">公司官网</view>
