@@ -31,6 +31,8 @@
               <image class="jd_two_icon" src="/images/position.png"></image>
               <view class="jd_card_fix_email_info">{{ userData.address.name }}</view>
             </view>
+            <view class="jd_card_fix_tel" bindtap="addWx" wx:if="{{ userData.wechat_id != '' }}">
+              <image class="jd_wechat_icon" src="/images/wechat.png"></image> {{ userData.wechat_id }}</view>
           </view>
           <view animation="{{animation}}" class="jd_card_box_two_right">
             <image wx:if="{{ userData.avatar }}" src="{{ userData.avatar }}?imageView2/2/w/300"></image>

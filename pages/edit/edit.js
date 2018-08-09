@@ -14,6 +14,7 @@ Page({
     title: null,
     slogan: null,
     email: null,
+    wechat_id: null,    
     array: [],
     isLocation: false,
     type: null,
@@ -64,7 +65,8 @@ Page({
       avatar: that.data.avatar,
       slogan: that.data.slogan,
       industry_id: parseInt(that.data.index) + 1,
-      email: that.data.email
+      email: that.data.email,
+      wechat_id: that.data.wechat_id      
     }
     if(!this.data.avatar){
         formData.avatar=this.data.avatar_url
@@ -195,6 +197,7 @@ Page({
             tel: res.data.data.mobile,
             bigtel: res.data.data.tel,
             email: res.data.data.email,
+            wechat_id: res.data.data.wechat_id,            
             address: address,
             slogan: res.data.data.slogan,
             index: parseInt(res.data.data.industry_id) - 1,
@@ -251,6 +254,11 @@ Page({
   telChange: function (e) {
     this.setData({
       tel: e.detail.value
+    })
+  },
+  wechat_idChange: function (e) {
+    this.setData({
+      wechat_id: e.detail.value
     })
   },
   bigtelChange: function (e) {

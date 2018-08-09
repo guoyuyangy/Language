@@ -160,6 +160,12 @@
     margin-right: 2px;
 }
 
+.jd_wechat_icon{
+    width: 20px;
+    height: 20px;
+    margin:0 3px;
+}
+
 .jd_card_box_two .jd_card_box_two_left .jd_card_fix_email {
     color: #555;
     font-size: 14px;

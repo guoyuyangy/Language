@@ -8,6 +8,7 @@ Page(Object.assign({}, Zan.Switch, {
     avatar: '/images/default.png',
     userData: null,
     save: 0,
+    wechat_id: null,
     in_wallet: false,
     id: null,
     isExist: false,
@@ -86,6 +87,7 @@ Page(Object.assign({}, Zan.Switch, {
             isExist: true,
             userData: res.data.data.card,
             save: res.data.data.card.save,
+            wechat_id: res.data.data.card.wechat_id,
             in_wallet: res.data.data.card.in_wallet,
             id: res.data.data.card.id
           })
@@ -128,6 +130,7 @@ Page(Object.assign({}, Zan.Switch, {
                 isExist: true,
                 userData: res.data.data.card,
                 save: res.data.data.card.save,
+                wechat_id: res.data.data.card.wechat_id,                
                 in_wallet: res.data.data.card.in_wallet,
                 id: res.data.data.card.id,
                 saving: 0
@@ -158,6 +161,7 @@ Page(Object.assign({}, Zan.Switch, {
           isExist: true,
           userData: userDatas.card,
           save: userDatas.card.save,
+          wechat_id: userDatas.card.wechat_id,          
           in_wallet: userDatas.card.in_wallet,
           id: userDatas.card.id,
           name: userDatas.name
@@ -268,6 +272,18 @@ Page(Object.assign({}, Zan.Switch, {
   creat() {
     wx.navigateTo({
       url: '/pages/addCompany/addCompany?card_id=' + this.data.id
+    })
+  },
+  addWx() {
+    wx.setClipboardData({
+      data: this.data.wechat_id,
+      success: function (res) {
+        wx.showToast({
+          title: '已复制微信号',
+          icon: 'success',
+          duration: 1500
+        })
+      }
     })
   },
   onShareAppMessage: function() {

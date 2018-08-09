@@ -13,6 +13,9 @@
             <input type="digit" name="tel" bindinput="telChange" value="{{ tel }}" placeholder="联系电话(必填)" />
         </view>
         <view class="jd_layout no-border">
+            <input type="text" name="wechat_id" bindinput="wechat_idChange" value="{{ wechat_id }}" placeholder="微信号" />
+        </view>
+        <view class="jd_layout no-border">
             <input type="text" name="email" bindinput="emailChange" value="{{ email }}" placeholder="邮箱" />
         </view>
     </view>

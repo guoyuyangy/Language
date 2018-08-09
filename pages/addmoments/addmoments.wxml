@@ -40,6 +40,8 @@
             <image class="jd_two_icon" src="/images/position.png"></image>
             <view class="jd_card_fix_email_info" wx:if="{{ post_owner.address.name != null }}">{{ post_owner.address.name }}</view>
           </view>
+          <view class="jd_card_fix_tel" wx:if="{{ post_owner.wechat_id != null }}">
+            <image class="jd_wechat_icon" src="/images/wechat.png"></image> {{ post_owner.wechat_id }}</view>
         </view>
         <view wx:if="{{ post_owner.avatar }}" class="jd_card_box_two_right">
           <image src="{{ post_owner.avatar }}"></image>
@@ -58,7 +60,7 @@
   </view>
 </navigator>
 <!-- 作者名片结束 -->
-<!-- 我的名片开始 -->
+<!-- 创建名片开始 -->
 <view wx:if="{{ !isExist }}">
   <view wx:if="{{ userData == null }}" class="jd_card_nodata">
     <view class="jd_card_info">
@@ -68,7 +70,7 @@
     </view>
   </view>
 </view>
-<!-- 我的的名片结束 -->
+<!-- 创建名片结束 -->
 <!-- 发表文章开始 -->
 <view wx:if="{{ userData != null }}" class="jd_card_nodata">
   <view class="jd_card_info">
