@@ -82,8 +82,8 @@ Page({
           content: '保存成功',
           showCancel: false,
           success: function () {
-            wx.navigateBack({
-              delta: 1
+            wx.switchTab({
+              url: '/pages/index/index'
             })
           }
         })

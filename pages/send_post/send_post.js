@@ -45,8 +45,8 @@ Page(Object.assign({}, Zan.Toast, {
   },
 
   back: function() {
-    wx.navigateBack({
-      delta: 1
+    wx.switchTab({
+      url: '/pages/moments/moments',
     })
   },
 

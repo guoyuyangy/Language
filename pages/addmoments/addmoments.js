@@ -86,9 +86,14 @@ Page({
       url: '/pages/index/index'
     })
   },
-  add() {
+  add_card() {
     wx.navigateTo({
-      url: '/pages/edit/edit?type=add'
+      url: '/pages/edit/edit?type=add_card'
+    })
+  },
+  add_article(){
+    wx.navigateTo({
+      url: '/pages/send_post/send_post?type=add_article'
     })
   },
   onShareAppMessage: function(res) {

@@ -62,7 +62,7 @@
 <view wx:if="{{ !isExist }}">
   <view wx:if="{{ userData == null }}" class="jd_card_nodata">
     <view class="jd_card_info">
-      <view class="zan-btns " bindtap="add">
+      <view class="zan-btns " bindtap="add_card">
         <button class="shake-slow shake-constant shake-constant--hover zan-btn zan-btn--primary">我也要创建名片</button>
       </view>
     </view>
@@ -72,7 +72,7 @@
 <!-- 发表文章开始 -->
 <view wx:if="{{ userData != null }}" class="jd_card_nodata">
   <view class="jd_card_info">
-    <view class="zan-btns " bindtap="add">
+    <view class="zan-btns " bindtap="add_article">
       <button class="shake-slow shake-constant shake-constant--hover zan-btn zan-btn--primary">我也要发表文章</button>
     </view>
   </view>
