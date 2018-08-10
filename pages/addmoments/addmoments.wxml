@@ -1,6 +1,8 @@
 <view class="share">
-  <image mode='widthFix' class="share_face" wx:if="{{ post.post_owner.avatar }}" src="{{post.post_owner.avatar}}" />
-  <image mode='widthFix' class="share_face" wx:else src="../../images/default_avatar.jpg" />
+  <navigator url="/pages/share/share?id={{ post_owner.id }}&type=collection" class="jd_collection_list">
+    <image mode='widthFix' class="share_face" wx:if="{{ post.post_owner.avatar }}" src="{{post.post_owner.avatar}}" />
+    <image mode='widthFix' class="share_face" wx:else src="../../images/default_avatar.jpg" />
+  </navigator>
   <view class="share-message">
     <view class="share_name">
       <text wx:if="{{ post.post_owner }}">{{post.post_owner.name?post.post_owner.name:'匿名'}}</text>
