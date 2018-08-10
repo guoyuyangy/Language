@@ -134,7 +134,7 @@
 .jd_card_box_two .jd_card_box_two_left .jd_card_fix_tel{
 	color: #555;
 	font-size: 14px;
-	margin-top: 15px;
+	margin-top: 10px;
 	display: flex;
 	align-items: center;
 }
@@ -143,17 +143,29 @@
 	height: 25px;
 	margin-right: 2px;
 }
-.jd_wechat_icon{
-    width: 20px;
-    height: 20px;
-    margin:0 3px;
+.jd_wechat_icon {
+  width: 25px;
+  height: 25px;
+  margin-right: 2px;
+  display: inline;
+  position: relative;
+}
+
+.jd_wechat_image {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  width: 20px;
+  height: 20px;
 }
 .jd_card_box_two .jd_card_box_two_left .jd_card_fix_email{
 	color: #555;
 	font-size: 14px;
-	margin-top: 5px;
+	margin-top: 10px;
 	display: flex;
-	align-items: center;
 }
 .jd_card_box_two .jd_card_box_two_right{
 	position: absolute;

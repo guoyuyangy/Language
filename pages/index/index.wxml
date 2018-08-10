@@ -26,13 +26,19 @@
               <span>{{ userData.company }}</span>
             </view>
             <view class="jd_card_fix_tel" bindtap="call">
-              <image class="jd_two_icon" src="/images/2.jpg"></image> {{ userData.mobile }}</view>
-            <view class="jd_card_fix_email" wx:if="{{ userData.address.name != '' && userData.address.name != null }}">
-              <image class="jd_two_icon" src="/images/position.png"></image>
-              <view class="jd_card_fix_email_info">{{ userData.address.name }}</view>
+              <image class="jd_two_icon" src="/images/2.jpg"></image>
+              <span>{{ userData.mobile }}</span>
             </view>
             <view class="jd_card_fix_tel" bindtap="addWx" wx:if="{{ userData.wechat_id != '' }}">
-              <image class="jd_wechat_icon" src="/images/wechat.png"></image> {{ userData.wechat_id }}</view>
+              <view class="jd_wechat_icon">
+                <image class="jd_wechat_image" src="/images/wechat.png"></image>
+              </view>
+              <span>{{ userData.wechat_id }}</span>
+            </view>
+            <view class="jd_card_fix_email" wx:if="{{ userData.address.name != '' && userData.address.name != null }}">
+              <image class="jd_two_icon jd_address_icon" src="/images/position.png"></image>
+              <view class="jd_card_fix_email_info">{{ userData.address.name }}</view>
+            </view>
           </view>
           <view animation="{{animation}}" class="jd_card_box_two_right">
             <image wx:if="{{ userData.avatar }}" src="{{ userData.avatar }}?imageView2/2/w/300"></image>

@@ -1,422 +1,460 @@
 .jd_card_box {
-    background: #fff;
-    width: 92%;
-    border-radius: 15rpx;
-    margin: 0 auto;
-    margin-top: 140rpx;
-    box-shadow: 0rpx 10rpx 30rpx #d5d5d5;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding-bottom: 20rpx;
+  background: #fff;
+  width: 92%;
+  border-radius: 15rpx;
+  margin: 0 auto;
+  margin-top: 140rpx;
+  box-shadow: 0rpx 10rpx 30rpx #d5d5d5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 20rpx;
 }
 
 .jd_card_box .jd_card_avatar_box {
-    width: 100%;
-    display: flex;
-    justify-content: center;
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }
 
 .jd_card_box .jd_card_avatar_box .jd_card_avatar {
-    width: 150rpx;
-    height: 150rpx;
-    border-radius: 50%;
-    margin-top: -80rpx;
-    border: 10rpx solid #fff;
+  width: 150rpx;
+  height: 150rpx;
+  border-radius: 50%;
+  margin-top: -80rpx;
+  border: 10rpx solid #fff;
 }
 
 .jd_card_box view {
-    margin-bottom: 15rpx;
+  margin-bottom: 15rpx;
 }
 
 .jd_card_box .jd_card_title {
-    font-size: 42rpx;
-    margin-top: -10rpx;
+  font-size: 42rpx;
+  margin-top: -10rpx;
 }
 
 .jd_card_box .jd_card_position {
-    color: #868686;
-    font-size: 30rpx;
+  color: #868686;
+  font-size: 30rpx;
 }
 
 .jd_card_box .jd_card_company {
-    font-size: 28rpx;
-    color: #202020;
+  font-size: 28rpx;
+  color: #202020;
 }
 
 .jd_card_info {
-    
 }
 
-.jd_card__edit_icon{
-    position: absolute;
-    top: 0;
-    right: 0;
+.jd_card__edit_icon {
+  position: absolute;
+  top: 0;
+  right: 0;
 }
-.jd_card__edit_icon image{
-    width: 40px;
-    height: 40px;
+
+.jd_card__edit_icon image {
+  width: 40px;
+  height: 40px;
 }
 
 .jd_card_info .jd_card_icon {
-    width: 60rpx;
-    height: 60rpx;
+  width: 60rpx;
+  height: 60rpx;
 }
 
 .jd_card_info .zan-cell__ft {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .jd_card_info .jd_card_info_text {
-    color: #898989;
-    margin-left: 80rpx;
-    padding-right: 40rpx;
+  color: #898989;
+  margin-left: 80rpx;
+  padding-right: 40rpx;
 }
 
 .doc-title {
-    position: relative;
-    margin: 30rpx 0rpx 0rpx 30rpx;
-    font-size: 30rpx;
-    color: #666;
+  position: relative;
+  margin: 30rpx 0rpx 0rpx 30rpx;
+  font-size: 30rpx;
+  color: #666;
 }
 
 .jd_card_info .zan-cell__bd {
-    flex: none;
+  flex: none;
 }
 
 .jd_card_info .zan-cell__ft {
-    position: absolute;
-    right: 15rpx;
+  position: absolute;
+  right: 15rpx;
 }
 
 .jd_card_footer {
-    width: 100%;
-    margin-top: 20px;
+  width: 100%;
+  margin-top: 20px;
 }
 
 .jd_card_layout {
-    width: 92%;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  width: 92%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.jd_card_footer .jd_card_footer_open,
-.jd_card_footer .jd_card_footer_create {
-    width: 46%;
-    height: 80rpx;
-    text-align: center;
-    line-height: 80rpx;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    font-size: 16px;
+.jd_card_footer .jd_card_footer_open, .jd_card_footer .jd_card_footer_create {
+  width: 46%;
+  height: 80rpx;
+  text-align: center;
+  line-height: 80rpx;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 16px;
 }
 
 .jd_card_footer .jd_card_footer_open {
-    background: #fff;
+  background: #fff;
 }
 
 .jd_card_footer .jd_card_footer_create {
-    background: #44bb00;
-    color: #fff;
+  background: #4b0;
+  color: #fff;
 }
 
 .jd_card_box_two {
-    background: #fff;
-    width: 92%;
-    border-radius: 15rpx;
-    margin: 0 auto;
-    box-shadow: 0rpx 5rpx 20rpx #8d8d8d;
-    display: flex;
-    /*background: url('http://card-cdn.jindongsoft.com/card-bg.png');*/
-    background-size: 100% 100%;
-    position: relative;
-    z-index: 9;
-    overflow: hidden;
+  background: #fff;
+  width: 92%;
+  border-radius: 15rpx;
+  margin: 0 auto;
+  box-shadow: 0rpx 5rpx 20rpx #8d8d8d;
+  display: flex;
+  /*background: url('http://card-cdn.jindongsoft.com/card-bg.png');*/
+  background-size: 100% 100%;
+  position: relative;
+  z-index: 9;
+  overflow: hidden;
 }
 
 .jd_card_box_two .jd_card_box_two_left {
-    margin-top: 25px;
-    margin-left: 25px;
-    width: 60%;
+  margin-top: 25px;
+  margin-left: 25px;
+  width: 60%;
 }
 
 .jd_card_box_two .jd_card_box_two_left .jd_card_fix_name {
-    margin-left: 4px;
+  margin-left: 4px;
 }
 
 .jd_card_box_two .jd_card_box_two_left .jd_card_fix_title {
-    color: #999;
-    font-size: 14px;
-    margin-top: 10px;
-    margin-left: 4px;
-    max-height: 40px;
-    overflow: hidden;
+  color: #999;
+  font-size: 14px;
+  margin-top: 10px;
+  margin-left: 4px;
+  max-height: 40px;
+  overflow: hidden;
 }
 
 .jd_card_box_two .jd_card_box_two_left .jd_card_fix_tel {
-    color: #555;
-    font-size: 14px;
-    margin-top: 10px;    
-    display: flex;
-    align-items: center;
+  color: #555;
+  font-size: 14px;
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
 }
 
 .jd_two_icon {
-    width: 25px;
-    height: 25px;
-    margin-right: 2px;
+  width: 25px;
+  height: 25px;
+  margin-right: 2px;
 }
 
-.jd_wechat_icon{
-    width: 20px;
-    height: 20px;
-    margin:0 3px;
+.jd_wechat_icon {
+  width: 25px;
+  height: 25px;
+  margin-right: 2px;
+  display: inline;
+  position: relative;
+}
+
+.jd_wechat_image {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  width: 20px;
+  height: 20px;
 }
 
 .jd_card_box_two .jd_card_box_two_left .jd_card_fix_email {
-    color: #555;
-    font-size: 14px;
-    margin-top: 5px;
-    display: flex;
-    align-items: center;
+  color: #555;
+  font-size: 14px;
+  margin-top: 10px;
+  display: flex;
 }
 
 .jd_card_box_two .jd_card_box_two_right {
-    height: 155px;
-    display: flex;
-    justify-content: center;
-    margin-left: -20px;
-    padding-left: -10px;
+  height: 155px;
+  display: flex;
+  justify-content: center;
+  margin-left: -20px;
+  padding-left: -10px;
 }
 
 .jd_card_box_two .jd_card_box_two_right image {
-    width: 150rpx;
-    height: 150rpx;
-    border-radius: 50%;
-    margin-left: 20px;
-    margin-top: 20px;
+  width: 150rpx;
+  height: 150rpx;
+  border-radius: 50%;
+  margin-left: 20px;
+  margin-top: 20px;
 }
 
 .jd_card_box_two {
-    flex-direction: column;
+  flex-direction: column;
 }
 
 .jd_card_box_two .jd_card_box_two_box {
-    display: flex;
+  display: flex;
 }
 
 .jd_tab_list {
-    width: 100%;
-    height: 60px;
-    border-radius: 15rpx;
-    margin: 0 auto;
-    margin-top: 10px;
-    position: relative;
-    z-index: 10;
-    display: flex;
+  width: 100%;
+  height: 60px;
+  border-radius: 15rpx;
+  margin: 0 auto;
+  margin-top: 10px;
+  position: relative;
+  z-index: 10;
+  display: flex;
 }
 
 .jd_tab_list .jd_tab_list_item {
-    width: 33.333%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 12px;
+  width: 33.333%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
 }
 
 .jd_tab_list button.jd_tab_list_item {
-    padding-left: 0;
-    padding-right: 0;
-    line-height: normal;
-    position: static;
-    background: rgba(0, 0, 0, 0)
+  padding-left: 0;
+  padding-right: 0;
+  line-height: normal;
+  position: static;
+  background: rgba(0, 0, 0, 0);
 }
 
 button::after {
-    border: none;
+  border: none;
 }
 
 .jd_tab_list .jd_tab_list_item image {
-    width: 20px;
-    height: 20px;
+  width: 20px;
+  height: 20px;
 }
 
 .jd_tab_list .jd_tab_list_item .jd_tab_list_text {
-    margin-left: 3px;
-    font-size: 12px;
-    color: #999;
+  margin-left: 3px;
+  font-size: 12px;
+  color: #999;
 }
 
 .jd_card_fix_name span {
-    font-size: 14px;
-    color: #555;
-    margin-left: 5px;
+  font-size: 14px;
+  color: #555;
+  margin-left: 5px;
 }
 
 .jd_card_box_two .jd_card_box_two_left .jd_card_fix_title {
-    color: #555;
+  color: #555;
 }
 
 .jd_card_fix_name {
-    font-size: 20px;
+  font-size: 20px;
 }
 
 .jd_tab_list_item_no {
-    position: relative;
-    z-index: 99;
+  position: relative;
+  z-index: 99;
 }
 
 .jd_card_box_two .jd_card_box_two_left .jd_card_fix_name {
-    margin-left: 4px;
-    height: 30px;
-    overflow: hidden;
+  margin-left: 4px;
+  height: 30px;
+  overflow: hidden;
 }
 
 .jd_card_fix_email {
-    width: 150%;
+  width: 150%;
 }
 
 .jd_card_fix_email_info {
-    width: 90%;
-    overflow: hidden;
-    max-height: 40px;
-    overflow: hidden;
+  width: 90%;
+  overflow: hidden;
+  max-height: 40px;
+  overflow: hidden;
 }
 
 .jd_card_background {
-    width: 100%;
-    position: relative;
-    padding-top: 30rpx;
+  width: 100%;
+  position: relative;
+  padding-top: 30rpx;
 }
-.jd_card_background .jd_card_background_info{
-    width: 100%;
-    height: 380rpx;
-    background: #1f8ae8;
-    position: absolute;
-    top: 0;
-    left: 0;
-    border-radius: 0 0 10% 10%;
-    background: linear-gradient(to bottom, #1f8ae8 0%,#14c2e7 100%);
+
+.jd_card_background .jd_card_background_info {
+  width: 100%;
+  height: 380rpx;
+  background: #1f8ae8;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 0 0 10% 10%;
+  background: linear-gradient(to bottom, #1f8ae8 0%, #14c2e7 100%);
 }
-.jd_card_nodata{
-    width: 100%;
-    height: 300px;
-    color: #999;
-    font-size: 15px;
-    text-align: center;
-    line-height: 450px;
+
+.jd_card_nodata {
+  width: 100%;
+  height: 300px;
+  color: #999;
+  font-size: 15px;
+  text-align: center;
+  line-height: 450px;
 }
+
 /*主推产品*/
-.jd_product_card{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: 90px;
+
+.jd_product_card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 90px;
 }
-.jd_product_card .jd_product_desc{
-    color: #999;
-    margin-top: 5px;
-    height: 40px;
-    overflow: hidden;
+
+.jd_product_card .jd_product_desc {
+  color: #999;
+  margin-top: 5px;
+  height: 40px;
+  overflow: hidden;
 }
-.jd_price_box_edit{
-    display: flex;
-    justify-content: space-between;
+
+.jd_price_box_edit {
+  display: flex;
+  justify-content: space-between;
 }
-.jd_edit_product{
-    width: 20px;
-    height: 20px;
+
+.jd_edit_product {
+  width: 20px;
+  height: 20px;
 }
-.jd_btn_list_dt{
-    display: flex;
-    justify-content: space-between;
+
+.jd_btn_list_dt {
+  display: flex;
+  justify-content: space-between;
 }
-.jd_btn_list_dt button,.jd_btn_list_dt navigator{
-    width: 49%
+
+.jd_btn_list_dt button, .jd_btn_list_dt navigator {
+  width: 49%;
 }
+
 /*公司官网*/
-.jd_company_box_edit{
-    display: flex;
-    justify-content: flex-end;
+
+.jd_company_box_edit {
+  display: flex;
+  justify-content: flex-end;
 }
+
 /*512修改*/
-.jd_fifter{
-    width: 100%;
-    height: 225px;
-    position: absolute;
-    z-index: 9;
-    background: url('http://card-cdn.jindongsoft.com/card-bg.png');
-    filter: blur(15px);
+
+.jd_fifter {
+  width: 100%;
+  height: 225px;
+  position: absolute;
+  z-index: 9;
+  background: url('http://card-cdn.jindongsoft.com/card-bg.png');
+  filter: blur(15px);
 }
-.jd_top_index_fifter{
-    position: relative;
-    z-index: 10;
+
+.jd_top_index_fifter {
+  position: relative;
+  z-index: 10;
 }
+
 /*产品修改*/
-.jd_product_list_box{
-    width: 95%;
-    margin: 0 auto;
+
+.jd_product_list_box {
+  width: 95%;
+  margin: 0 auto;
 }
-.jd_product_list_box .jd_product_list{
-    width: 49%;
-    background: #fff;
-    margin-top: 10px;
-    border-radius: 2px;
-    overflow: hidden;
+
+.jd_product_list_box .jd_product_list {
+  width: 49%;
+  background: #fff;
+  margin-top: 10px;
+  border-radius: 2px;
+  overflow: hidden;
 }
-.jd_product_list_box .jd_product_list .jd_product_list_image{
-    width: 100%;
-    height: 150px;
+
+.jd_product_list_box .jd_product_list .jd_product_list_image {
+  width: 100%;
+  height: 150px;
 }
-.jd_product_info_box{
-    width: 92%;
-    margin: 0 auto;
+
+.jd_product_info_box {
+  width: 92%;
+  margin: 0 auto;
 }
-.jd_product_list_box .jd_product_list{
-    float: left;
+
+.jd_product_list_box .jd_product_list {
+  float: left;
 }
-.jd_product_list_box .jd_product_list:nth-child(even){
-    margin-left: 2%;
+
+.jd_product_list_box .jd_product_list:nth-child(even) {
+  margin-left: 2%;
 }
-.jd_product_list_box .jd_product_list .jd_product_name{
-    font-size: 14px;
-    color: #555;
-    width: 100%;
-    text-overflow: ellipsis;
-    overflow: hidden;
-    white-space: nowrap;
+
+.jd_product_list_box .jd_product_list .jd_product_name {
+  font-size: 14px;
+  color: #555;
+  width: 100%;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
 }
-.jd_product_list_box .jd_product_list .jd_product_price_bottom{
-    display: flex;
-    justify-content: space-between;
+
+.jd_product_list_box .jd_product_list .jd_product_price_bottom {
+  display: flex;
+  justify-content: space-between;
 }
-.jd_product_list_box .jd_product_list .jd_product_price_bottom .color_red{
-    font-size: 14px;
+
+.jd_product_list_box .jd_product_list .jd_product_price_bottom .color_red {
+  font-size: 14px;
 }
-.jd_company_box{
-    width: 100%;
-    margin-top: 10px;
-    background: #fff;
-    padding-bottom: 10px;
+
+.jd_company_box {
+  width: 100%;
+  margin-top: 10px;
+  background: #fff;
+  padding-bottom: 10px;
 }
-.jd_company_box .jd_company_image{
-    width: 100%;
-    height: 200px;
+
+.jd_company_box .jd_company_image {
+  width: 100%;
+  height: 200px;
 }
-.jd_company_box .jd_company_info{
-    width: 92%;
-    margin: 0 auto;
-    font-size: 13px;
-    color: #555;
-    max-height: 50px;
-    overflow: hidden;
-    margin-top: 5px;
-    overflow : hidden;
-    text-overflow: ellipsis;
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
+
+.jd_company_box .jd_company_info {
+  width: 92%;
+  margin: 0 auto;
+  font-size: 13px;
+  color: #555;
+  max-height: 50px;
+  overflow: hidden;
+  margin-top: 5px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
 }

@@ -12,8 +12,12 @@
                 <image class="jd_two_icon" src="/images/4.jpg"></image>
                 <view class="jd_card_fix_email_info">{{ item.email }}</view>
             </view>
-            <view class="jd_card_fix_tel" wx:if="{{ item.wechat_id != '' }}">
-                <image class="jd_wechat_icon" src="/images/wechat.png"></image> {{ item.wechat_id }}</view>
+            <view class="jd_card_fix_tel" bindtap="addWx" wx:if="{{ userData.wechat_id != '' }}">
+              <view class="jd_wechat_icon">
+                <image class="jd_wechat_image" src="/images/wechat.png"></image>
+              </view>
+              <span>{{ item.wechat_id }}</span>
+            </view>
         </view>
         <view wx:if="{{ item.avatar != '' || item.avatar != null }}" class="jd_card_box_two_right">
             <image src="{{ item.avatar }}"></image>
