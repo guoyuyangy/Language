@@ -20,8 +20,6 @@ Page(Object.assign({}, Zan.Switch, {
   onLoad(options) {
     $loading = this.selectComponent(".J_loading")
     $loading.show()
-    var that = this
-    this.getData();
   },
   onReady: function() {
     this.animation = wx.createAnimation()

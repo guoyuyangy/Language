@@ -38,13 +38,13 @@
           </view>
           <view class="jd_card_fix_tel" bindtap="call">
             <image class="jd_two_icon" src="/images/2.jpg"></image>
-            <span>{{ userData.mobile }}</span>
+            <span>{{ post_owner.mobile }}</span>
           </view>
-          <view class="jd_card_fix_tel" bindtap="addWx" wx:if="{{ userData.wechat_id != '' }}">
+          <view class="jd_card_fix_tel" bindtap="addWx" wx:if="{{ post_owner.wechat_id != null }}">
             <view class="jd_wechat_icon">
               <image class="jd_wechat_image" src="/images/wechat.png"></image>
             </view>
-            <span>{{ userData.wechat_id }}</span>
+            <span>{{ post_owner.wechat_id }}</span>
           </view>
           <view class="jd_card_fix_email" wx:if="{{ post_owner.email != '' &&  post_owner.email != null}}">
             <image class="jd_two_icon" src="/images/position.png"></image>
