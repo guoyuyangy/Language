@@ -24,14 +24,14 @@ Page({
     title_icon: '', // /images/camera.png
   },
 
-  onLoad: function() {
+  onLoad: function () {
 
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onShow: function(options) {
+  onShow: function (options) {
     util.getData('get_checking_version', {}, res => {
       this.setData({
         checking_version: res.data.checking_version == app.globalData.version ? true : false,
@@ -94,7 +94,7 @@ Page({
     }
   },
 
-  gotoSentpost: function() {
+  gotoSentpost: function () {
     if (!this.data.checking_version) {
       wx.navigateTo({
         url: `/pages/send_post/send_post?user_id=${this.data.userInfo.id}`
@@ -103,14 +103,14 @@ Page({
 
   },
 
-  processPostData: function(post) {
+  processPostData: function (post) {
     if (this.data.userInfo && post.zan_user_ids.indexOf(this.data.userInfo.card.id) != -1) {
       post.zaned = true;
     }
     return post;
   },
 
-  changeZanStatus: function(post_id, zan_user_names) {
+  changeZanStatus: function (post_id, zan_user_names) {
     let index = this.getPostItemIndexByPostId(post_id);
     zan_user_names.push(this.data.userInfo.name);
     this.setData({
@@ -119,7 +119,7 @@ Page({
     });
   },
 
-  dianZan: function(e) {
+  dianZan: function (e) {
 
     let alreadyZan = e.currentTarget.dataset.action;
     let post_id = e.currentTarget.dataset.postid;
@@ -151,7 +151,7 @@ Page({
     }
   },
 
-  cancelZan: function(post_id) {
+  cancelZan: function (post_id) {
 
     this.actAfterUserInfoComplet(() => {
       wx.request({
@@ -174,7 +174,7 @@ Page({
     });
   },
 
-  updatePost: function(post_id) {
+  updatePost: function (post_id) {
     wx.request({
       url: `${app.globalData.host}/api/posts/${post_id}`,
       method: 'GET',
@@ -192,7 +192,7 @@ Page({
     });
   },
 
-  getPostItemIndexByPostId: function(target_post_id) {
+  getPostItemIndexByPostId: function (target_post_id) {
     for (var i = 0; i < this.data.posts.length; i++) {
       if (this.data.posts[i].id == target_post_id) {
         return i;
@@ -200,7 +200,7 @@ Page({
     }
   },
 
-  reply: function(e) {
+  reply: function (e) {
     let post_id = e.currentTarget.dataset.postid;
     let releaseName = e.currentTarget.dataset.releasename != undefined ?
       e.currentTarget.dataset.releasename : '';
@@ -215,13 +215,13 @@ Page({
       parent_comment_id: parent_comment_id,
     });
   },
-  hideReply: function() {
+  hideReply: function () {
     this.setData({
       releaseFocus: false,
     });
   },
 
-  resetReplayInfo: function() {
+  resetReplayInfo: function () {
     this.setData({
       post_id: null,
       releaseName: '',
@@ -230,13 +230,13 @@ Page({
     });
   },
 
-  setReplyContent: function(e) {
+  setReplyContent: function (e) {
     this.setData({
       replyContent: e.detail.value
     });
   },
 
-  sendReply: function() {
+  sendReply: function () {
 
     this.actAfterUserInfoComplet(() => {
       wx.request({
@@ -266,7 +266,7 @@ Page({
 
   },
 
-  actAfterUserInfoComplet: function(cb) {
+  actAfterUserInfoComplet: function (cb) {
     // if (app.shouldUpdateUserInfo()) {
     //   wx.getSetting({
     //     success: (res) => {
@@ -301,7 +301,7 @@ Page({
     cb()
   },
 
-  toSendPost: function() {
+  toSendPost: function () {
     this.actAfterUserInfoComplet(() => {
 
     });
@@ -310,7 +310,7 @@ Page({
     });
   },
 
-  deletePost: function(e) {
+  deletePost: function (e) {
     let post_id = e.currentTarget.dataset.postid;
     wx.showModal({
       title: '提示',
@@ -338,7 +338,7 @@ Page({
     })
   },
 
-  preview: function(e) {
+  preview: function (e) {
     wx.previewImage({
       current: e.currentTarget.dataset.src, // 当前显示图片的http链接
       urls: e.currentTarget.dataset.list, // 需要预览的图片http链接列表
@@ -353,7 +353,7 @@ Page({
   addWx() {
     wx.setClipboardData({
       data: 'zhongwei',
-      success: function(res) {
+      success: function (res) {
         wx.showToast({
           title: '已复制微信号',
           icon: 'success',
@@ -366,7 +366,7 @@ Page({
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function() {
+  onPullDownRefresh: function () {
     this.loadData(`${app.globalData.host}/api/posts`);
     wx.stopPullDownRefresh();
   },
@@ -374,17 +374,17 @@ Page({
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function() {
+  onReachBottom: function () {
     this.loadData(this.data.next, true);
   },
 
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function() {
+  onShareAppMessage: function () {
 
   },
-  postshow: function() {
+  postshow: function () {
 
   }
 

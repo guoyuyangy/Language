@@ -86,7 +86,7 @@ page {
   justify-content: space-between;
   align-items: center;
   font-size: 28rpx;
-  margin-left: 10px;
+  margin-left: 10rpx;
 }
 
 .btn_wrapper {
@@ -105,13 +105,13 @@ page {
 }
 
 .zan_icon {
-  width: 10px;
-  height: 10px;
-  margin-right: 2px;
+  width: 20rpx;
+  height: 20rpx;
+  margin-right: 4rpx;
 }
 
 .zan, .comment {
-  padding: 0 5px;
+  padding: 0 10rpx;
   justify-content: flex-end;
 }
 
